@@ -1,6 +1,7 @@
 import { Trilha } from './../shared/model/Trilha';
 import { Component, OnInit } from '@angular/core';
 import { TrilhaService } from '../core/trilha.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-trilha',

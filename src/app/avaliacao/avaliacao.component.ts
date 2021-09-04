@@ -10,7 +10,7 @@ import { Avaliacao } from '../shared/model/Avaliacao';
 })
 export class AvaliacaoComponent implements OnInit {
 
-  avaliacoes: Observable<Avaliacao[]>;
+  avaliacoes: Avaliacao[];
   avaliacao: Avaliacao;
 
   constructor(private avaliacaoService: AvaliacaoService) { }
@@ -20,7 +20,13 @@ export class AvaliacaoComponent implements OnInit {
   }
 
   reloadData() {
-    this.avaliacoes = this.avaliacaoService.listar();
+    //this.avaliacoes = this.avaliacaoService.listar();
+    this.avaliacoes = [
+      {date: "7/09/2021", description: "afasf"},
+      {date: "8/09/2021", description: "afasf"},
+      {date: "9/09/2021", description: "afasf"},
+      {date: "1/09/2021", description: "afasf"},
+    ] as Avaliacao[]
   }
 
   save() {

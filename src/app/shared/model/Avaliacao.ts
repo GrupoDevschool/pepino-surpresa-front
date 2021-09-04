@@ -1,7 +1,7 @@
 export interface Avaliacao {
 
-  id: number;
-  date: Date;
+  id?: number;
+  date: string;
   description: string;
 
 }

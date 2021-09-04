@@ -6,6 +6,9 @@ import { AlunoComponent } from './aluno/aluno.component';
 import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 import { TrilhaComponent } from './trilha/trilha.component';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DisciplinaComponent } from './disciplina/disciplina.component';
     DisciplinaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

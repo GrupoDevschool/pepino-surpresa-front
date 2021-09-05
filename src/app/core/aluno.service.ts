@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Aluno } from '../shared/model/Aluno';
-
 const url = 'http://localhost:8080/alunos/';
 @Injectable({
   providedIn: 'root'

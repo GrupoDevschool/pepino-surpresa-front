@@ -1,6 +1,5 @@
 export interface Trilha {
 
-  id: number;
+  id?: number;
   nome: string;
-
 }

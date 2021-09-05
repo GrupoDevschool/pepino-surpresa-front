@@ -12,24 +12,24 @@ export class TrilhaService {
 
   constructor(private http: HttpClient) { }
 
-  salvar(trilha: Trilha): Observable<Trilha> {
+  save(trilha: Trilha): Observable<Trilha> {
     return this.http.post<Trilha>(url, trilha);
   }
 
-  editar(trilha: Trilha): Observable<Trilha> {
+  edit(trilha: Trilha): Observable<Trilha> {
     return this.http.put<Trilha>(url + trilha.id, trilha);
   }
 
-  listar(): Observable<Trilha[]> {
+  list(): Observable<Trilha[]> {
     return this.http.get<Trilha[]>(url);
   }
 
-  visualizar(id: number): Observable<Trilha> {
+  show(id: number): Observable<Trilha> {
     return this.http.get<Trilha>(url + id);
   }
 
 
-  excluir(id: number): Observable<void> {
+  delete(id: number): Observable<void> {
     return this.http.delete<void>(url + id);
   }
 

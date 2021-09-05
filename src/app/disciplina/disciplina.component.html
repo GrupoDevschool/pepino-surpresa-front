@@ -1,1 +1,30 @@
-<p>disciplina works!</p>
+<div class="form">
+  <form class="new" (ngSubmit)="save()">
+    <h2>Nova Disciplina</h2>
+
+    <div class="form-field">
+      <label class="form-fieldlabel" for="date">Nome</label>
+      <input
+        class="form-fieldinput"
+        id="name"
+        type="name"
+        [(ngModel)]="disciplina.nome"
+        name="name"
+      />
+    </div>
+    <div class="botao-wrapper">
+      <button class="botao" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="list">
+  <table>
+      <tr>
+        <th>Nome</th>
+      </tr>
+      <tr *ngFor="let disciplina of disciplinas">
+        <td>{{ disciplina.nome }}</td>
+        <td><button (click)="delete(disciplina.id)">Excluir</button></td>
+      </tr>
+    </table>
+</div>

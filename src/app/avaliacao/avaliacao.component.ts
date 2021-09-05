@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AvaliacaoService } from '../core/avaliacao.service';
 import { Avaliacao } from '../shared/model/Avaliacao';
 
@@ -11,30 +10,26 @@ import { Avaliacao } from '../shared/model/Avaliacao';
 export class AvaliacaoComponent implements OnInit {
 
   avaliacoes: Avaliacao[];
-  avaliacao: Avaliacao;
+  avaliacao: Avaliacao = {} as Avaliacao;
 
-  constructor(private avaliacaoService: AvaliacaoService) { }
+  constructor(private avaliacaoService: AvaliacaoService) {
+  }
 
   ngOnInit(): void {
     this.reloadData();
   }
 
   reloadData() {
-    //this.avaliacoes = this.avaliacaoService.listar();
-    this.avaliacoes = [
-      {date: "7/09/2021", description: "afasf"},
-      {date: "8/09/2021", description: "afasf"},
-      {date: "9/09/2021", description: "afasf"},
-      {date: "1/09/2021", description: "afasf"},
-    ] as Avaliacao[]
+    this.avaliacaoService.listar().subscribe((avaliacoes) => {
+      this.avaliacoes = avaliacoes;
+    });
   }
 
   save() {
-    this.avaliacaoService.salvar(this.avaliacao).subscribe(
+    /* this.avaliacaoService.salvar(this.avaliacao).subscribe(
       avaliacao => console.log(avaliacao),
       error => console.log(error)
-    )
+    ) */
   }
-
 
 }

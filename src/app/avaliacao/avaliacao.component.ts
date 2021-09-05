@@ -32,7 +32,14 @@ export class AvaliacaoComponent implements OnInit {
     )
   }
 
-  edit() {}
+  edit(avaliacao: Avaliacao) {
+    this.avaliacaoService.edit(avaliacao).subscribe(() => {
+      const index = this.avaliacoes.findIndex(a => a.id === avaliacao.id);
+      if (index !== -1) {
+        this.avaliacoes[index] = avaliacao;
+      }
+    })
+  }
 
   delete(id: number) {
     this.avaliacaoService.delete(id).subscribe(() => {

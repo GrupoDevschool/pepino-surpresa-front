@@ -8,6 +8,7 @@ const url = 'http://localhost:8080/alunos/';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AlunoService {
 
   constructor(private http: HttpClient) { }

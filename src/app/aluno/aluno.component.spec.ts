@@ -6,6 +6,7 @@ describe('AlunoComponent', () => {
   let component: AlunoComponent;
   let fixture: ComponentFixture<AlunoComponent>;
 
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AlunoComponent ]

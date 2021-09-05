@@ -6,5 +6,6 @@ export interface Aluno {
     email: string;
     descricao: string;
   
+    
   }
   

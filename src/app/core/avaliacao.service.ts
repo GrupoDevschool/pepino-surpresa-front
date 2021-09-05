@@ -12,24 +12,24 @@ export class AvaliacaoService {
 
   constructor(private http: HttpClient) { }
 
-  salvar(avaliacao: Avaliacao): Observable<Avaliacao> {
+  save(avaliacao: Avaliacao): Observable<Avaliacao> {
     return this.http.post<Avaliacao>(url, avaliacao);
   }
 
-  editar(avaliacao: Avaliacao): Observable<Avaliacao> {
+  edit(avaliacao: Avaliacao): Observable<Avaliacao> {
     return this.http.put<Avaliacao>(url + avaliacao.id, avaliacao);
   }
 
-  listar(): Observable<Avaliacao[]> {
+  list(): Observable<Avaliacao[]> {
     return this.http.get<Avaliacao[]>(url);
   }
 
-  visualizar(id: number): Observable<Avaliacao> {
+  show(id: number): Observable<Avaliacao> {
     return this.http.get<Avaliacao>(url + id);
   }
 
 
-  excluir(id: number): Observable<void> {
+  delete(id: number): Observable<void> {
     return this.http.delete<void>(url + id);
   }
 

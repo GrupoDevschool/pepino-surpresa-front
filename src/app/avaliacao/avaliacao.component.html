@@ -21,10 +21,12 @@
       <tr>
         <th>Data</th>
         <th>Descrição</th>
+        <th>Gerenciamento</th>
       </tr>
       <tr *ngFor="let av of avaliacoes">
-        <td>{{av.date}}</td>
+        <td>{{av.date | date: "dd/MM/yyyy"}}</td>
         <td>{{av.description}}</td>
+        <td><button (click)="delete(av.id)">Excluir</button></td>
       </tr>
     </table>
   </div>

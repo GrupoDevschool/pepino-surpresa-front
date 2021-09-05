@@ -20,16 +20,27 @@ export class AvaliacaoComponent implements OnInit {
   }
 
   reloadData() {
-    this.avaliacaoService.listar().subscribe((avaliacoes) => {
+    this.avaliacaoService.list().subscribe((avaliacoes) => {
       this.avaliacoes = avaliacoes;
     });
   }
 
   save() {
-    /* this.avaliacaoService.salvar(this.avaliacao).subscribe(
-      avaliacao => console.log(avaliacao),
+    this.avaliacaoService.save(this.avaliacao).subscribe(
+      avaliacao => this.avaliacoes.push(avaliacao),
       error => console.log(error)
-    ) */
+    )
+  }
+
+  edit() {}
+
+  delete(id: number) {
+    this.avaliacaoService.delete(id).subscribe(() => {
+      // a função filter recebe uma função a ser executada em cada elemento do array
+      // nesse caso, estou salvando no array de avaliações as avaliações que tem id diferente do que recebi
+        this.avaliacoes = this.avaliacoes.filter((element) => element.id !== id)
+      }
+    )
   }
 
 }

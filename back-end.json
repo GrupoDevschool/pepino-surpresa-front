@@ -1,0 +1,12 @@
+{
+  "avaliacoes": [
+    { "id": 1, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 2, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 3, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 4, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 5, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 6, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 7, "date": "25/10/2020", "description": "Ablabluble" },
+    { "id": 8, "date": "25/10/2020", "description": "Ablabluble" }
+  ]
+}

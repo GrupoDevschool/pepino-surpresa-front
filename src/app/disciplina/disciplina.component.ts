@@ -12,6 +12,8 @@ export class DisciplinaComponent implements OnInit {
   disciplinas: Disciplina[];
   disciplina: Disciplina = {} as Disciplina;
 
+  modalIsVisible: boolean = false;
+
   constructor(private disciplinaService: DisciplinaService) { }
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   edit(disciplina: Disciplina) {
+    console.log(disciplina);
     this.disciplinaService.editar(disciplina).subscribe(
       () => this.reloadData(),
       error => console.log(error))
@@ -41,6 +44,15 @@ export class DisciplinaComponent implements OnInit {
     this.disciplinaService.excluir(id).subscribe(
       ()=> this.reloadData(),
     (error) => console.log(error))
+  }
+
+  openModal(disciplina: Disciplina) {
+    this.disciplina = disciplina;
+    this.modalIsVisible = this.modalIsVisible = true;
+  }
+
+  closeModal() {
+    this.modalIsVisible = this.modalIsVisible = false;
   }
 
 }

@@ -53,3 +53,27 @@ table .btn-primary {
   background-color: #FF9DA7;
   border-color: #FF9DA7;
 }
+
+.modalOverlay {
+  background: rgba(25, 26, 32, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+.modalContainer {
+  background: #fff;
+  width: 100%;
+  max-width: 25rem;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 3.75rem rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+}

@@ -36,12 +36,33 @@
           <td class="col-md-2">{{ disciplina.id }}</td>
           <td class="col-md-8">{{ disciplina.nome }}</td>
           <td class="col-md-2">
-            <button (click)="edit(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="openModal(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(disciplina.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="modalOverlay" *ngIf="modalIsVisible">
+    <div class="modalContainer" >
+      <h2>Editar</h2>
+      <button (click)="closeModal()">Close</button>
+      <form (ngSubmit)="edit(disciplina)">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            placeholder="Nome"
+            [(ngModel)]="disciplina.nome"/>
+        </div>
+
+        <div class="btn-wrapper">
+          <button class="btn btn-primary col-md-3" type="submit">Editar</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 

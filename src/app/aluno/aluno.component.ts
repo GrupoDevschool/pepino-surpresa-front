@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlunoService } from '../core/aluno.service';
+import { Aluno } from '../shared/model/Aluno';
 
 @Component({
   selector: 'app-aluno',
@@ -7,9 +9,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlunoComponent implements OnInit {
 
-  constructor() { }
+  alunos: Aluno[];
+  aluno: Aluno = {} as Aluno;
+
+  constructor(private alunoService: AlunoService) {
+  }
 
   ngOnInit(): void {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.alunoService.list().subscribe((aluno) => {
+      this.alunos = aluno;
+    });
+  }
+
+
+  save() {
+    this.alunoService.save(this.aluno).subscribe(
+      aluno => this.alunos.push(aluno),
+      error => console.log(error)
+    )
+  }
+
+  edit(aluno: Aluno) {
+    this.alunoService.edit(aluno).subscribe(() => {
+      const index = this.alunos.findIndex(a => a.matricula === aluno.matricula);
+      if (index !== -1) {
+        this.alunos[index] = aluno;
+      }
+    })
+  }
+
+  delete(matricula: number) {
+    this.alunoService.delete(matricula).subscribe(() => {
+      // a função filter recebe uma função a ser executada em cada elemento do array
+      // nesse caso, estou salvando no array de avaliações as avaliações que tem id diferente do que recebi
+        this.alunos = this.alunos.filter((element) => element.matricula !== matricula)
+      }
+    )
   }
 
 }

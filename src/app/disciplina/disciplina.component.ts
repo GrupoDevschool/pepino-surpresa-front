@@ -33,9 +33,9 @@ export class DisciplinaComponent implements OnInit {
     )
   }
 
-  edit(disciplina: Disciplina) {
-    console.log(disciplina);
-    this.disciplinaService.editar(disciplina).subscribe(
+  edit() {
+    console.log(this.disciplina);
+    this.disciplinaService.editar(this.disciplina).subscribe(
       () => this.reloadData(),
       error => console.log(error))
   }

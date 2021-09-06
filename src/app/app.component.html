@@ -11,7 +11,7 @@
       <img src="/assets/Cucumber.png">
       <h1>{{ title }}</h1>
       <ul>
-        <a routerLink="alunos"><li [class.active]="isActive('/alunos')">Alunos</li></a>
+        <a routerLink="alunos"><li [class.active]="isActive('/alunos') || !isActive('')">Alunos</li></a>
         <a routerLink="avaliacoes"><li [class.active]="isActive('/avaliacoes')">Avaliações</li></a>
         <a routerLink="trilhas"><li [class.active]="isActive('/trilhas')">Trilhas</li></a>
         <a routerLink="disciplinas"><li [class.active]="isActive('/disciplinas')">Disciplinas</li></a>

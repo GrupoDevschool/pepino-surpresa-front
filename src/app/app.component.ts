@@ -18,6 +18,6 @@ export class AppComponent {
   }
 
   isActive(route: string): boolean {
-    return this.currentRoute.startsWith(route);
+    return this.currentRoute && this.currentRoute.startsWith(route);
   }
 }

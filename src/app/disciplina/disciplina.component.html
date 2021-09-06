@@ -1,1 +1,49 @@
-<p>disciplina works!</p>
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Nova Disciplina</h2>
+
+    <div class="form-group">
+      <label class="form-field__label" for="nome">Nome</label>
+        <input
+          class="form-control"
+          id="nome"
+          type="nome"
+          [(ngModel)]="disciplina.nome"
+          name="nome"
+        />
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Disciplinas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let disciplina of disciplinas">
+          <td class="col-md-2">{{ disciplina.id }}</td>
+          <td class="col-md-8">{{ disciplina.nome }}</td>
+          <td class="col-md-2">
+            <button (click)="edit(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(disciplina.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

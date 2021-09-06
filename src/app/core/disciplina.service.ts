@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Disciplina } from '../shared/model/Disciplina';
 
-const url = 'http://localhost:8080/disciplina/';
+
+const url = 'http://localhost:8080/disciplinas/';
 @Injectable({
   providedIn: 'root'
 })

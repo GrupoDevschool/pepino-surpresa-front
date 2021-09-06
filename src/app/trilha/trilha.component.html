@@ -21,12 +21,12 @@
 <div class="list">
   <table>
     <tr>
-      <th>Id</th>
       <th>Nome</th>
+      <th>Disciplinas registradas</th>
     </tr>
     <tr *ngFor="let trilha of trilhas">
-      <td>{{ trilha.id }}</td>
       <td>{{ trilha.nome }}</td>
+      <td>{{ trilha.disciplinasRegistradas }}</td>
       <td><button (click)="delete(trilha.id)">Excluir</button></td>
     </tr>
   </table>

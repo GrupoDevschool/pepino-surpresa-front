@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Trilha } from '../shared/model/Trilha';
 
-const url = 'http://localhost:8080/trilha/';
+const url = 'http://localhost:8080/trilhas/';
 @Injectable({
   providedIn: 'root'
 })

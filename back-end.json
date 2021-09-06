@@ -82,30 +82,36 @@
     {
       "id": 1,
       "nome": "Back-end",
-      "disciplinasRegistradas": [
+      "disciplinas": [
         {
-          "id": 1
+          "id": 1,
+          "nome": "Spring Framework"
         },
         {
-          "id": 6
+          "id": 6,
+          "nome": "Java"
         }
       ]
     },
     {
       "id": 2,
       "nome": "Front-end",
-      "disciplinasRegistradas": [
+      "disciplinas": [
         {
-          "id": 2
+          "id": 2,
+          "nome": "Angular"
         },
         {
-          "id": 3
+          "id": 3,
+          "nome": "HTML"
         },
         {
-          "id": 4
+          "id": 4,
+          "nome": "CSS"
         },
         {
-          "id": 5
+          "id": 5,
+          "nome": "Javascript"
         }
       ]
     }

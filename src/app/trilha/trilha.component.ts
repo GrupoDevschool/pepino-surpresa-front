@@ -1,3 +1,4 @@
+import { Disciplina } from './../shared/model/Disciplina';
 import { Trilha } from './../shared/model/Trilha';
 import { Component, OnInit } from '@angular/core';
 import { TrilhaService } from '../core/trilha.service';
@@ -23,6 +24,10 @@ export class TrilhaComponent implements OnInit {
     this.trilhaService.list().subscribe((trilhas) => {
       this.trilhas = trilhas;
     });
+  }
+
+  formatDisciplina(disciplinas: Disciplina[]): string {
+    return disciplinas.map((disciplina) => disciplina.nome).join(', ')
   }
 
   save() {

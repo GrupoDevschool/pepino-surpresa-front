@@ -26,7 +26,7 @@
     </tr>
     <tr *ngFor="let trilha of trilhas">
       <td>{{ trilha.nome }}</td>
-      <td>{{ trilha.disciplinasRegistradas }}</td>
+      <td>{{ formatDisciplina(trilha.disciplinas) }}</td>
       <td><button (click)="delete(trilha.id)">Excluir</button></td>
     </tr>
   </table>

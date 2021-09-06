@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { DisciplinaService } from '../core/disciplina.service';
 import { Disciplina } from '../shared/model/Disciplina';
 
@@ -10,8 +9,8 @@ import { Disciplina } from '../shared/model/Disciplina';
 })
 export class DisciplinaComponent implements OnInit {
 
-  disciplinas: Observable<Disciplina[]>;
-  disciplina: Disciplina;
+  disciplinas: Disciplina[];
+  disciplina: Disciplina = {} as Disciplina;
 
   constructor(private disciplinaService: DisciplinaService) { }
 
@@ -20,15 +19,28 @@ export class DisciplinaComponent implements OnInit {
   }
 
   reloadData() {
-    this.disciplinas = this.disciplinaService.listar();
+    this.disciplinaService.listar().subscribe((disciplina) => {
+      this.disciplinas = disciplina;
+    });
   }
 
   save() {
     this.disciplinaService.salvar(this.disciplina).subscribe(
-      disciplina => console.log(disciplina),
+      () => this.reloadData(),
       error => console.log(error)
     )
   }
 
+  edit(disciplina: Disciplina) {
+    this.disciplinaService.editar(disciplina).subscribe(
+      () => this.reloadData(),
+      error => console.log(error))
+  }
+
+  delete(id: number) {
+    this.disciplinaService.excluir(id).subscribe(
+      ()=> this.reloadData(),
+    (error) => console.log(error))
+  }
 
 }

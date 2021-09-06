@@ -1,0 +1,55 @@
+h2 {
+  text-align: center;
+  margin-bottom: 0.7rem;
+}
+
+.form {
+  margin: 0 auto 15px;
+}
+
+.form label {
+  font-weight: bold;
+}
+
+.listing {
+  margin-top: 15px;
+}
+
+.form, .listing {
+  padding: 15px;
+  background-color: #F2F6F2;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+}
+
+.btn-wrapper {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background-color: #5E9A5F;
+  border-color: #5E9A5F;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #D7E8D2;
+  border-color: #D7E8D2;
+}
+
+table .btn-primary {
+  margin-right: 5px;
+}
+
+.btn-del {
+  background-color: #FF7276;
+  border-color: #FF7276;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+.btn-del:hover {
+  background-color: #FF9DA7;
+  border-color: #FF9DA7;
+}

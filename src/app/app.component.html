@@ -1,9 +1,23 @@
-<h1>{{ title }}</h1>
-<ul>
-  <li><a routerLink="alunos">Alunos</a></li>
-  <li><a routerLink="avaliacoes">Avaliações</a></li>
-  <li><a routerLink="trilhas">Trilhas</a></li>
-  <li><a routerLink="disciplinas">Disciplinas</a></li>
-</ul>
-<router-outlet></router-outlet>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h1>{{ title }}</h1>
+      <ul>
+        <a routerLink="alunos"><li>Alunos</li></a>
+        <a routerLink="avaliacoes"><li>Avaliações</li></a>
+        <a routerLink="trilhas"><li>Trilhas</li></a>
+        <a routerLink="disciplinas"><li>Disciplinas</li></a>
+      </ul>
+    </div>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </body>
+</html>

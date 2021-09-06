@@ -1,0 +1,47 @@
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  background-color: #D7E8D2;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin: 0 50px 0 25px;
+}
+
+.sidebar {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 25px 0 50px;
+  flex-grow: 1;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  padding: 25px 40px;
+  margin: 15px 0;
+  background-color: #38613A;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.sidebar ul a {
+  text-decoration: none;
+  color: #E3E8E3;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.sidebar li:hover {
+  background-color: #5E9A5F;
+  transition: 0.3s;
+}

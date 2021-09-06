@@ -45,3 +45,8 @@ body {
   background-color: #5E9A5F;
   transition: 0.3s;
 }
+
+.sidebar img {
+  max-width: 200px;
+  margin-bottom: 0.7rem;
+}

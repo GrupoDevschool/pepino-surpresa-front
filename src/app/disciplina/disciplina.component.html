@@ -34,12 +34,34 @@
         <tr *ngFor="let disciplina of disciplinas">
           <td class="col-md-8">{{ disciplina.nome }}</td>
           <td class="col-md-2">
-            <button (click)="edit(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="openModal(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(disciplina.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="modal-overlay" *ngIf="modalIsVisible">
+    <div class="modal-container" >
+      <Strong>Editar Disciplinas</Strong>
+      <button class="close-button" (click)="closeModal()"><span>X</span></button>
+      <form (ngSubmit)="edit()">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            name="nome"
+            placeholder="Nome"
+            [(ngModel)]="updatedDisciplina.nome"/>
+        </div>
+
+        <div class="btn-wrapper">
+          <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 

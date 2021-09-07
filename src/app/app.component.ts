@@ -18,6 +18,10 @@ export class AppComponent {
   }
 
   isActive(route: string): boolean {
-    return this.currentRoute.startsWith(route);
+    if (this.currentRoute === '/') {
+      return route === '/alunos';
+    }
+
+    return this.currentRoute && this.currentRoute.startsWith(route);
   }
 }

@@ -1,16 +1,15 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { AlunoComponent } from './aluno/aluno.component';
-import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
-import { TrilhaComponent } from './trilha/trilha.component';
-import { DisciplinaComponent } from './disciplina/disciplina.component';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ServiceEditComponent } from './disciplina/service-edit/service-edit.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { AlunoComponent } from './aluno/aluno.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
+import { DisciplinaComponent } from './disciplina/disciplina.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { TrilhaComponent } from './trilha/trilha.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     AvaliacaoComponent,
     TrilhaComponent,
     DisciplinaComponent,
-    ServiceEditComponent,
   ],
   imports: [
     BrowserModule,

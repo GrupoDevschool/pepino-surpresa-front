@@ -4,6 +4,6 @@ export interface Aluno {
     nome: string;
     telefone: string;
     email: string;
-    descricao: string;
+    observacao: string;
 
   }

@@ -40,10 +40,10 @@
           <label class="form-field__label" for="observacoes">Observações</label>
           <textarea
             class="form-control"
-            id="descricao"
+            id="observacao"
             type="text"
-            [(ngModel)]="aluno.descricao"
-            name="descricao"
+            [(ngModel)]="aluno.observacao"
+            name="observacao"
           ></textarea>
       </div>
     </div>
@@ -74,7 +74,7 @@
           <td class="col-md-2">{{ al.nome }}</td>
           <td class="col-md-1">{{ al.telefone }}</td>
           <td class="col-md-2">{{ al.email }}</td>
-          <td class="col-md-4">{{ al.descricao }}</td>
+          <td class="col-md-4">{{ al.observacao }}</td>
           <td class="col-md-2">
             <button (click)="openModal(al)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button class="btn btn-sm btn-del col-sm-5" (click)="delete(al.matricula)">Excluir</button>
@@ -122,13 +122,13 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-field__label" for="descricao">Descricao</label>
+            <label class="form-field__label" for="observacao">Observacao</label>
             <input
               class="form-control"
-              id="descricao"
+              id="observacao"
               type="text"
-              [(ngModel)]="updatedAluno.descricao"
-              name="descricao"
+              [(ngModel)]="updatedAluno.observacao"
+              name="observacao"
             />
           </div>
 

@@ -11,6 +11,9 @@ export class AlunoComponent implements OnInit {
 
   alunos: Aluno[];
   aluno: Aluno = {} as Aluno;
+  updatedAluno: Aluno = {} as Aluno;
+
+  modalIsVisible: boolean = false;
 
   constructor(private alunoService: AlunoService) {
   }
@@ -33,13 +36,16 @@ export class AlunoComponent implements OnInit {
     )
   }
 
-  edit(aluno: Aluno) {
-    this.alunoService.edit(aluno).subscribe(() => {
-      const index = this.alunos.findIndex(a => a.matricula === aluno.matricula);
-      if (index !== -1) {
-        this.alunos[index] = aluno;
+  edit() {
+    this.alunoService.edit(this.updatedAluno).subscribe(() => {
+      this.reloadData();
+      this.closeModal();
+      },
+      error => {
+        console.log(error);
+        this.closeModal();
       }
-    })
+    )
   }
 
   delete(matricula: number) {
@@ -49,6 +55,15 @@ export class AlunoComponent implements OnInit {
         this.alunos = this.alunos.filter((element) => element.matricula !== matricula)
       }
     )
+  }
+
+  openModal(aluno: Aluno) {
+    this.updatedAluno = aluno;
+    this.modalIsVisible = this.modalIsVisible = true;
+  }
+
+  closeModal() {
+    this.modalIsVisible = this.modalIsVisible = false;
   }
 
 }

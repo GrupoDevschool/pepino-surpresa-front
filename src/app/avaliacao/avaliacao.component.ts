@@ -11,6 +11,9 @@ export class AvaliacaoComponent implements OnInit {
 
   avaliacoes: Avaliacao[];
   avaliacao: Avaliacao = {} as Avaliacao;
+  updatedAvaliacao: Avaliacao = {} as Avaliacao;
+
+  modalIsVisible: boolean = false;
 
   constructor(private avaliacaoService: AvaliacaoService) {
   }
@@ -32,13 +35,16 @@ export class AvaliacaoComponent implements OnInit {
     )
   }
 
-  edit(avaliacao: Avaliacao) {
-    this.avaliacaoService.edit(avaliacao).subscribe(() => {
-      const index = this.avaliacoes.findIndex(a => a.id === avaliacao.id);
-      if (index !== -1) {
-        this.avaliacoes[index] = avaliacao;
+  edit() {
+    this.avaliacaoService.edit(this.updatedAvaliacao).subscribe(() => {
+      this.reloadData();
+      this.closeModal();
+      },
+      error => {
+        console.log(error);
+        this.closeModal();
       }
-    })
+    )
   }
 
   delete(id: number) {
@@ -48,6 +54,16 @@ export class AvaliacaoComponent implements OnInit {
         this.avaliacoes = this.avaliacoes.filter((element) => element.id !== id)
       }
     )
+  }
+
+  openModal(avalicao: Avaliacao) {
+    this.updatedAvaliacao = avalicao;
+    console.log(this.updatedAvaliacao);
+    this.modalIsVisible = this.modalIsVisible = true;
+  }
+
+  closeModal() {
+    this.modalIsVisible = this.modalIsVisible = false;
   }
 
 }

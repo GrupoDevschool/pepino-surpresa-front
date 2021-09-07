@@ -53,3 +53,60 @@ table .btn-primary {
   background-color: #FF9DA7;
   border-color: #FF9DA7;
 }
+
+.modal-overlay {
+  background: rgba(25, 26, 32, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+.modal-container {
+  background: #fff;
+  width: 100%;
+  max-width: 25rem;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 3.75rem rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  border: 0;
+
+  float: right;
+
+  font-size: 1rem;
+  font-weight: 700;
+  color: #c52a19;
+
+  transition: 0.3s;
+}
+
+.close-button:hover {
+  background: #b12516;
+  color: #fff;
+}
+
+.close-button:active {
+  background: #9f2113;
+}
+
+.close-button span {
+  font-weight: bold;
+}
+

@@ -47,12 +47,47 @@
           <td class="col-md-2">{{ av.date | date: "dd/MM/yyyy" }}</td>
           <td class="col-md-8">{{ av.description }}</td>
           <td class="col-md-2">
-            <button (click)="edit(av)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="openModal(av)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(av.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div class="modal-overlay" *ngIf="modalIsVisible">
+      <div class="modal-container" >
+        <Strong>Editar Avaliação</Strong>
+        <button class="close-button" (click)="closeModal()"><span>X</span></button>
+
+        <form (ngSubmit)="edit()">
+          <div class="form-group">
+            <label class="form-field__label" for="date">Data</label>
+            <input
+              class="form-control"
+              id="date"
+              type="date"
+              [(ngModel)]="updatedAvaliacao.date"
+              name="date"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-field__label" for="description">Descrição</label>
+            <textarea
+              class="form-control"
+              id="description"
+              type="text"
+              [(ngModel)]="updatedAvaliacao.description"
+              name="description"
+            ></textarea>
+          </div>
+
+          <div class="btn-wrapper">
+            <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 

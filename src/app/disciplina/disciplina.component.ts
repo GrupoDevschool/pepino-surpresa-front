@@ -38,8 +38,8 @@ export class DisciplinaComponent implements OnInit {
   edit() {
     this.disciplinaService.edit(this.updatedDisciplina).subscribe(
       () => {
-        this.reloadData()
-        this.closeModal()
+        this.reloadData();
+        this.closeModal();
       },
       error => {
         console.log(error);

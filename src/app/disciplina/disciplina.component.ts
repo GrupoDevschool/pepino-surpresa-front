@@ -56,7 +56,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   openModal(disciplina: Disciplina) {
-    this.updatedDisciplina = disciplina;
+    this.updatedDisciplina = Object.assign({}, disciplina);
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

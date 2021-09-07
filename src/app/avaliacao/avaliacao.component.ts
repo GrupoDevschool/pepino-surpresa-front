@@ -56,8 +56,8 @@ export class AvaliacaoComponent implements OnInit {
     )
   }
 
-  openModal(avalicao: Avaliacao) {
-    this.updatedAvaliacao = avalicao;
+  openModal(avaliacao: Avaliacao) {
+    this.updatedAvaliacao = Object.assign({}, avaliacao);
     console.log(this.updatedAvaliacao);
     this.modalIsVisible = this.modalIsVisible = true;
   }

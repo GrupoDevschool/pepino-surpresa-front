@@ -8,7 +8,7 @@
         class="form-control"
         id="date"
         type="date"
-        [(ngModel)]="avaliacao.date"
+        [(ngModel)]="avaliacao.data"
         name="date"
       />
     </div>
@@ -19,7 +19,7 @@
         class="form-control"
         id="description"
         type="text"
-        [(ngModel)]="avaliacao.description"
+        [(ngModel)]="avaliacao.descricao"
         name="description"
       ></textarea>
     </div>
@@ -44,8 +44,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let av of avaliacoes">
-          <td class="col-md-2">{{ av.date | date: "dd/MM/yyyy" }}</td>
-          <td class="col-md-8">{{ av.description }}</td>
+          <td class="col-md-2">{{ av.data | date: "dd/MM/yyyy" }}</td>
+          <td class="col-md-8">{{ av.descricao }}</td>
           <td class="col-md-2">
             <button (click)="edit(av)" class="btn btn-sm btn-primary col-sm-5">
               Editar

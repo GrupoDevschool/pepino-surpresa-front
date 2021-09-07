@@ -40,7 +40,6 @@ export class TrilhaComponent implements OnInit {
   reloadData() {
     this.disciplinaService.list().subscribe((disciplinas) => {
       this.disciplinas = disciplinas;
-      console.log(this.disciplinas);
     })
 
     this.trilhaService.list().subscribe((trilhas) => {

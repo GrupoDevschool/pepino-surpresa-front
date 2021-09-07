@@ -26,14 +26,12 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>ID</th>
           <th>Nome</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let disciplina of disciplinas">
-          <td class="col-md-2">{{ disciplina.id }}</td>
           <td class="col-md-8">{{ disciplina.nome }}</td>
           <td class="col-md-2">
             <button (click)="edit(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>

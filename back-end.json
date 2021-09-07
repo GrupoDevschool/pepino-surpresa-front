@@ -114,6 +114,36 @@
           "nome": "Javascript"
         }
       ]
+    },
+    {
+      "nome": "Devschool",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Java"
+        },
+        {
+          "id": 2,
+          "nome": "Angular"
+        },
+        {
+          "id": 3,
+          "nome": "Typescript"
+        },
+        {
+          "id": 4,
+          "nome": "HTML"
+        },
+        {
+          "id": 5,
+          "nome": "Sass"
+        },
+        {
+          "id": 6,
+          "nome": "Spring Framework"
+        }
+      ],
+      "id": 3
     }
   ],
   "disciplinas": [

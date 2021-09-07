@@ -47,14 +47,15 @@
           <td class="col-md-2">{{ av.date | date: "dd/MM/yyyy" }}</td>
           <td class="col-md-8">{{ av.description }}</td>
           <td class="col-md-2">
-            <button (click)="edit(av)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
-            <button (click)="delete(av.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+            <button (click)="edit(av)" class="btn btn-sm btn-primary col-sm-5">
+              Editar
+            </button>
+            <button (click)="delete(av.id)" class="btn btn-sm btn-del col-sm-5">
+              Excluir
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
-

@@ -1,6 +1,6 @@
 export interface Disciplina {
 
-  id: number;
+  id?: number;
   nome: string;
 
 }

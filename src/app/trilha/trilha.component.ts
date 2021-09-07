@@ -1,7 +1,9 @@
 import { Disciplina } from './../shared/model/Disciplina';
 import { Trilha } from './../shared/model/Trilha';
 import { Component, OnInit } from '@angular/core';
+import { DisciplinaService } from '../core/disciplina.service';
 import { TrilhaService } from '../core/trilha.service';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 
 @Component({
@@ -14,13 +16,33 @@ export class TrilhaComponent implements OnInit {
   trilhas: Trilha[];
   trilha: Trilha = {} as Trilha;
 
-  constructor(private trilhaService: TrilhaService) { }
+  disciplinas: Disciplina[];
+
+  disciplinasSelecionadas = [];
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private trilhaService: TrilhaService, private disciplinaService: DisciplinaService) { }
 
   ngOnInit(): void {
     this.reloadData();
+    this.disciplinasSelecionadas = [];
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'nome',
+      selectAllText: 'Selecionar todas',
+      unSelectAllText: 'Limpar seleção',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   }
 
   reloadData() {
+    this.disciplinaService.list().subscribe((disciplinas) => {
+      this.disciplinas = disciplinas;
+      console.log(this.disciplinas);
+    })
+
     this.trilhaService.list().subscribe((trilhas) => {
       this.trilhas = trilhas;
     });
@@ -31,6 +53,7 @@ export class TrilhaComponent implements OnInit {
   }
 
   save() {
+    this.trilha.disciplinas = this.disciplinasSelecionadas;
     this.trilhaService.save(this.trilha).subscribe(
       trilha => this.trilhas.push(trilha),
       error => console.log(error)
@@ -51,6 +74,13 @@ export class TrilhaComponent implements OnInit {
         this.trilhas = this.trilhas.filter((element) => element.id !== id)
       }
     )
+  }
+
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
   }
 
 }

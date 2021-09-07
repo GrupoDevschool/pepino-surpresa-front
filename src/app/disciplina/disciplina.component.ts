@@ -11,6 +11,7 @@ export class DisciplinaComponent implements OnInit {
 
   disciplinas: Disciplina[];
   disciplina: Disciplina = {} as Disciplina;
+  updatedDisciplina: Disciplina = {} as Disciplina;
 
   modalIsVisible: boolean = false;
 
@@ -34,10 +35,17 @@ export class DisciplinaComponent implements OnInit {
   }
 
   edit() {
-    console.log(this.disciplina);
-    this.disciplinaService.editar(this.disciplina).subscribe(
-      () => this.reloadData(),
-      error => console.log(error))
+    console.log(this.updatedDisciplina);
+    this.disciplinaService.editar(this.updatedDisciplina).subscribe(
+      () => {
+        this.reloadData()
+        this.closeModal()
+      },
+      error => {
+        console.log(error);
+        this.closeModal();
+      }
+      )
   }
 
   delete(id: number) {
@@ -47,7 +55,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   openModal(disciplina: Disciplina) {
-    this.disciplina = disciplina;
+    this.updatedDisciplina = disciplina;
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

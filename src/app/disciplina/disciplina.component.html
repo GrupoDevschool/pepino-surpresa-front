@@ -43,10 +43,10 @@
       </tbody>
     </table>
   </div>
-  <div class="modalOverlay" *ngIf="modalIsVisible">
-    <div class="modalContainer" >
-      <h2>Editar</h2>
-      <button (click)="closeModal()">Close</button>
+  <div class="modal-overlay" *ngIf="modalIsVisible">
+    <div class="modal-container" >
+      <Strong>Editar Disciplinas</Strong>
+      <button class="close-button" (click)="closeModal()"><span>X</span></button>
       <form (ngSubmit)="edit()">
         <div class="form-group">
           <label for="nome">Nome</label>
@@ -54,12 +54,13 @@
             type="text"
             class="form-control"
             id="nome"
+            name="nome"
             placeholder="Nome"
-            [(ngModel)]="disciplina.nome"/>
+            [(ngModel)]="updatedDisciplina.nome"/>
         </div>
 
         <div class="btn-wrapper">
-          <button class="btn btn-primary col-md-3" type="submit">Editar</button>
+          <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
         </div>
       </form>
     </div>

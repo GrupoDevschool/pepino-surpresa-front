@@ -36,7 +36,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   edit() {
-    this.disciplinaService.editar(this.updatedDisciplina).subscribe(
+    this.disciplinaService.edit(this.updatedDisciplina).subscribe(
       () => {
         this.reloadData()
         this.closeModal()

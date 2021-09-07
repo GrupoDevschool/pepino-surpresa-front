@@ -1,7 +1,8 @@
+import { Disciplina } from './../shared/model/Disciplina';
 import { Trilha } from './../shared/model/Trilha';
 import { Component, OnInit } from '@angular/core';
 import { TrilhaService } from '../core/trilha.service';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-trilha',
@@ -10,8 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class TrilhaComponent implements OnInit {
 
-  trilhas: Observable<Trilha[]>;
-  trilha: Trilha;
+  trilhas: Trilha[];
+  trilha: Trilha = {} as Trilha;
 
   constructor(private trilhaService: TrilhaService) { }
 
@@ -20,13 +21,35 @@ export class TrilhaComponent implements OnInit {
   }
 
   reloadData() {
-    this.trilhas = this.trilhaService.listar();
+    this.trilhaService.list().subscribe((trilhas) => {
+      this.trilhas = trilhas;
+    });
+  }
+
+  formatDisciplina(disciplinas: Disciplina[]): string {
+    return disciplinas.map((disciplina) => disciplina.nome).join(', ')
   }
 
   save() {
-    this.trilhaService.salvar(this.trilha).subscribe(
-      trilha => console.log(trilha),
+    this.trilhaService.save(this.trilha).subscribe(
+      trilha => this.trilhas.push(trilha),
       error => console.log(error)
+    )
+  }
+
+  edit(trilha: Trilha) {
+    this.trilhaService.edit(trilha).subscribe(() => {
+      const index = this.trilhas.findIndex(a => a.id === trilha.id);
+      if (index !== -1) {
+        this.trilhas[index] = trilha;
+      }
+    })
+  }
+
+  delete(id: number) {
+    this.trilhaService.delete(id).subscribe(() => {
+        this.trilhas = this.trilhas.filter((element) => element.id !== id)
+      }
     )
   }
 

@@ -4,7 +4,7 @@ import { Disciplina } from '../shared/model/Disciplina';
 
 @Component({
   selector: 'app-disciplina',
-  templateUrl: './disciplina.component.html',
+  templateUrl:'./disciplina.component.html',
   styleUrls: ['./disciplina.component.css']
 })
 export class DisciplinaComponent implements OnInit {
@@ -15,27 +15,27 @@ export class DisciplinaComponent implements OnInit {
 
   modalIsVisible: boolean = false;
 
-  constructor(private disciplinaService: DisciplinaService) { }
+  constructor(private disciplinaService:DisciplinaService) {
+  }
 
   ngOnInit(): void {
     this.reloadData();
   }
 
   reloadData() {
-    this.disciplinaService.listar().subscribe((disciplina) => {
-      this.disciplinas = disciplina;
+    this.disciplinaService.list().subscribe((disciplinas) => {
+      this.disciplinas = disciplinas;
     });
   }
 
   save() {
-    this.disciplinaService.salvar(this.disciplina).subscribe(
-      () => this.reloadData(),
+    this.disciplinaService.save(this.disciplina).subscribe(
+      disciplina => this.disciplinas.push(disciplina),
       error => console.log(error)
     )
   }
 
   edit() {
-    console.log(this.updatedDisciplina);
     this.disciplinaService.editar(this.updatedDisciplina).subscribe(
       () => {
         this.reloadData()
@@ -45,13 +45,14 @@ export class DisciplinaComponent implements OnInit {
         console.log(error);
         this.closeModal();
       }
-      )
+    )
   }
 
   delete(id: number) {
-    this.disciplinaService.excluir(id).subscribe(
-      ()=> this.reloadData(),
-    (error) => console.log(error))
+    this.disciplinaService.delete(id).subscribe(() => {
+          this.disciplinas = this.disciplinas.filter((element) => element.id !== id)
+      }
+    )
   }
 
   openModal(disciplina: Disciplina) {

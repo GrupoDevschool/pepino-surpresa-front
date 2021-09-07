@@ -38,7 +38,6 @@ input[type=number] {
 .form-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
 }
 
 .form-wrapper>* {

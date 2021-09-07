@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Pepino';
-  currentRoute: string;
+  currentRoute: string = '/';
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {

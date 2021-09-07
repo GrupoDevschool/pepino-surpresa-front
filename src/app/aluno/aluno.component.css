@@ -22,6 +22,40 @@ h2 {
   box-shadow: 0 0 8px rgb(0 0 0 / 10%);
 }
 
+/* Escondendo as setinhas do input de number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-wrapper>* {
+  flex-grow: 1;
+  max-width: 49%;
+}
+
+.form-group.textarea {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group textarea {
+  height: 100%;
+  resize: none;
+  overflow: hidden;
+}
+
 .btn-wrapper {
   text-align: center;
   margin-top: 15px;

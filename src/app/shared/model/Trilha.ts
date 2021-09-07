@@ -1,7 +1,7 @@
 import { Disciplina } from './Disciplina';
 export interface Trilha {
 
-  id: number;
+  id?: number;
   nome: string;
   disciplinas: Disciplina[];
 }

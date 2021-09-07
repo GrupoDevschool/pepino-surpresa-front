@@ -13,17 +13,17 @@
       />
     </div>
 
-    <!--<div class="row">
-      <div class="col-md-6">
-
-        <select  class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Escolha aqui..">
-          <option value="" disabled selected>Escolha as disciplinas</option>
-          <option *ngFor="let trilha of trilhas" value="{{trilha.id}}">{{formatDisciplina2(trilha.disciplinas)}}</option>
-        </select>
-        <label class="mdb-main-label">Disciplinas</label>
-
-      </div>
-    </div>-->
+    <label class="form-field__label" for="nome">Disciplinas</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'Selecionar disciplinas'"
+    [settings]="dropdownSettings"
+    [data]="disciplinas"
+    [(ngModel)]="disciplinasSelecionadas"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    name="disciplinas"
+  >
+  </ng-multiselect-dropdown>
 
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>

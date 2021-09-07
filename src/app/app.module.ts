@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TrilhaComponent } from './trilha/trilha.component';
 
 
@@ -22,7 +23,8 @@ import { TrilhaComponent } from './trilha/trilha.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

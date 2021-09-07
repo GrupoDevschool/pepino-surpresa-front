@@ -1,73 +1,62 @@
-<div class="form col-md-4">
-    <form (ngSubmit)="save()">
-      <h2>Novo Aluno</h2>
+<div class="form col-md-8">
+  <form (ngSubmit)="save()">
+    <h2>Novo Aluno</h2>
+    <div class="form-wrapper">
+      <div class="single-line-inputs">
+        <div class="form-group">
+          <label class="form-field__label" for="nome">Nome</label>
+          <input
+            class="form-control"
+            id="nome"
+            type="text"
+            [(ngModel)]="aluno.nome"
+            name="nome"
+          />
+        </div>
 
-      <div class="form-group">
-        <label class="form-field__label" for="matricula">Matricula</label>
-        <input
-          class="form-control"
-          id="matricula"
-          type="text"
-          [(ngModel)]="aluno.matricula"
-          name="matricula"
-        />
+        <div class="form-group">
+          <label class="form-field__label" for="telefone">Telefone</label>
+          <input
+            class="form-control"
+            id="telefone"
+            type="number"
+            [(ngModel)]="aluno.telefone"
+            name="telefone"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-field__label" for="email">Email</label>
+          <input
+            class="form-control"
+            id="email"
+            type="text"
+            [(ngModel)]="aluno.email"
+            name="email"
+          />
+        </div>
       </div>
-
-      <div class="form-group">
-        <label class="form-field__label" for="nome">Nome</label>
-        <input
-          class="form-control"
-          id="nome"
-          type="text"
-          [(ngModel)]="aluno.nome"
-          name="nome"
-        />
+        <div class="form-group textarea">
+          <label class="form-field__label" for="observacoes">Observações</label>
+          <textarea
+            class="form-control"
+            id="descricao"
+            type="text"
+            [(ngModel)]="aluno.descricao"
+            name="descricao"
+          ></textarea>
       </div>
-
-      <div class="form-group">
-        <label class="form-field__label" for="telefone">Telefone</label>
-        <input
-          class="form-control"
-          id="telefone"
-          type="text"
-          [(ngModel)]="aluno.telefone"
-          name="telefone"
-        />
-
-
-      </div>
-
-      <div class="form-group">
-        <label class="form-field__label" for="email">Email</label>
-        <input
-          class="form-control"
-          id="email"
-          type="text"
-          [(ngModel)]="aluno.email"
-          name="email"
-        />
-      </div>
-
-
-
-    <div class="form-group">
-      <label class="form-field__label" for="descricao">Descricao</label>
-      <input
-        class="form-control"
-        id="descricao"
-        type="text"
-        [(ngModel)]="aluno.descricao"
-        name="descricao"
-      />
     </div>
-
-
     <div class="btn-wrapper">
-        <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
-      </div>
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
   </form>
 </div>
-  <div class="list panel-body">
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Alunos Cadastrados</h2>
+  </div>
+  <div class="list">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -75,20 +64,21 @@
           <th>Nome</th>
           <th>Telefone</th>
           <th>Email</th>
-          <th>Descrição</th>
+          <th>Observações</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let al of alunos">
-          <td class="col-md-2">{{ al.matricula }}</td>
+          <td class="col-md-1">{{ al.matricula }}</td>
           <td class="col-md-2">{{ al.nome }}</td>
-          <td class="col-md-2">{{ al.telefone }}</td>
-          <td class= "col-md-2">{{ al.email }}</td>
-          <td class= "col-md-2">{{ al.descricao }}</td>
+          <td class="col-md-1">{{ al.telefone }}</td>
+          <td class="col-md-2">{{ al.email }}</td>
+          <td class="col-md-4">{{ al.descricao }}</td>
           <td class="col-md-2">
             <button (click)="openModal(al)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button class="btn btn-sm btn-del col-sm-5" (click)="delete(al.matricula)">Excluir</button></td>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -149,4 +139,4 @@
       </div>
     </div>
   </div>
-
+</div>

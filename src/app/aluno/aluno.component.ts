@@ -28,7 +28,6 @@ export class AlunoComponent implements OnInit {
     });
   }
 
-
   save() {
     this.alunoService.save(this.aluno).subscribe(
       aluno => this.alunos.push(aluno),

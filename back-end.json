@@ -39,6 +39,11 @@
       "id": 8,
       "date": "2021-09-01 23:00:00",
       "description": "Ablabluble"
+    },
+    {
+      "date": "2021-09-23",
+      "description": "ghgnnng",
+      "id": 9
     }
   ],
   "alunos": [
@@ -114,6 +119,50 @@
           "nome": "Javascript"
         }
       ]
+    },
+    {
+      "nome": "Devschool",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Java"
+        },
+        {
+          "id": 2,
+          "nome": "Angular"
+        },
+        {
+          "id": 3,
+          "nome": "Typescript"
+        },
+        {
+          "id": 4,
+          "nome": "HTML"
+        },
+        {
+          "id": 5,
+          "nome": "Sass"
+        },
+        {
+          "id": 6,
+          "nome": "Spring Framework"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "nome": "CSS",
+      "disciplinas": [
+        {
+          "id": 5,
+          "nome": "Sass"
+        },
+        {
+          "id": 7,
+          "nome": "CSS"
+        }
+      ],
+      "id": 4
     }
   ],
   "disciplinas": [
@@ -140,6 +189,10 @@
     {
       "id": 6,
       "nome": "Spring Framework"
+    },
+    {
+      "nome": "CSS",
+      "id": 7
     }
   ]
 }

@@ -53,3 +53,11 @@ table .btn-primary {
   background-color: #FF9DA7;
   border-color: #FF9DA7;
 }
+
+.multiselect-dropdown.dropdown-btn {
+  background-color: #fff !important;
+}
+
+.multiselect-item-checkbox[_ngcontent-wgc-c53] input[type=checkbox][_ngcontent-wgc-c53] + div[_ngcontent-wgc-c53]:before {
+  color: #5E9A5F;
+}

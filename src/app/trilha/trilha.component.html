@@ -48,11 +48,47 @@
           <td class="col-md-2">{{ trilha.nome }}</td>
           <td class="col-md-8">{{ formatDisciplina(trilha.disciplinas) }}</td>
           <td class="col-md-2">
-            <button (click)="edit(trilha)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="openModal(trilha)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(trilha.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div class="modal-overlay" *ngIf="modalIsVisible">
+      <div class="modal-container" >
+        <Strong>Editar Trilha</Strong>
+        <button class="close-button" (click)="closeModal()"><span>X</span></button>
+        <form (ngSubmit)="edit()">
+
+          <div class="form-group">
+            <label class="form-field__label" for="nome">Nome</label>
+            <input
+              class="form-control"
+              id="nome"
+              type="text"
+              [(ngModel)]="updatedTrilha.nome"
+              name="nome"
+            />
+          </div>
+
+          <label class="form-field__label" for="nome">Disciplinas</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar disciplinas'"
+          [settings]="dropdownSettings"
+          [data]="disciplinas"
+          [(ngModel)]="updatedDisciplinas"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          name="disciplinas"
+        >
+        </ng-multiselect-dropdown>
+
+          <div class="btn-wrapper">
+            <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

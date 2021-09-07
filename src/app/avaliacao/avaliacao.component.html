@@ -6,21 +6,21 @@
       <label class="form-field__label" for="date">Data</label>
       <input
         class="form-control"
-        id="date"
+        id="data"
         type="date"
         [(ngModel)]="avaliacao.data"
-        name="date"
+        name="data"
       />
     </div>
 
     <div class="form-group">
-      <label class="form-field__label" for="description">Descrição</label>
+      <label class="form-field__label" for="descricao">Descrição</label>
       <textarea
         class="form-control"
-        id="description"
+        id="descricao"
         type="text"
         [(ngModel)]="avaliacao.descricao"
-        name="description"
+        name="descricao"
       ></textarea>
     </div>
 
@@ -61,24 +61,24 @@
 
         <form (ngSubmit)="edit()">
           <div class="form-group">
-            <label class="form-field__label" for="date">Data</label>
+            <label class="form-field__label" for="data">Data</label>
             <input
               class="form-control"
-              id="date"
+              id="data"
               type="date"
-              [(ngModel)]="updatedAvaliacao.date"
-              name="date"
+              [(ngModel)]="updatedAvaliacao.data"
+              name="data"
             />
           </div>
 
           <div class="form-group">
-            <label class="form-field__label" for="description">Descrição</label>
+            <label class="form-field__label" for="descricao">Descrição</label>
             <textarea
               class="form-control"
-              id="description"
+              id="descricao"
               type="text"
-              [(ngModel)]="updatedAvaliacao.description"
-              name="description"
+              [(ngModel)]="updatedAvaliacao.descricao"
+              name="descricao"
             ></textarea>
           </div>
 

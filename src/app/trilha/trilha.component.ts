@@ -1,9 +1,9 @@
-import { Disciplina } from './../shared/model/Disciplina';
-import { Trilha } from './../shared/model/Trilha';
 import { Component, OnInit } from '@angular/core';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { DisciplinaService } from '../core/disciplina.service';
 import { TrilhaService } from '../core/trilha.service';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { Disciplina } from './../shared/model/Disciplina';
+import { Trilha } from './../shared/model/Trilha';
 
 
 @Component({
@@ -15,6 +15,10 @@ export class TrilhaComponent implements OnInit {
 
   trilhas: Trilha[];
   trilha: Trilha = {} as Trilha;
+  updatedTrilha: Trilha = {} as Trilha;
+  updatedDisciplinas: Disciplina[] = [];
+
+  modalIsVisible: boolean = false;
 
   disciplinas: Disciplina[];
 
@@ -59,13 +63,17 @@ export class TrilhaComponent implements OnInit {
     )
   }
 
-  edit(trilha: Trilha) {
-    this.trilhaService.edit(trilha).subscribe(() => {
-      const index = this.trilhas.findIndex(a => a.id === trilha.id);
-      if (index !== -1) {
-        this.trilhas[index] = trilha;
+  edit() {
+    this.updatedTrilha.disciplinas = this.updatedDisciplinas;
+    this.trilhaService.edit(this.updatedTrilha).subscribe(() => {
+        this.reloadData();
+        this.closeModal();
+      },
+      error => {
+        console.log(error);
+        this.closeModal();
       }
-    })
+    )
   }
 
   delete(id: number) {
@@ -80,6 +88,16 @@ export class TrilhaComponent implements OnInit {
   }
   onSelectAll(items: any) {
     console.log(items);
+  }
+
+  openModal(trilha: Trilha) {
+    this.updatedTrilha = trilha;
+    this.updatedDisciplinas = this.updatedTrilha.disciplinas;
+    this.modalIsVisible = this.modalIsVisible = true;
+  }
+
+  closeModal() {
+    this.modalIsVisible = this.modalIsVisible = false;
   }
 
 }

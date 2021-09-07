@@ -1,1 +1,58 @@
-<p>trilha works!</p>
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Nova Trilha</h2>
+
+    <div class="form-group">
+      <label class="form-field__label" for="nome">Nome</label>
+      <input
+        class="form-control"
+        id="nome"
+        type="text"
+        [(ngModel)]="trilha.nome"
+        name="nome"
+      />
+    </div>
+
+    <!--<div class="row">
+      <div class="col-md-6">
+
+        <select  class="mdb-select colorful-select dropdown-primary md-form" multiple searchable="Escolha aqui..">
+          <option value="" disabled selected>Escolha as disciplinas</option>
+          <option *ngFor="let trilha of trilhas" value="{{trilha.id}}">{{formatDisciplina2(trilha.disciplinas)}}</option>
+        </select>
+        <label class="mdb-main-label">Disciplinas</label>
+
+      </div>
+    </div>-->
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Trilhas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Disciplinas</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trilha of trilhas">
+          <td class="col-md-2">{{ trilha.nome }}</td>
+          <td class="col-md-8">{{ formatDisciplina(trilha.disciplinas) }}</td>
+          <td class="col-md-2">
+            <button (click)="edit(trilha)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(trilha.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

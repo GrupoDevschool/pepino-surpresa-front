@@ -11,6 +11,9 @@ export class DisciplinaComponent implements OnInit {
 
   disciplinas: Disciplina[];
   disciplina: Disciplina = {} as Disciplina;
+  updatedDisciplina: Disciplina = {} as Disciplina;
+
+  modalIsVisible: boolean = false;
 
   constructor(private disciplinaService:DisciplinaService) {
   }
@@ -32,13 +35,17 @@ export class DisciplinaComponent implements OnInit {
     )
   }
 
-  edit(disciplina: Disciplina) {
-    this.disciplinaService.edit(disciplina).subscribe(() => {
-      const index = this.disciplinas.findIndex(a => a.id === disciplina.id);
-      if (index !== -1) {
-        this.disciplinas[index] = disciplina;
+  edit() {
+    this.disciplinaService.editar(this.updatedDisciplina).subscribe(
+      () => {
+        this.reloadData()
+        this.closeModal()
+      },
+      error => {
+        console.log(error);
+        this.closeModal();
       }
-    })
+    )
   }
 
   delete(id: number) {
@@ -46,6 +53,15 @@ export class DisciplinaComponent implements OnInit {
           this.disciplinas = this.disciplinas.filter((element) => element.id !== id)
       }
     )
+  }
+
+  openModal(disciplina: Disciplina) {
+    this.updatedDisciplina = disciplina;
+    this.modalIsVisible = this.modalIsVisible = true;
+  }
+
+  closeModal() {
+    this.modalIsVisible = this.modalIsVisible = false;
   }
 
 }

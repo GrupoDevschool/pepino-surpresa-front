@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ServiceEditComponent } from './disciplina/service-edit/service-edit.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,14 @@ import { ServiceEditComponent } from './disciplina/service-edit/service-edit.com
     AvaliacaoComponent,
     TrilhaComponent,
     DisciplinaComponent,
-    ServiceEditComponent
+    ServiceEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

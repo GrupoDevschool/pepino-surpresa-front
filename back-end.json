@@ -52,35 +52,35 @@
       "nome": "Lucao",
       "telefone": "12345678911",
       "email": "lucao@gmail.com",
-      "descricao": "O aluno se comportou mal na aula."
+      "observacao": "O aluno se comportou mal na aula."
     },
     {
       "matricula": 2,
       "nome": "Igor",
       "telefone": "12345678912",
       "email": "igor@gmail.com",
-      "descricao": "O aluno não foi a aula."
+      "observacao": "O aluno não foi a aula."
     },
     {
       "matricula": 3,
       "nome": "Victor Hugo",
       "telefone": "12345678913",
       "email": "vh@gmail.com",
-      "descricao": "O aluno atrapalha a aula."
+      "observacao": "O aluno atrapalha a aula."
     },
     {
       "matricula": 4,
       "nome": "Thales",
       "telefone": "12345678914",
       "email": "thales@gmail.com",
-      "descricao": "O aluno está dando aula."
+      "observacao": "O aluno está dando aula."
     },
     {
       "matricula": 5,
       "nome": "Niasi",
       "telefone": "12345678915",
       "email": "niasi@gmail.com",
-      "descricao": "A aluna é um ser humano muito amigável."
+      "observacao": "A aluna é um ser humano muito amigável."
     }
   ],
   "trilhas": [

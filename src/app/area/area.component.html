@@ -1,0 +1,69 @@
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Nova Area</h2>
+
+    <div class="form-group">
+      <label class="form-field__label" for="nome">Nome</label>
+        <input
+          class="form-control"
+          id="nome"
+          type="nome"
+          [(ngModel)]="area.nome"
+          name="nome"
+        />
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Areas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let area of areas">
+          <td class="col-md-8">{{ area.nome }}</td>
+          <td class="col-md-2">
+            <button (click)="openModal(area)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(area.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-overlay" *ngIf="modalIsVisible">
+    <div class="modal-container" >
+      <Strong>Editar Areas</Strong>
+      <button class="close-button" (click)="closeModal()"><span>X</span></button>
+      <form (ngSubmit)="edit()">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nome"
+            name="nome"
+            placeholder="Nome"
+            [(ngModel)]="updatedArea.nome"/>
+        </div>
+
+        <div class="btn-wrapper">
+          <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

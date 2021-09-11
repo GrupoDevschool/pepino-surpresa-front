@@ -25,6 +25,17 @@
   >
     </ng-multiselect-dropdown>
 
+    <div class="form-group">
+      <label class="form-field__label" for="tipo">Tipo</label>
+      <input
+        class="form-control"
+        id="tipo"
+        type="text"
+        [(ngModel)]="gestor.tipo"
+        name="tipo"
+      />
+    </div>
+
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
     </div>

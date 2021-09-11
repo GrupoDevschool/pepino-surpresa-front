@@ -9,6 +9,7 @@ import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TrilhaComponent } from './trilha/trilha.component';
+import { AreaComponent } from './area/area.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { TrilhaComponent } from './trilha/trilha.component';
     AvaliacaoComponent,
     TrilhaComponent,
     DisciplinaComponent,
+    AreaComponent,
   ],
   imports: [
     BrowserModule,

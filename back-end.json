@@ -285,5 +285,37 @@
       "resposta": "Nunca devemos usar bancos de dados, da pra fazer tudo com fisica 3",
       "areaId": 3
     }
+  ],
+  "gestores": [
+    {
+      "id": "1",
+      "nome":"Ronald Silva",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Angular"
+        },
+        {
+          "id": 2,
+          "nome": "Python"
+        }
+      ],
+      "tipo": "professor"
+    },
+    {
+      "id": "2",
+      "nome":"Marlucia Andressa",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Java"
+        },
+        {
+          "id": 2,
+          "nome": "Poo"
+        }
+      ],
+      "tipo": "Orientador"
+    }
   ]
 }

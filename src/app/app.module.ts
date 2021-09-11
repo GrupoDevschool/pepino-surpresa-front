@@ -11,7 +11,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TrilhaComponent } from './trilha/trilha.component';
 import { AreaComponent } from './area/area.component';
 import { RespostaComponent } from './resposta/resposta.component';
-
+import { GestorComponent } from './gestor/gestor.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { RespostaComponent } from './resposta/resposta.component';
     DisciplinaComponent,
     AreaComponent,
     RespostaComponent,
+    GestorComponent
   ],
   imports: [
     BrowserModule,

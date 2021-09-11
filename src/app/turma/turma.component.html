@@ -1,1 +1,94 @@
-<p>turma works!</p>
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Nova Turma</h2>
+
+    <div class="form-group">
+      <label class="form-field__label" for="nome">Nome</label>
+      <input
+        class="form-control"
+        id="nome"
+        type="text"
+        [(ngModel)]="turma.nome"
+        name="nome"
+      />
+    </div>
+
+    <label class="form-field__label" for="nome">Alunos</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'Selecionar alunos'"
+    [settings]="dropdownSettings"
+    [data]="alunos"
+    [(ngModel)]="alunosSelecionados"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    name="alunos"
+  >
+  </ng-multiselect-dropdown>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Turmas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Alunos</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let turma of turmas">
+          <td class="col-md-2">{{ turma.nome }}</td>
+          <td class="col-md-8">{{ formatDisciplina(turma.alunos) }}</td>
+          <td class="col-md-2">
+            <button (click)="openModal(turma)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(turma.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="modal-overlay" *ngIf="modalIsVisible">
+      <div class="modal-container" >
+        <Strong>Editar Turma</Strong>
+        <button class="close-button" (click)="closeModal()"><span>X</span></button>
+        <form (ngSubmit)="edit()">
+
+          <div class="form-group">
+            <label class="form-field__label" for="nome">Nome</label>
+            <input
+              class="form-control"
+              id="nome"
+              type="text"
+              [(ngModel)]="updatedTurma.nome"
+              name="nome"
+            />
+          </div>
+
+          <label class="form-field__label" for="nome">Alunos</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar disciplinas'"
+          [settings]="dropdownSettings"
+          [data]="alunos"
+          [(ngModel)]="updatedAlunos"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          name="alunos"
+        >
+        </ng-multiselect-dropdown>
+
+          <div class="btn-wrapper">
+            <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

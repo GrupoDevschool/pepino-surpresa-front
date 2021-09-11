@@ -8,17 +8,19 @@ import { DisciplinaComponent } from "./disciplina/disciplina.component";
 import { GestorComponent } from "./gestor/gestor.component";
 import { RespostaComponent } from "./resposta/resposta.component";
 import { TrilhaComponent } from "./trilha/trilha.component";
+import { TurmaComponent } from "./turma/turma.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'alunos', pathMatch: 'full' },
   { path: 'alunos', component: AlunoComponent },
-  { path: 'avaliacoes', component: AvaliacaoComponent },
-  { path: 'trilhas', component: TrilhaComponent },
-  { path: 'disciplinas', component: DisciplinaComponent },
-  { path: 'aulas', component: AulaComponent},
   { path: 'areas', component: AreaComponent },
-  { path: 'respostas', component: RespostaComponent },
+  { path: 'aulas', component: AulaComponent},
+  { path: 'avaliacoes', component: AvaliacaoComponent },
+  { path: 'disciplinas', component: DisciplinaComponent },
   { path: 'gestores', component: GestorComponent },
+  { path: 'respostas', component: RespostaComponent },
+  { path: 'trilhas', component: TrilhaComponent },
+  { path: 'turmas', component: TurmaComponent }
 
 ];
 

@@ -13,6 +13,7 @@ import { AulaComponent } from './aula/aula.component';
 import { AreaComponent } from './area/area.component';
 import { RespostaComponent } from './resposta/resposta.component';
 import { GestorComponent } from './gestor/gestor.component';
+import { TurmaComponent } from './turma/turma.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GestorComponent } from './gestor/gestor.component';
     AulaComponent,
     AreaComponent,
     RespostaComponent,
-    GestorComponent
+    GestorComponent,
+    TurmaComponent
   ],
   imports: [
     BrowserModule,

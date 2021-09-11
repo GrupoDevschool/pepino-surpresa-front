@@ -2,47 +2,47 @@
   "avaliacoes": [
     {
       "id": 1,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 2,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 3,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 4,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 5,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 6,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 7,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
       "id": 8,
-      "date": "2021-09-01 23:00:00",
-      "description": "Ablabluble"
+      "data": "2021-09-01 23:00:00",
+      "descricao": "Ablabluble"
     },
     {
-      "date": "2021-09-23",
-      "description": "ghgnnng",
+      "data": "2021-09-23",
+      "descricao": "ghgnnng",
       "id": 9
     }
   ],

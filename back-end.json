@@ -194,5 +194,19 @@
       "nome": "CSS",
       "id": 7
     }
+  ],
+  "areas": [
+    {
+    "id": 1,
+    "name": "Front-end"
+    },
+    {
+      "id": 2,
+      "name": "Back-end"
+    },
+    {
+      "id": 3,
+      "name": "Infra-end"
+    }
   ]
 }

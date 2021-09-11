@@ -9,6 +9,7 @@ import { DisciplinaComponent } from './disciplina/disciplina.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GestorComponent } from './gestor/gestor.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     AlunoComponent,
     AvaliacaoComponent,
     TrilhaComponent,
-    DisciplinaComponent
+    DisciplinaComponent,
+    GestorComponent
   ],
   imports: [
     BrowserModule,

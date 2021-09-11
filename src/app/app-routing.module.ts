@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'avaliacoes', component: AvaliacaoComponent },
   { path: 'trilhas', component: TrilhaComponent },
   { path: 'disciplinas', component: DisciplinaComponent },
-  { path: 'aulas', component: AulaComponent}
+  { path: 'aulas', component: AulaComponent},
   { path: 'areas', component: AreaComponent },
   { path: 'respostas', component: RespostaComponent },
   { path: 'gestores', component: GestorComponent },

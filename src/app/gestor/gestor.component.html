@@ -1,0 +1,107 @@
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Novo Gestor</h2>
+
+    <div class="form-group">
+      <label class="form-field__label" for="nome">Nome</label>
+      <input
+        class="form-control"
+        id="nome"
+        type="text"
+        [(ngModel)]="gestor.nome"
+        name="nome"
+      />
+    </div>
+
+    <label class="form-field__label" for="nome">Disciplinas</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'Selecionar disciplinas'"
+    [settings]="dropdownSettings"
+    [data]="disciplinas"
+    [(ngModel)]="disciplinasSelecionadas"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    name="disciplinas"
+  >
+    </ng-multiselect-dropdown>
+
+    <div class="form-group">
+      <label class="form-field__label" for="tipo">Tipo</label>
+      <input
+        class="form-control"
+        id="tipo"
+        type="text"
+        [(ngModel)]="gestor.tipo"
+        name="tipo"
+      />
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Gestores Cadastrados</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Tipo</th>
+          <th>Disciplinas</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gestor of gestores">
+          <td class="col-md-2">{{ gestor.nome }}</td>
+          <td class="col-md-2">{{ gestor.tipo }}</td>
+          <td class="col-md-4">{{ formatDisciplina(gestor.disciplinas) }}</td>
+          <td class="col-md-2">
+            <button (click)="openModal(gestor)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(gestor.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="modal-overlay" *ngIf="modalIsVisible">
+      <div class="modal-container" >
+        <Strong>Editar Gestor</Strong>
+        <button class="close-button" (click)="closeModal()"><span>X</span></button>
+        <form (ngSubmit)="edit()">
+
+          <div class="form-group">
+            <label class="form-field__label" for="nome">Nome</label>
+            <input
+              class="form-control"
+              id="nome"
+              type="text"
+              [(ngModel)]="updatedGestor.nome"
+              name="nome"
+            />
+          </div>
+
+          <label class="form-field__label" for="nome">Disciplinas</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar disciplinas'"
+          [settings]="dropdownSettings"
+          [data]="disciplinas"
+          [(ngModel)]="updatedDisciplinas"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          name="disciplinas"
+        >
+        </ng-multiselect-dropdown>
+
+          <div class="btn-wrapper">
+            <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

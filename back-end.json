@@ -197,16 +197,16 @@
   ],
   "areas": [
     {
-    "id": 1,
-    "name": "Front-end"
+      "id": 1,
+      "nome": "Front-end"
     },
     {
       "id": 2,
-      "name": "Back-end"
+      "nome": "Back-end"
     },
     {
       "id": 3,
-      "name": "Infra-end"
+      "nome": "Infra-end"
     }
   ]
 }

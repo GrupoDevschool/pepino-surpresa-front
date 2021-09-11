@@ -1,0 +1,93 @@
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Nova Aula</h2>
+
+    <div class="form-group">
+      <label class="form-field__label" for="date">Data</label>
+      <input
+        class="form-control"
+        id="data"
+        type="date"
+        [(ngModel)]="aula.data"
+        name="data"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="form-field__label" for="assunto">Assunto</label>
+      <textarea
+        class="form-control"
+        id="assunto"
+        type="text"
+        [(ngModel)]="aula.assunto"
+        name="assunto"
+      ></textarea>
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Aulas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Assunto</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let au of aulas">
+          <td class="col-md-2">{{ au.data | date: "dd/MM/yyyy" }}</td>
+          <td class="col-md-8">{{ au.assunto }}</td>
+          <td class="col-md-2">
+            <button (click)="openModal(au)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(au.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="modal-overlay" *ngIf="modalIsVisible">
+      <div class="modal-container" >
+        <Strong>Editar Aula</Strong>
+        <button class="close-button" (click)="closeModal()"><span>X</span></button>
+
+        <form (ngSubmit)="edit()">
+          <div class="form-group">
+            <label class="form-field__label" for="data">Data</label>
+            <input
+              class="form-control"
+              id="data"
+              type="date"
+              [(ngModel)]="updatedAula.data"
+              name="data"
+              placeholder="{{ aula.data }}"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-field__label" for="assunto">Assunto</label>
+            <textarea
+              class="form-control"
+              id="assunto"
+              type="text"
+              [(ngModel)]="updatedAula.assunto"
+              name="assunto"
+            ></textarea>
+          </div>
+
+          <div class="btn-wrapper">
+            <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

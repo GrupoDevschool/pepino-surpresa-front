@@ -9,6 +9,7 @@ import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TrilhaComponent } from './trilha/trilha.component';
+import { AulaComponent } from './aula/aula.component';
 import { AreaComponent } from './area/area.component';
 import { RespostaComponent } from './resposta/resposta.component';
 import { GestorComponent } from './gestor/gestor.component';
@@ -20,6 +21,7 @@ import { GestorComponent } from './gestor/gestor.component';
     AvaliacaoComponent,
     TrilhaComponent,
     DisciplinaComponent,
+    AulaComponent,
     AreaComponent,
     RespostaComponent,
     GestorComponent

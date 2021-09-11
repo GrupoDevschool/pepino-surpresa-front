@@ -208,5 +208,82 @@
       "id": 3,
       "nome": "Infra-end"
     }
+  ],
+  "respostas": [
+    {
+      "id": 1,
+      "resposta": "A terra não é plana e isso tem a ver com front-end, pois é normal trabalhar com geolocalização",
+      "areaId": 1
+    },
+    {
+      "id": 2,
+      "resposta": "A terra é plana e não tem a ver com front-end, nunca usaremos mapas no front-end",
+      "areaId": 1
+    },
+    {
+      "id": 3,
+      "resposta": "A terra é plana e isso tem a ver com front-end, desenhamos o mapa 2D",
+      "areaId": 1
+    },
+    {
+      "id": 4,
+      "resposta": "A terra não é plana e isso não tem a ver com front-end, pois é dificil renderizar um globo 3D",
+      "areaId": 1
+    },
+    {
+      "id": 5,
+      "resposta": "A terra não é e isso tem a ver com front-end, importante mesmo é estudar fisica 3",
+      "areaId": 1
+    },
+    {
+      "id": 6,
+      "resposta": "Estudar servlets é importante, pois uma mente desgraçada programa melhor",
+      "areaId": 2
+    },
+    {
+      "id": 7,
+      "resposta": "Estudar servlets é importante, pois é a base da programação web em java",
+      "areaId": 2
+    },
+    {
+      "id": 8,
+      "resposta": "Estudar servlets não é importante, pois desgraça a mente do programador programa",
+      "areaId": 2
+    },
+    {
+      "id": 9,
+      "resposta": "Estudar servlets não é importante, todas as imprementações modernas não os levam em conta",
+      "areaId": 2
+    },
+    {
+      "id": 10,
+      "resposta": "Estudar servlets não é importante, importante mesmo pra java é estudar fisica 3",
+      "areaId": 2
+    },
+    {
+      "id": 11,
+      "resposta": "Nunca devemos usar banco SQL, bancos NoSQL são o futuro",
+      "areaId": 3
+    },
+    {
+      "id": 12,
+      "resposta": "Nunca devemos usar banco SQL, visto que a vida é a espera da morte",
+      "areaId": 3
+    },
+    {
+      "id": 13,
+      "resposta": "Devemos usar banco SQL, quando precisamos de um modelo mais rigido e menos tolerante a falhas",
+      "areaId": 3
+    },
+    {
+      "id": 14,
+      "resposta": "Devemos usar banco SQL, pois hoje em dia tudo é Rede social",
+      "areaId": 3
+    },
+    {
+      "id": 15,
+      "resposta": "Nunca devemos usar bancos de dados, da pra fazer tudo com fisica 3",
+      "areaId": 3
+    }
   ]
 }

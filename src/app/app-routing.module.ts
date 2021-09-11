@@ -4,6 +4,7 @@ import { AlunoComponent } from "./aluno/aluno.component";
 import { AreaComponent } from "./area/area.component";
 import { AvaliacaoComponent } from "./avaliacao/avaliacao.component";
 import { DisciplinaComponent } from "./disciplina/disciplina.component";
+import { RespostaComponent } from "./resposta/resposta.component";
 import { TrilhaComponent } from "./trilha/trilha.component";
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'avaliacoes', component: AvaliacaoComponent },
   { path: 'trilhas', component: TrilhaComponent },
   { path: 'disciplinas', component: DisciplinaComponent },
-  { path: 'areas', component: AreaComponent }
+  { path: 'areas', component: AreaComponent },
+  { path: 'respostas', component: RespostaComponent }
 ];
 
 @NgModule({

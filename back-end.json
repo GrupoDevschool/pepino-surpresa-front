@@ -161,5 +161,37 @@
       "nome": "asdsaadsas",
       "id": 11
     }
+  ],
+  "gestores": [
+    {
+      "id": "1",
+      "nome":"Ronald Silva",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Angular"
+        },
+        {
+          "id": 2,
+          "nome": "Python"
+        }
+      ],
+      "tipo": "professor"
+    },
+    {
+      "id": "2",
+      "nome":"Marlucia Andressa",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Java"
+        },
+        {
+          "id": 2,
+          "nome": "Poo"
+        }
+      ],
+      "tipo": "Orientador"
+    }
   ]
 }

@@ -2,30 +2,32 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AlunoComponent } from './aluno/aluno.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
-import { DisciplinaComponent } from './disciplina/disciplina.component';
+
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { TrilhaComponent } from './trilha/trilha.component';
+
+import { AlunoComponent } from './aluno/aluno.component';
 import { AulaComponent } from './aula/aula.component';
 import { AreaComponent } from './area/area.component';
-import { RespostaComponent } from './resposta/resposta.component';
+import { AvaliacaoComponent } from './avaliacao/avaliacao.component';
+import { DisciplinaComponent } from './disciplina/disciplina.component';
 import { GestorComponent } from './gestor/gestor.component';
+import { RespostaComponent } from './resposta/resposta.component';
+import { TrilhaComponent } from './trilha/trilha.component';
 import { TurmaComponent } from './turma/turma.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlunoComponent,
-    AvaliacaoComponent,
-    TrilhaComponent,
-    DisciplinaComponent,
-    AulaComponent,
     AreaComponent,
-    RespostaComponent,
+    AulaComponent,
+    AvaliacaoComponent,
+    DisciplinaComponent,
     GestorComponent,
+    RespostaComponent,
+    TrilhaComponent,
     TurmaComponent
   ],
   imports: [

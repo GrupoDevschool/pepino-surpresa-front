@@ -34,16 +34,28 @@
       "id": 7,
       "data": "2021-09-01 23:00:00",
       "descricao": "Ablabluble"
+    }
+  ],
+  "aulas": [
+    {
+      "id": 1,
+      "data": "2021-09-11",
+      "assunto": "Berinjela"
     },
     {
-      "id": 8,
-      "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "id": 2,
+      "data": "2021-09-07",
+      "assunto": "Pepino 2"
     },
     {
-      "data": "2021-09-23",
-      "descricao": "ghgnnng",
-      "id": 9
+      "id": 3,
+      "data": "2021-09-04",
+      "assunto": "Pepino"
+    },
+    {
+      "id": 4,
+      "data": "2021-09-14",
+      "assunto": "Berinjela 2"
     }
   ],
   "alunos": [
@@ -284,6 +296,61 @@
       "id": 15,
       "resposta": "Nunca devemos usar bancos de dados, da pra fazer tudo com fisica 3",
       "areaId": 3
+    }
+  ],
+  "gestores": [
+    {
+      "id": "1",
+      "nome": "Ronald Silva",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Angular"
+        },
+        {
+          "id": 2,
+          "nome": "Python"
+        }
+      ],
+      "tipo": "professor"
+    },
+    {
+      "id": "2",
+      "nome": "Marlucia Ilma",
+      "disciplinas": [
+        {
+          "id": 1,
+          "nome": "Java"
+        },
+        {
+          "id": 2,
+          "nome": "Poo"
+        }
+      ],
+      "tipo": "Orientador"
+    }
+  ],
+  "turmas": [
+    {
+      "nome": "Devschool 2",
+      "alunos": [
+        {
+          "nome": "Lucao"
+        },
+        {
+          "nome": "Igor"
+        },
+        {
+          "nome": "Victor Hugo"
+        },
+        {
+          "nome": "Thales"
+        },
+        {
+          "nome": "Niasi"
+        }
+      ],
+      "id": 1
     }
   ]
 }

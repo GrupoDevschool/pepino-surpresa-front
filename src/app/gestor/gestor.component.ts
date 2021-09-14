@@ -1,8 +1,10 @@
+import { TurmaService } from './../core/turma.service';
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { DisciplinaService } from '../core/disciplina.service';
 import { GestorService } from '../core/gestor.service';
 import { Gestor } from '../shared/model/Gestor';
+import { Turma } from '../shared/model/Turma';
 import { Disciplina } from './../shared/model/Disciplina';
 
 
@@ -17,19 +19,29 @@ export class GestorComponent implements OnInit {
   gestor: Gestor = {} as Gestor;
   updatedGestor: Gestor = {} as Gestor;
   updatedDisciplinas: Disciplina[] = []
+  updatedTurmas: Turma[] = []
+
 
   modalIsVisible: boolean = false;
 
   disciplinas: Disciplina[];
+  turmas: Turma[];
+  tipos: string[] = ["professor", "orientador"]
 
   disciplinasSelecionadas = [];
-  dropdownSettings: IDropdownSettings = {};
+  turmasSelecionadas = [];
+  tiposSelecionados = []
 
-  constructor(private gestorService: GestorService, private disciplinaService: DisciplinaService) { }
+  dropdownSettings: IDropdownSettings = {};
+  dropdownSettings2: IDropdownSettings = {};
+
+  constructor(private gestorService: GestorService, private disciplinaService: DisciplinaService, private turmaService: TurmaService) { }
 
   ngOnInit(): void {
     this.reloadData();
     this.disciplinasSelecionadas = [];
+    this.turmasSelecionadas = []
+    this.tiposSelecionados = []
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -38,12 +50,23 @@ export class GestorComponent implements OnInit {
       unSelectAllText: 'Limpar seleção',
       itemsShowLimit: 3,
       allowSearchFilter: true
+    },
+    this.dropdownSettings2 = {
+      singleSelection: true,
+      idField: 'id',
+      textField: 'nome',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
     };
   }
 
   reloadData(){
     this.disciplinaService.list().subscribe((disciplinas) => {
       this.disciplinas = disciplinas;
+    })
+
+    this.turmaService.list().subscribe((turmas) => {
+      this.turmas = turmas;
     })
 
     this.gestorService.list().subscribe((gestores) => {
@@ -55,8 +78,13 @@ export class GestorComponent implements OnInit {
     return disciplinas.map((disciplina) => disciplina.nome).join(', ')
   }
 
+  formatTurma(turmas: Turma[]): string {
+    return turmas.map((turma) => turma.nome).join(', ')
+  }
+
   save() {
     this.gestor.disciplinas = this.disciplinasSelecionadas;
+    this.gestor.turmas = this.turmasSelecionadas;
     this.gestorService.save(this.gestor).subscribe(
       gestor => this.gestores.push(gestor),
       error => console.log(error)
@@ -65,6 +93,7 @@ export class GestorComponent implements OnInit {
 
   edit() {
     this.updatedGestor.disciplinas = this.updatedDisciplinas;
+    this.updatedGestor.turmas = this.updatedTurmas;
     this.gestorService.edit(this.updatedGestor).subscribe(() => {
         this.reloadData();
         this.closeModal();
@@ -93,6 +122,7 @@ export class GestorComponent implements OnInit {
   openModal(gestor: Gestor) {
     this.updatedGestor = Object.assign({}, gestor);
     this.updatedDisciplinas = this.updatedGestor.disciplinas;
+    this.updatedTurmas = this.updatedGestor.turmas;
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

@@ -180,31 +180,73 @@
   "disciplinas": [
     {
       "id": 1,
-      "nome": "Java"
+      "nome": "Java",
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Back-end"
+        }
+      ]
     },
     {
       "id": 2,
-      "nome": "Angular"
+      "nome": "Angular",
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Front-End"
+        }
+      ]
     },
     {
       "id": 3,
-      "nome": "Typescript"
+      "nome": "Typescript",
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Front-End"
+        }
+      ]
     },
     {
       "id": 4,
-      "nome": "HTML"
+      "nome": "HTML",
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Front-end"
+        }
+      ]
     },
     {
       "id": 5,
-      "nome": "Sass"
+      "nome": "Sass",
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Front-end"
+        }
+      ]
     },
     {
       "id": 6,
-      "nome": "Spring Framework"
+      "nome": "Spring Framework",
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Back-end"
+        }
+      ]
     },
     {
       "nome": "CSS",
-      "id": 7
+      "id": 7,
+      "areas": [
+        {
+          "id": 1,
+          "nome": "Front-end"
+        }
+      ]
     }
   ],
   "areas": [
@@ -301,7 +343,7 @@
   "gestores": [
     {
       "id": "1",
-      "nome": "Ronald Silva",
+      "nome": "Ronald Mcdonald",
       "disciplinas": [
         {
           "id": 1,
@@ -310,6 +352,12 @@
         {
           "id": 2,
           "nome": "Python"
+        }
+      ],
+      "turmas": [
+        {
+          "id": 1,
+          "nome": "Turma 1"
         }
       ],
       "tipo": "professor"
@@ -325,6 +373,16 @@
         {
           "id": 2,
           "nome": "Poo"
+        }
+      ],
+      "turmas": [
+        {
+          "id": 3,
+          "nome": "Turma 3"
+        },
+        {
+          "id": 4,
+          "nome": "Turma 4"
         }
       ],
       "tipo": "Orientador"

@@ -1,4 +1,4 @@
 export interface Area {
-  id?: number;
-  nome: string;
+  id: number;
+  descricao: string;
 }

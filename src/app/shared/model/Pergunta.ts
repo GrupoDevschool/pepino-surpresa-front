@@ -1,6 +1,8 @@
 import { Disciplina } from './Disciplina';
-export interface Resposta {
+import { Resposta } from './Resposta';
+export interface Pergunta {
   id: number;
   descricao: string;
   disciplina: Disciplina;
+  respostas: Resposta[];
 }

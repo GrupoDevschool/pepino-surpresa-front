@@ -59,11 +59,11 @@ export class AvaliacaoComponent implements OnInit {
   openModal(avaliacao: Avaliacao) {
     this.updatedAvaliacao = Object.assign({}, avaliacao);
     console.log(this.updatedAvaliacao);
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 }

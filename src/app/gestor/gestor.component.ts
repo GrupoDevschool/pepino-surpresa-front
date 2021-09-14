@@ -123,11 +123,11 @@ export class GestorComponent implements OnInit {
     this.updatedGestor = Object.assign({}, gestor);
     this.updatedDisciplinas = this.updatedGestor.disciplinas;
     this.updatedTurmas = this.updatedGestor.turmas;
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 

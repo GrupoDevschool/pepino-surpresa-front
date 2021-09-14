@@ -58,10 +58,10 @@ export class AreaComponent implements OnInit {
 
   openModal(area: Area) {
     this.updatedArea = Object.assign({}, area);
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 }

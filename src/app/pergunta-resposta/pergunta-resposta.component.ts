@@ -55,11 +55,11 @@ export class PerguntaRespostaComponent implements OnInit {
 
   openModal(pergunta: Pergunta) {
     this.updatedPergunta = Object.assign({}, pergunta);
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
   ngOnInit(): void {

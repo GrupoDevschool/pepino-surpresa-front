@@ -58,7 +58,7 @@ export class AulaComponent implements OnInit {
 
   openModal(aula: Aula) {
     this.updatedAula = Object.assign({}, aula);
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {

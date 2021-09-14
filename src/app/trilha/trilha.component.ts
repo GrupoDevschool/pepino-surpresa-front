@@ -93,11 +93,11 @@ export class TrilhaComponent implements OnInit {
   openModal(trilha: Trilha) {
     this.updatedTrilha = Object.assign({}, trilha);
     this.updatedDisciplinas = this.updatedTrilha.disciplinas;
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Resposta } from '../shared/model/Resposta';
-import { RespostaService } from './../core/resposta.service';
 import { DisciplinaService } from './../core/disciplina.service';
+import { RespostaService } from './../core/resposta.service';
 import { Disciplina } from './../shared/model/Disciplina';
 
 @Component({
@@ -68,11 +68,11 @@ export class RespostaComponent implements OnInit {
 
   openModal(resposta: Resposta) {
     this.updatedResposta = Object.assign({}, resposta);
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 }

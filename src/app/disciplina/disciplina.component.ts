@@ -96,11 +96,11 @@ export class DisciplinaComponent implements OnInit {
   openModal(disciplina: Disciplina) {
     this.updatedDisciplina = Object.assign({}, disciplina);
     this.updatedArea = this.updatedDisciplina.areas;
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible =  false;
   }
 
 }

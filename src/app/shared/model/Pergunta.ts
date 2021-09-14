@@ -1,11 +1,8 @@
+import { Disciplina } from './Disciplina';
+import { Resposta } from './Resposta';
 export interface Pergunta {
   id: number;
   descricao: string;
-  areaId: number;
-  respostaAId: number;
-  respostaBId: number;
-  respostaCId: number;
-  respostaDId: number;
-  respostaEId: number;
-  respostaCorretaId: number;
+  disciplina: Disciplina;
+  respostas: Resposta[];
 }

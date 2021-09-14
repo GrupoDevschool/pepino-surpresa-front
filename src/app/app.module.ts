@@ -16,6 +16,8 @@ import { GestorComponent } from './gestor/gestor.component';
 import { RespostaComponent } from './resposta/resposta.component';
 import { TrilhaComponent } from './trilha/trilha.component';
 import { TurmaComponent } from './turma/turma.component';
+import { PerguntaComponent } from './pergunta/pergunta.component';
+import { PerguntaRespostaComponent } from './pergunta-resposta/pergunta-resposta.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { TurmaComponent } from './turma/turma.component';
     AvaliacaoComponent,
     DisciplinaComponent,
     GestorComponent,
+    PerguntaComponent,
     RespostaComponent,
     TrilhaComponent,
-    TurmaComponent
+    TurmaComponent,
+    PerguntaRespostaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AreaService } from '../core/area.service';
-import { Area } from '../shared/model/Area';
 import { Resposta } from '../shared/model/Resposta';
 import { RespostaService } from './../core/resposta.service';
+import { DisciplinaService } from './../core/disciplina.service';
+import { Disciplina } from './../shared/model/Disciplina';
 
 @Component({
   selector: 'app-resposta',
@@ -15,11 +15,11 @@ export class RespostaComponent implements OnInit {
   resposta: Resposta = {} as Resposta;
   updatedResposta: Resposta = {} as Resposta;
 
-  areas: Area[];
+  disciplinas: Disciplina[];
 
   modalIsVisible: boolean = false;
 
-  constructor(private RespostaService:RespostaService, private AreaService: AreaService) { }
+  constructor(private RespostaService:RespostaService, private DisciplinaService: DisciplinaService) { }
 
   ngOnInit(): void {
     this.reloadData();
@@ -30,13 +30,9 @@ export class RespostaComponent implements OnInit {
       this.respostas = respostas;
     });
 
-    this.AreaService.list().subscribe((areas) => {
-      this.areas = areas;
+    this.DisciplinaService.list().subscribe((Disciplina) => {
+      this.disciplinas = Disciplina;
     });
-  }
-
-  getAreaName(id: number) {
-    return this.areas.find((element) => element.id === id).nome;
   }
 
   save() {
@@ -64,6 +60,10 @@ export class RespostaComponent implements OnInit {
           this.respostas = this.respostas.filter((element) => element.id !== id)
       }
     )
+  }
+
+  formatDisciplina(disciplinas: Disciplina[]): string {
+    return disciplinas.map((disciplina) => disciplina.nome).join(', ')
   }
 
   openModal(resposta: Resposta) {

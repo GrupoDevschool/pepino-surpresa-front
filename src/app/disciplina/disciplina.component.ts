@@ -1,9 +1,9 @@
-import { AreaService } from './../core/area.service';
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { DisciplinaService } from '../core/disciplina.service';
 import { Area } from '../shared/model/Area';
 import { Disciplina } from '../shared/model/Disciplina';
+import { AreaService } from './../core/area.service';
 
 @Component({
   selector: 'app-disciplina',
@@ -53,7 +53,8 @@ export class DisciplinaComponent implements OnInit {
   }
 
   formatArea(areas: Area[]): string {
-    return areas.map((area) => area.nome).join(', ')
+    console.log(areas);
+    return areas.map((area) => area.descricao).join(', ')
   }
 
   save() {

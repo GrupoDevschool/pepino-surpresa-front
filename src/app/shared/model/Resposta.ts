@@ -1,5 +1,6 @@
+import { Disciplina } from './Disciplina';
 export interface Resposta {
-  id?: number;
-  resposta: string;
-  areaId: number;
+  id: number;
+  descricao: string;
+  disciplina: Disciplina;
 }

@@ -1,1 +1,61 @@
-<p>pergunta works!</p>
+<div class="form col-md-4">
+  <form (ngSubmit)="save()">
+    <h2>Nova Pergunta</h2>
+
+    <div class="form-group textarea">
+      <label class="form-field__label" for="descricao">Descrição</label>
+        <textarea
+          class="form-control"
+          id="descricao"
+          type="text"
+          [(ngModel)]="pergunta.descricao"
+          name="descricao"
+        ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="form-field__label" for="disciplina">Disciplina</label>
+        <select
+          class="form-control"
+          id="disciplina"
+          type="select"
+          [(ngModel)]="pergunta.disciplina"
+          name="disciplina"
+          (change)="changeSelect('disciplina')">
+          <option *ngFor="let disciplina of disciplinas" [ngValue]="disciplina">{{disciplina.nome}}</option>
+        </select>
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Perguntas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Descricao</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pergunta of perguntas">
+          <td class="col-md-2">{{ pergunta.disciplina.nome }}</td>
+          <td class="col-md-8"><a routerLink="{{pergunta.id}}">{{ pergunta.descricao }}</a></td>
+          <td class="col-md-2">
+            <button (click)="delete(pergunta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+

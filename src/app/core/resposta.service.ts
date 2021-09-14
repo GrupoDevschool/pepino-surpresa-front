@@ -23,8 +23,8 @@ export class RespostaService {
     return this.http.get<Resposta[]>(url);
   }
 
-  listByArea(id: number): Observable<Resposta[]> {
-    return this.http.get<Resposta[]>(url + `?areaId=${id}`);
+  listByDisciplina(id: number): Observable<Resposta[]> {
+    return this.http.get<Resposta[]>(url + `?disciplinaId=${id}`);
   }
 
   show(id: number): Observable<Resposta> {

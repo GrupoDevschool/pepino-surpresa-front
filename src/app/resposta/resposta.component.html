@@ -3,26 +3,26 @@
     <h2>Nova Resposta</h2>
 
     <div class="form-group">
-      <label class="form-field__label" for="areaId">Area</label>
+      <label class="form-field__label" for="disciplina">Disciplina</label>
         <select
           class="form-control"
-          id="areaId"
+          id="disciplina"
           type="select"
-          [(ngModel)]="resposta.areaId"
-          name="areaId"
+          [(ngModel)]="resposta.disciplina"
+          name="disciplina"
         >
-          <option *ngFor="let area of areas" [ngValue]="area.id">{{area.nome}}</option>
+          <option *ngFor="let disciplina of disciplinas" [ngValue]="disciplina">{{disciplina.nome}}</option>
         </select>
     </div>
 
     <div class="form-group textarea">
-      <label class="form-field__label" for="resposta">Resposta</label>
+      <label class="form-field__label" for="descricao">Descrição</label>
         <textarea
           class="form-control"
-          id="resposta"
+          id="descricao"
           type="text"
-          [(ngModel)]="resposta.resposta"
-          name="resposta"
+          [(ngModel)]="resposta.descricao"
+          name="descricao"
         ></textarea>
     </div>
 
@@ -39,15 +39,15 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Área</th>
-          <th>Resposta</th>
+          <th>Disciplina</th>
+          <th>Descrição</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let resposta of respostas">
-          <td class="col-md-2">{{ getAreaName(resposta.areaId) }}</td>
-          <td class="col-md-8">{{ resposta.resposta }}</td>
+          <td class="col-md-2">{{ resposta.disciplina.nome }}</td>
+          <td class="col-md-8">{{ resposta.descricao }}</td>
           <td class="col-md-2">
             <button (click)="openModal(resposta)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(resposta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -62,26 +62,26 @@
       <button class="close-button" (click)="closeModal()"><span>X</span></button>
       <form (ngSubmit)="edit()">
         <div class="form-group">
-          <label class="form-field__label" for="areaId">Area</label>
+          <label class="form-field__label" for="areaId">Disciplina</label>
             <select
               class="form-control"
               id="areaId"
               type="select"
-              [(ngModel)]="updatedResposta.areaId"
+              [(ngModel)]="updatedResposta.disciplina"
               name="areaId"
             >
-              <option *ngFor="let area of areas" [value]="area.id">{{area.nome}}</option>
+              <option *ngFor="let disciplina of disciplinas" [value]="disciplina">{{disciplina.nome}}</option>
             </select>
         </div>
 
         <div class="form-group textarea">
-          <label class="form-field__label" for="resposta">Resposta</label>
+          <label class="form-field__label" for="descricao">Descrição</label>
             <textarea
               class="form-control"
-              id="resposta"
+              id="descricao"
               type="text"
-              [(ngModel)]="updatedResposta.resposta"
-              name="resposta"
+              [(ngModel)]="updatedResposta.descricao"
+              name="descricao"
             ></textarea>
         </div>
 

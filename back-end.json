@@ -438,7 +438,7 @@
   "gestores": [
     {
       "id": "1",
-      "nome": "Ronald Silva",
+      "nome": "Ronald Mcdonald",
       "disciplinas": [
         {
           "id": 1,
@@ -447,6 +447,12 @@
         {
           "id": 2,
           "nome": "Python"
+        }
+      ],
+      "turmas": [
+        {
+          "id": 1,
+          "nome": "Turma 1"
         }
       ],
       "tipo": "professor"
@@ -462,6 +468,16 @@
         {
           "id": 2,
           "nome": "Poo"
+        }
+      ],
+      "turmas": [
+        {
+          "id": 3,
+          "nome": "Turma 3"
+        },
+        {
+          "id": 4,
+          "nome": "Turma 4"
         }
       ],
       "tipo": "Orientador"

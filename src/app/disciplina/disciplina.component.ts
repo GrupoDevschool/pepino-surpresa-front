@@ -1,5 +1,8 @@
+import { AreaService } from './../core/area.service';
 import { Component, OnInit } from '@angular/core';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { DisciplinaService } from '../core/disciplina.service';
+import { Area } from '../shared/model/Area';
 import { Disciplina } from '../shared/model/Disciplina';
 
 @Component({
@@ -12,23 +15,49 @@ export class DisciplinaComponent implements OnInit {
   disciplinas: Disciplina[];
   disciplina: Disciplina = {} as Disciplina;
   updatedDisciplina: Disciplina = {} as Disciplina;
+  updatedArea: Area[] = [];
 
   modalIsVisible: boolean = false;
 
-  constructor(private disciplinaService:DisciplinaService) {
+  areas: Area[];
+
+  areasSelecionadas = [];
+
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private disciplinaService:DisciplinaService, private areaService: AreaService) {
   }
 
   ngOnInit(): void {
     this.reloadData();
+    this.areasSelecionadas = []
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'nome',
+      selectAllText: 'Selecionar todas',
+      unSelectAllText: 'Limpar seleção',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    }
   }
 
   reloadData() {
     this.disciplinaService.list().subscribe((disciplinas) => {
       this.disciplinas = disciplinas;
     });
+
+    this.areaService.list().subscribe((areas) => {
+      this.areas = areas;
+    });
+  }
+
+  formatArea(areas: Area[]): string {
+    return areas.map((area) => area.nome).join(', ')
   }
 
   save() {
+    this.disciplina.areas = this.areasSelecionadas;
     this.disciplinaService.save(this.disciplina).subscribe(
       disciplina => this.disciplinas.push(disciplina),
       error => console.log(error)
@@ -36,6 +65,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   edit() {
+    this.updatedDisciplina.areas = this.updatedArea;
     this.disciplinaService.edit(this.updatedDisciplina).subscribe(
       () => {
         this.reloadData();
@@ -55,8 +85,16 @@ export class DisciplinaComponent implements OnInit {
     )
   }
 
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
   openModal(disciplina: Disciplina) {
     this.updatedDisciplina = Object.assign({}, disciplina);
+    this.updatedArea = this.updatedDisciplina.areas;
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

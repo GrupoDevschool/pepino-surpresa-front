@@ -13,6 +13,18 @@
         />
     </div>
 
+    <label class="form-field__label" for="nome">Áreas</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'Selecionar áreas'"
+    [settings]="dropdownSettings"
+    [data]="areas"
+    [(ngModel)]="areasSelecionadas"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    name="disciplinas"
+  >
+    </ng-multiselect-dropdown>
+
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
     </div>
@@ -27,12 +39,14 @@
       <thead>
         <tr>
           <th>Nome</th>
+          <th>Área</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let disciplina of disciplinas">
           <td class="col-md-8">{{ disciplina.nome }}</td>
+          <td class="col-md-2">{{ formatArea(disciplina.areas)}}</td>
           <td class="col-md-2">
             <button (click)="openModal(disciplina)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(disciplina.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -56,6 +70,18 @@
             placeholder="Nome"
             [(ngModel)]="updatedDisciplina.nome"/>
         </div>
+
+        <label class="form-field__label" for="areas">Áreas</label>
+        <ng-multiselect-dropdown
+        [placeholder]="'Selecionar áreas'"
+        [settings]="dropdownSettings"
+        [data]="areas"
+        [(ngModel)]="updatedArea"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        name="area"
+      >
+        </ng-multiselect-dropdown>
 
         <div class="btn-wrapper">
           <button class="btn btn-primary col-md-3" type="submit">Salvar</button>

@@ -78,6 +78,10 @@ export class GestorComponent implements OnInit {
     return disciplinas.map((disciplina) => disciplina.nome).join(', ')
   }
 
+  formatTurma(turmas: Turma[]): string {
+    return turmas.map((turma) => turma.nome).join(', ')
+  }
+
   save() {
     this.gestor.disciplinas = this.disciplinasSelecionadas;
     this.gestor.turmas = this.turmasSelecionadas;

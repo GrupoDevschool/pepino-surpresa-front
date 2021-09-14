@@ -73,7 +73,7 @@
           <td class="col-md-2">{{ gestor.nome }}</td>
           <td class="col-md-2">{{ gestor.tipo }}</td>
           <td class="col-md-4">{{ formatDisciplina(gestor.disciplinas) }}</td>
-          <td class="col-md-2">{{formatDisciplina(gestor.turmas)}}</td>
+          <td class="col-md-2">{{ formatTurma(gestor.turmas)}}</td>
           <td class="col-md-2">
             <button (click)="openModal(gestor)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(gestor.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>

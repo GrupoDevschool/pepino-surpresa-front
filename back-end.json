@@ -438,49 +438,29 @@
   "gestores": [
     {
       "id": "1",
-      "nome": "Ronald Mcdonald",
-      "disciplinas": [
+      "nome": "Carlos",
+      "tipo": "Professor",
+      "aulas": [
         {
           "id": 1,
-          "nome": "Angular"
+          "assunto":"Pepino 2"
         },
         {
           "id": 2,
-          "nome": "Python"
+          "assunto": "Berinjela 2"
         }
-      ],
-      "turmas": [
-        {
-          "id": 1,
-          "nome": "Turma 1"
-        }
-      ],
-      "tipo": "professor"
+      ]
     },
     {
       "id": "2",
-      "nome": "Marlucia Ilma",
-      "disciplinas": [
-        {
-          "id": 1,
-          "nome": "Java"
-        },
+      "nome": "Marcão",
+      "tipo": "Orientador",
+      "aulas": [
         {
           "id": 2,
-          "nome": "Poo"
+          "assunto":"Berinjela 2"
         }
-      ],
-      "turmas": [
-        {
-          "id": 3,
-          "nome": "Turma 3"
-        },
-        {
-          "id": 4,
-          "nome": "Turma 4"
-        }
-      ],
-      "tipo": "Orientador"
+      ]
     }
   ],
   "turmas": [

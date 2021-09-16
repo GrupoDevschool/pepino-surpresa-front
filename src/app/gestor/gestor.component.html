@@ -13,30 +13,6 @@
       />
     </div>
 
-    <label class="form-field__label" for="nome">Disciplinas</label>
-    <ng-multiselect-dropdown
-    [placeholder]="'Selecionar disciplinas'"
-    [settings]="dropdownSettings"
-    [data]="disciplinas"
-    [(ngModel)]="disciplinasSelecionadas"
-    (onSelect)="onItemSelect($event)"
-    (onSelectAll)="onSelectAll($event)"
-    name="disciplinas"
-  >
-    </ng-multiselect-dropdown>
-
-    <label class="form-field__label" for="turma">Turmas</label>
-    <ng-multiselect-dropdown
-    [placeholder]="'Selecionar turmas'"
-    [settings]="dropdownSettings"
-    [data]="turmas"
-    [(ngModel)]="turmasSelecionadas"
-    (onSelect)="onItemSelect($event)"
-    (onSelectAll)="onSelectAll($event)"
-    name="turmas"
-  >
-    </ng-multiselect-dropdown>
-
     <label class="form-field__label" for="tipo">Tipo</label>
     <ng-multiselect-dropdown
     [placeholder]="'Selecionar tipo'"
@@ -45,6 +21,18 @@
     [(ngModel)]="gestor.tipo"
     (onSelect)="onItemSelect($event)"
     name="tipo"
+  >
+    </ng-multiselect-dropdown>
+
+    <label class="form-field__label" for="aula">Aulas</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'Selecionar aulas'"
+    [settings]="dropdownSettings"
+    [data]="aulas"
+    [(ngModel)]="aulasSelecionadas"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    name="aula"
   >
     </ng-multiselect-dropdown>
 
@@ -63,8 +51,7 @@
         <tr>
           <th>Nome</th>
           <th>Tipo</th>
-          <th>Disciplinas</th>
-          <th>Turmas</th>
+          <th>Aulas</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
@@ -72,8 +59,7 @@
         <tr *ngFor="let gestor of gestores">
           <td class="col-md-2">{{ gestor.nome }}</td>
           <td class="col-md-2">{{ gestor.tipo }}</td>
-          <td class="col-md-4">{{ formatDisciplina(gestor.disciplinas) }}</td>
-          <td class="col-md-2">{{ formatTurma(gestor.turmas)}}</td>
+          <td class="col-md-4">{{ formatAulas(gestor.aulas) }}</td>
           <td class="col-md-2">
             <button (click)="openModal(gestor)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(gestor.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -99,30 +85,6 @@
             />
           </div>
 
-          <label class="form-field__label" for="disciplina">Disciplinas</label>
-          <ng-multiselect-dropdown
-          [placeholder]="'Selecionar disciplinas'"
-          [settings]="dropdownSettings"
-          [data]="disciplinas"
-          [(ngModel)]="updatedDisciplinas"
-          (onSelect)="onItemSelect($event)"
-          (onSelectAll)="onSelectAll($event)"
-          name="disciplinas"
-        >
-        </ng-multiselect-dropdown>
-
-        <label class="form-field__label" for="turma">Turmas</label>
-          <ng-multiselect-dropdown
-          [placeholder]="'Selecionar turmas'"
-          [settings]="dropdownSettings"
-          [data]="turmas"
-          [(ngModel)]="updatedTurmas"
-          (onSelect)="onItemSelect($event)"
-          (onSelectAll)="onSelectAll($event)"
-          name="turma"
-        >
-        </ng-multiselect-dropdown>
-
         <label class="form-field__label" for="tipo">Tipo</label>
         <ng-multiselect-dropdown
         [placeholder]="'Selecionar tipo'"
@@ -131,6 +93,18 @@
         [(ngModel)]="updatedGestor.tipo"
         (onSelect)="onItemSelect($event)"
         name="tipo"
+      >
+        </ng-multiselect-dropdown>
+
+        <label class="form-field__label" for="aula">Aulas</label>
+        <ng-multiselect-dropdown
+        [placeholder]="'Selecionar aulas'"
+        [settings]="dropdownSettings"
+        [data]="aulas"
+        [(ngModel)]="updatedGestor.aulas"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        name="aula"
       >
         </ng-multiselect-dropdown>
 

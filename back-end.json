@@ -247,16 +247,6 @@
           "descricao": "Back-end"
         }
       ]
-    },
-    {
-      "nome": "novo",
-      "areas": [
-        {
-          "id": 3,
-          "descricao": "Infra-end"
-        }
-      ],
-      "id": 8
     }
   ],
   "areas": [
@@ -471,19 +461,6 @@
           "assunto": "Pepino"
         }
       ]
-    },
-    {
-      "tipo": [
-        "Coordenador"
-      ],
-      "nome": "Ronaldo Mcdonal",
-      "aulas": [
-        {
-          "id": 3,
-          "assunto": "Pepino"
-        }
-      ],
-      "id": "L5qJsdt"
     }
   ],
   "turmas": [

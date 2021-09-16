@@ -32,10 +32,9 @@ export class DisciplinaComponent implements OnInit {
     this.reloadData();
     this.areasSelecionadas = []
     this.dropdownSettings = {
-      singleSelection: false,
+      singleSelection: true,
       idField: 'id',
-      textField: 'nome',
-      selectAllText: 'Selecionar todas',
+      textField: 'descricao',
       unSelectAllText: 'Limpar seleção',
       itemsShowLimit: 3,
       allowSearchFilter: true

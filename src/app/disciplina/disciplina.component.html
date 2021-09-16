@@ -73,12 +73,11 @@
 
         <label class="form-field__label" for="areas">Áreas</label>
         <ng-multiselect-dropdown
-        [placeholder]="'Selecionar áreas'"
+        [placeholder]="'Selecionar área'"
         [settings]="dropdownSettings"
         [data]="areas"
         [(ngModel)]="updatedArea"
         (onSelect)="onItemSelect($event)"
-        (onSelectAll)="onSelectAll($event)"
         name="area"
       >
         </ng-multiselect-dropdown>

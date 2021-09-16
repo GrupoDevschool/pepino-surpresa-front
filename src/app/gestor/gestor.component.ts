@@ -37,7 +37,7 @@ export class GestorComponent implements OnInit {
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
-      textField: 'nome',
+      textField: 'assunto',
       selectAllText: 'Selecionar todas',
       unSelectAllText: 'Limpar seleção',
       itemsShowLimit: 3,

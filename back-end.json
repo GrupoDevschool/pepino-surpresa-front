@@ -243,10 +243,20 @@
       "id": 7,
       "areas": [
         {
-          "id": 1,
-          "descricao": "Front-end"
+          "id": 2,
+          "descricao": "Back-end"
         }
       ]
+    },
+    {
+      "nome": "novo",
+      "areas": [
+        {
+          "id": 3,
+          "descricao": "Infra-end"
+        }
+      ],
+      "id": 8
     }
   ],
   "areas": [
@@ -457,10 +467,23 @@
       "tipo": "Orientador",
       "aulas": [
         {
-          "id": 2,
-          "assunto": "Berinjela 2"
+          "id": 3,
+          "assunto": "Pepino"
         }
       ]
+    },
+    {
+      "tipo": [
+        "Coordenador"
+      ],
+      "nome": "Ronaldo Mcdonal",
+      "aulas": [
+        {
+          "id": 3,
+          "assunto": "Pepino"
+        }
+      ],
+      "id": "L5qJsdt"
     }
   ],
   "turmas": [

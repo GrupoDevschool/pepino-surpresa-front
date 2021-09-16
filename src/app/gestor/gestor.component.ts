@@ -1,15 +1,10 @@
 import { AulaService } from './../core/aula.service';
-import { TurmaService } from './../core/turma.service';
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { DisciplinaService } from '../core/disciplina.service';
 import { GestorService } from '../core/gestor.service';
 import { Gestor } from '../shared/model/Gestor';
-import { Turma } from '../shared/model/Turma';
-import { Disciplina } from './../shared/model/Disciplina';
 import { Aula } from '../shared/model/Aula';
-
-
+import { TipoGestor} from '../shared/model/TipoGestor';
 @Component({
   selector: 'app-gestor',
   templateUrl: './gestor.component.html',
@@ -22,23 +17,22 @@ export class GestorComponent implements OnInit {
   updatedGestor: Gestor = {} as Gestor;
   updatedAulas: Aula[] = []
 
-
   modalIsVisible: boolean = false;
 
-  tipos: string[] = ["professor", "orientador"]
   aulas: Aula[];
 
-  tiposSelecionados = []
   aulasSelecionadas = [];
 
   dropdownSettings: IDropdownSettings = {};
   dropdownSettings2: IDropdownSettings = {};
 
+  /*Enum TipoGestor*/
+  public tipoGestor = Object.values(TipoGestor);
+
   constructor(private gestorService: GestorService, private aulaService: AulaService) { }
 
   ngOnInit(): void {
     this.reloadData();
-    this.tiposSelecionados = []
     this.aulasSelecionadas = []
     this.dropdownSettings = {
       singleSelection: false,

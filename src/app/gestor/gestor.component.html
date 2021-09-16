@@ -17,7 +17,7 @@
     <ng-multiselect-dropdown
     [placeholder]="'Selecionar tipo'"
     [settings]="dropdownSettings2"
-    [data]="tipos"
+    [data]="tipoGestor"
     [(ngModel)]="gestor.tipo"
     (onSelect)="onItemSelect($event)"
     name="tipo"
@@ -89,7 +89,7 @@
         <ng-multiselect-dropdown
         [placeholder]="'Selecionar tipo'"
         [settings]="dropdownSettings2"
-        [data]="tipos"
+        [data]="tipoGestor"
         [(ngModel)]="updatedGestor.tipo"
         (onSelect)="onItemSelect($event)"
         name="tipo"

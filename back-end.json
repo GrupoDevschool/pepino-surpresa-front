@@ -443,7 +443,7 @@
       "aulas": [
         {
           "id": 1,
-          "assunto":"Pepino 2"
+          "assunto": "Pepino 2"
         },
         {
           "id": 2,
@@ -458,7 +458,7 @@
       "aulas": [
         {
           "id": 2,
-          "assunto":"Berinjela 2"
+          "assunto": "Berinjela 2"
         }
       ]
     }

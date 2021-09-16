@@ -85,28 +85,28 @@
             />
           </div>
 
-        <label class="form-field__label" for="tipo">Tipo</label>
-        <ng-multiselect-dropdown
-        [placeholder]="'Selecionar tipo'"
-        [settings]="dropdownSettings2"
-        [data]="tipoGestor"
-        [(ngModel)]="updatedGestor.tipo"
-        (onSelect)="onItemSelect($event)"
-        name="tipo"
-      >
-        </ng-multiselect-dropdown>
+          <label class="form-field__label" for="tipo">Tipo</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar tipo'"
+          [settings]="dropdownSettings2"
+          [data]="tipoGestor"
+          [(ngModel)]="updatedGestor.tipo"
+          (onSelect)="onItemSelect($event)"
+          name="tipo"
+        >
+          </ng-multiselect-dropdown>
 
-        <label class="form-field__label" for="aula">Aulas</label>
-        <ng-multiselect-dropdown
-        [placeholder]="'Selecionar aulas'"
-        [settings]="dropdownSettings"
-        [data]="aulas"
-        [(ngModel)]="updatedGestor.aulas"
-        (onSelect)="onItemSelect($event)"
-        (onSelectAll)="onSelectAll($event)"
-        name="aulas"
-      >
-        </ng-multiselect-dropdown>
+          <label class="form-field__label" for="aulas">Aulas</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar aulas'"
+          [settings]="dropdownSettings"
+          [data]="aulas"
+          [(ngModel)]="updatedAulas"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)"
+          name="aulas"
+        >
+          </ng-multiselect-dropdown>
 
           <div class="btn-wrapper">
             <button class="btn btn-primary col-md-3" type="submit">Salvar</button>

@@ -45,10 +45,8 @@ export class GestorComponent implements OnInit {
     },
     this.dropdownSettings2 = {
       singleSelection: true,
-      idField: 'id',
-      textField: 'nome',
       itemsShowLimit: 3,
-      allowSearchFilter: true
+      allowSearchFilter: false
     };
   }
 

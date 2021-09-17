@@ -184,7 +184,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Back-end"
+          "nome": "Back-end"
         }
       ]
     },
@@ -194,7 +194,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Front-End"
+          "nome": "Front-End"
         }
       ]
     },
@@ -204,7 +204,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Front-End"
+          "nome": "Front-End"
         }
       ]
     },
@@ -214,7 +214,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Front-end"
+          "nome": "Front-end"
         }
       ]
     },
@@ -224,7 +224,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Front-end"
+          "nome": "Front-end"
         }
       ]
     },
@@ -234,7 +234,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Back-end"
+          "nome": "Back-end"
         }
       ]
     },
@@ -244,7 +244,7 @@
       "areas": [
         {
           "id": 1,
-          "descricao": "Front-end"
+          "nome": "Front-end"
         }
       ]
     }
@@ -252,15 +252,15 @@
   "areas": [
     {
       "id": 1,
-      "descricao": "Front-end"
+      "nome": "Front-end"
     },
     {
       "id": 2,
-      "descricao": "Back-end"
+      "nome": "Back-end"
     },
     {
       "id": 3,
-      "descricao": "Infra-end"
+      "nome": "Infra-end"
     }
   ],
   "respostas": [

@@ -34,7 +34,7 @@ export class DisciplinaComponent implements OnInit {
     this.dropdownSettings = {
       singleSelection: true,
       idField: 'id',
-      textField: 'descricao',
+      textField: 'nome',
       unSelectAllText: 'Limpar seleção',
       itemsShowLimit: 3,
       allowSearchFilter: true
@@ -53,7 +53,7 @@ export class DisciplinaComponent implements OnInit {
 
   formatArea(areas: Area[]): string {
     console.log(areas);
-    return areas.map((area) => area.descricao).join(', ')
+    return areas.map((area) => area.nome).join(', ')
   }
 
   save() {

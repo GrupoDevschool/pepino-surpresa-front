@@ -23,6 +23,10 @@ export class DisciplinaService {
     return this.http.get<Disciplina[]>(url);
   }
 
+  listByArea(id: number): Observable<Disciplina[]> {
+    return this.http.get<Disciplina[]>(url + `?areaId=${id}`)
+  }
+
   show(id: number): Observable<Disciplina> {
     return this.http.get<Disciplina>(url + id);
   }

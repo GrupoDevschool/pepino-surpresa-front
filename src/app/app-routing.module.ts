@@ -6,7 +6,6 @@ import { AulaComponent } from "./aula/aula.component";
 import { AvaliacaoComponent } from "./avaliacao/avaliacao.component";
 import { DisciplinaComponent } from "./disciplina/disciplina.component";
 import { GestorComponent } from "./gestor/gestor.component";
-import { PerguntaRespostaComponent } from './pergunta-resposta/pergunta-resposta.component';
 import { PerguntaComponent } from './pergunta/pergunta.component';
 import { RespostaComponent } from "./resposta/resposta.component";
 import { TrilhaComponent } from "./trilha/trilha.component";
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'gestores', component: GestorComponent },
   { path: 'respostas', component: RespostaComponent },
   { path: 'perguntas', component: PerguntaComponent },
-  { path: 'perguntas/:perguntaSlug', component: PerguntaRespostaComponent },
   { path: 'trilhas', component: TrilhaComponent },
   { path: 'turmas', component: TurmaComponent }
 ];

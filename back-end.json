@@ -266,173 +266,353 @@
   "respostas": [
     {
       "id": 1,
-      "descricao": "A terra não é plana e isso tem a ver com front-end, pois é normal trabalhar com geolocalização",
+      "conteudo": "A terra não é plana e isso tem a ver com front-end, pois é normal trabalhar com geolocalização",
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "area": {}
+        "areas": [{
+          "id": 1,
+          "descricao": "Front-end"
+        }]
       }
     },
     {
       "id": 2,
-      "descricao": "A terra é plana e não tem a ver com front-end, nunca usaremos mapas no front-end",
+      "conteudo": "A terra é plana e não tem a ver com front-end, nunca usaremos mapas no front-end",
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "area": {}
+        "areas": [{
+          "id": 1,
+          "descricao": "Front-end"
+        }]
       }
     },
     {
       "id": 3,
-      "descricao": "A terra é plana e isso tem a ver com front-end, desenhamos o mapa 2D",
+      "conteudo": "A terra é plana e isso tem a ver com front-end, desenhamos o mapa 2D",
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "area": {}
+        "areas": [{
+          "id": 1,
+          "descricao": "Front-end"
+        }]
       }
     },
     {
       "id": 4,
-      "descricao": "A terra não é plana e isso não tem a ver com front-end, pois é dificil renderizar um globo 3D",
+      "conteudo": "A terra não é plana e isso não tem a ver com front-end, pois é dificil renderizar um globo 3D",
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "area": {}
+        "areas": [{
+          "id": 1,
+          "descricao": "Front-end"
+        }]
       }
     },
     {
       "id": 5,
-      "descricao": "A terra não é e isso tem a ver com front-end, importante mesmo é estudar fisica 3",
+      "conteudo": "A terra não é e isso tem a ver com front-end, importante mesmo é estudar fisica 3",
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "area": {}
+        "areas": [{
+          "id": 1,
+          "descricao": "Front-end"
+        }]
       }
     },
     {
       "id": 6,
-      "descricao": "Estudar servlets é importante, pois uma mente desgraçada programa melhor",
+      "conteudo": "Estudar servlets é importante, pois uma mente desgraçada programa melhor",
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 7,
-      "descricao": "Estudar servlets é importante, pois é a base da programação web em java",
+      "conteudo": "Estudar servlets é importante, pois é a base da programação web em java",
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 8,
-      "descricao": "Estudar servlets não é importante, pois desgraça a mente do programador programa",
+      "conteudo": "Estudar servlets não é importante, pois desgraça a mente do programador programa",
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 9,
-      "descricao": "Estudar servlets não é importante, todas as imprementações modernas não os levam em conta",
+      "conteudo": "Estudar servlets não é importante, todas as imprementações modernas não os levam em conta",
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 10,
-      "descricao": "Estudar servlets não é importante, importante mesmo pra java é estudar fisica 3",
+      "conteudo": "Estudar servlets não é importante, importante mesmo pra java é estudar fisica 3",
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 11,
-      "descricao": "Nunca devemos usar banco SQL, bancos NoSQL são o futuro",
+      "conteudo": "Nunca devemos usar banco SQL, bancos NoSQL são o futuro",
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 12,
-      "descricao": "Nunca devemos usar banco SQL, visto que a vida é a espera da morte",
+      "conteudo": "Nunca devemos usar banco SQL, visto que a vida é a espera da morte",
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 13,
-      "descricao": "Devemos usar banco SQL, quando precisamos de um modelo mais rigido e menos tolerante a falhas",
+      "conteudo": "Devemos usar banco SQL, quando precisamos de um modelo mais rigido e menos tolerante a falhas",
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 14,
-      "descricao": "Devemos usar banco SQL, pois hoje em dia tudo é Rede social",
+      "conteudo": "Devemos usar banco SQL, pois hoje em dia tudo é Rede social",
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     },
     {
       "id": 15,
-      "descricao": "Nunca devemos usar bancos de dados, da pra fazer tudo com fisica 9",
+      "conteudo": "Nunca devemos usar bancos de dados, da pra fazer tudo com fisica 3",
       "disciplina": {
         "id": 3,
         "nome": "Mysql",
-        "area": {}
+        "areas": [{
+          "id": 2,
+          "descricao": "Back-end"
+        }]
       }
     }
   ],
   "perguntas": [
     {
       "id": 1,
-      "descricao": "A terra é plana? O que isso tem a ver com o front-end?",
-      "areaId": 1,
-      "respostaAId": 1,
-      "respostaBId": 2,
-      "respostaCId": 3,
-      "respostaDId": 4,
-      "respostaEId": 5,
-      "respostaCorretaId": 1
+      "enunciado": "A terra é plana? O que isso tem a ver com o front-end?",
+      "disciplina": {
+        "id": 2,
+        "nome": "Angular",
+        "area": {}
+      },
+      "respostas": [
+        {
+          "id": 1,
+          "conteudo": "A terra não é plana e isso tem a ver com front-end, pois é normal trabalhar com geolocalização",
+          "disciplina": {
+            "id": 2,
+            "nome": "Angular",
+            "area": {}
+          }
+        },
+        {
+          "id": 2,
+          "conteudo": "A terra é plana e não tem a ver com front-end, nunca usaremos mapas no front-end",
+          "disciplina": {
+            "id": 2,
+            "nome": "Angular",
+            "area": {}
+          }
+        },
+        {
+          "id": 3,
+          "conteudo": "A terra é plana e isso tem a ver com front-end, desenhamos o mapa 2D",
+          "disciplina": {
+            "id": 2,
+            "nome": "Angular",
+            "area": {}
+          }
+        },
+        {
+          "id": 4,
+          "conteudo": "A terra não é plana e isso não tem a ver com front-end, pois é dificil renderizar um globo 3D",
+          "disciplina": {
+            "id": 2,
+            "nome": "Angular",
+            "area": {}
+          }
+        },
+        {
+          "id": 5,
+          "conteudo": "A terra não é e isso tem a ver com front-end, importante mesmo é estudar fisica 3",
+          "disciplina": {
+            "id": 2,
+            "nome": "Angular",
+            "area": {}
+          }
+        }
+      ]
     },
     {
       "id": 2,
-      "descricao": "Devemos aprender servlets?",
-      "areaId": 2,
-      "respostaAId": 6,
-      "respostaBId": 7,
-      "respostaCId": 8,
-      "respostaDId": 9,
-      "respostaEId": 10,
-      "respostaCorretaId": 7
+      "enunciado": "Devemos aprender servlets?",
+      "disciplina": {
+        "id": 1,
+        "nome": "Java",
+        "area": {}
+      },
+      "respostas": [
+        {
+          "id": 6,
+          "conteudo": "Estudar servlets é importante, pois uma mente desgraçada programa melhor",
+          "disciplina": {
+            "id": 1,
+            "nome": "Java",
+            "area": {}
+          }
+        },
+        {
+          "id": 7,
+          "conteudo": "Estudar servlets é importante, pois é a base da programação web em java",
+          "disciplina": {
+            "id": 1,
+            "nome": "Java",
+            "area": {}
+          }
+        },
+        {
+          "id": 8,
+          "conteudo": "Estudar servlets não é importante, pois desgraça a mente do programador programa",
+          "disciplina": {
+            "id": 1,
+            "nome": "Java",
+            "area": {}
+          }
+        },
+        {
+          "id": 9,
+          "conteudo": "Estudar servlets não é importante, todas as imprementações modernas não os levam em conta",
+          "disciplina": {
+            "id": 1,
+            "nome": "Java",
+            "area": {}
+          }
+        },
+        {
+          "id": 10,
+          "conteudo": "Estudar servlets não é importante, importante mesmo pra java é estudar fisica 3",
+          "disciplina": {
+            "id": 1,
+            "nome": "Java",
+            "area": {}
+          }
+        }
+      ]
     },
     {
       "id": 3,
-      "descricao": "Devemos usar bancos SQL mesmo com a existencia de bancos NoSQL?",
-      "areaId": 3,
-      "respostaAId": 11,
-      "respostaBId": 12,
-      "respostaCId": 13,
-      "respostaDId": 14,
-      "respostaEId": 15,
-      "respostaCorretaId": 13
+      "enunciado": "Devemos usar bancos SQL mesmo com a existencia de bancos NoSQL?",
+      "disciplina": {
+        "id": 9,
+        "nome": "Mysql",
+        "area": {}
+      },
+      "respostas": [
+        {
+          "id": 11,
+          "conteudo": "Nunca devemos usar banco SQL, bancos NoSQL são o futuro",
+          "disciplina": {
+            "id": 9,
+            "nome": "Mysql",
+            "area": {}
+          }
+        },
+        {
+          "id": 12,
+          "conteudo": "Nunca devemos usar banco SQL, visto que a vida é a espera da morte",
+          "disciplina": {
+            "id": 9,
+            "nome": "Mysql",
+            "area": {}
+          }
+        },
+        {
+          "id": 13,
+          "conteudo": "Devemos usar banco SQL, quando precisamos de um modelo mais rigido e menos tolerante a falhas",
+          "disciplina": {
+            "id": 9,
+            "nome": "Mysql",
+            "area": {}
+          }
+        },
+        {
+          "id": 14,
+          "conteudo": "Devemos usar banco SQL, pois hoje em dia tudo é Rede social",
+          "disciplina": {
+            "id": 9,
+            "nome": "Mysql",
+            "area": {}
+          }
+        },
+        {
+          "id": 15,
+          "conteudo": "Nunca devemos usar bancos de dados, da pra fazer tudo com fisica 3",
+          "disciplina": {
+            "id": 3,
+            "nome": "Mysql",
+            "area": {}
+          }
+        }
+      ]
     }
   ],
   "gestores": [

@@ -27,6 +27,10 @@ export class PerguntaService {
     return this.http.get<Pergunta[]>(url + `?areaId=${id}`);
   }
 
+  listByDisciplina(id: number): Observable<Pergunta[]> {
+    return this.http.get<Pergunta[]>(url + `?disciplinaId=${id}`);
+  }
+
   show(id: number): Observable<Pergunta> {
     return this.http.get<Pergunta>(url + id);
   }

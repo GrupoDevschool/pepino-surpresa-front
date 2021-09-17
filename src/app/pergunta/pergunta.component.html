@@ -1,29 +1,61 @@
-<div class="form col-md-4">
+<div class="form col-md-12">
   <form (ngSubmit)="save()">
     <h2>Nova Pergunta</h2>
 
     <div class="form-group textarea">
-      <label class="form-field__label" for="descricao">Descrição</label>
+      <label class="form-field__label" for="enunciado">Enunciado</label>
         <textarea
           class="form-control"
-          id="descricao"
+          id="enunciado"
           type="text"
-          [(ngModel)]="pergunta.descricao"
+          [(ngModel)]="pergunta.enunciado"
           name="descricao"
         ></textarea>
     </div>
 
-    <div class="form-group">
+    <div class="form-group double">
+      <div>
+        <label class="form-field__label" for="area">Area</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Area'"
+          [settings]="dropdownAreaSettings"
+          [data]="areas"
+          [(ngModel)]="area"
+          name="area"
+          (onSelect)="changeSelect('area')"
+          (onDeSelect)="changeSelect('area')"
+        >
+        </ng-multiselect-dropdown>
+    </div>
+    <div>
       <label class="form-field__label" for="disciplina">Disciplina</label>
-        <select
-          class="form-control"
-          id="disciplina"
-          type="select"
-          [(ngModel)]="pergunta.disciplina"
+      <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Disciplina'"
+          [settings]="dropdownDisciplinaSettings"
+          [data]="disciplinas"
+          [(ngModel)]="disciplina"
           name="disciplina"
-          (change)="changeSelect('disciplina')">
-          <option *ngFor="let disciplina of disciplinas" [ngValue]="disciplina">{{disciplina.nome}}</option>
-        </select>
+          (onSelect)="changeSelect('disciplina')"
+          (onDeSelect)="changeSelect('disciplina')"
+        >
+      </ng-multiselect-dropdown>
+    </div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="form-field__label" for="respostas">Respostas</label>
+      <ng-multiselect-dropdown
+        [placeholder]="'Selecionar Respostas'"
+        [settings]="dropdownRespostaSettings"
+        [data]="respostas"
+        [(ngModel)]="possiveisRespostas"
+        (onSelect)="changeSelect('resposta')"
+        (onDeSelect)="changeSelect('resposta')"
+        [disabled]=" !disciplina || !disciplina.length"
+        name="respostas"
+      >
+      </ng-multiselect-dropdown>
     </div>
 
     <div class="btn-wrapper">
@@ -40,15 +72,15 @@
       <thead>
         <tr>
           <th>Disciplina</th>
-          <th>Descricao</th>
+          <th>Enunciado</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let pergunta of perguntas">
           <td class="col-md-2">{{ pergunta.disciplina.nome }}</td>
-          <td class="col-md-8"><a routerLink="{{pergunta.id}}">{{ pergunta.descricao }}</a></td>
-          <td class="col-md-2">
+          <td class="col-md-7"><a routerLink="{{pergunta.id}}">{{ pergunta.enunciado }}</a></td>
+          <td class="col-md-3">
             <button (click)="delete(pergunta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
         </tr>

@@ -700,23 +700,6 @@
   "turmas": [
     {
       "nome": "Devschool 2",
-      "alunos": [
-        {
-          "nome": "Lucao"
-        },
-        {
-          "nome": "Igor"
-        },
-        {
-          "nome": "Victor Hugo"
-        },
-        {
-          "nome": "Thales"
-        },
-        {
-          "nome": "Niasi"
-        }
-      ],
       "id": 1
     }
   ]

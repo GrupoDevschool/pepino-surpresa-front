@@ -16,36 +16,16 @@ export class TurmaComponent implements OnInit {
   turmas: Turma[];
   turma: Turma = {} as Turma;
   updatedTurma: Turma = {} as Turma;
-  updatedAlunos: Aluno[] = [];
 
   modalIsVisible: boolean = false;
 
-  alunos: Aluno[];
-
-  alunosSelecionados = [];
-  dropdownSettings: IDropdownSettings = {};
-
-  constructor(private turmaService: TurmaService, private alunoService: AlunoService) { }
+  constructor(private turmaService: TurmaService) { }
 
   ngOnInit(): void {
     this.reloadData();
-    this.alunosSelecionados = [];
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'id',
-      textField: 'nome',
-      selectAllText: 'Selecionar todas',
-      unSelectAllText: 'Limpar seleção',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
   }
 
   reloadData() {
-    this.alunoService.list().subscribe((alunos) => {
-      this.alunos = alunos;
-    })
-
     this.turmaService.list().subscribe((turmas) => {
       this.turmas = turmas;
     });
@@ -56,7 +36,6 @@ export class TurmaComponent implements OnInit {
   }
 
   save() {
-    this.turma.alunos = this.alunosSelecionados;
     this.turmaService.save(this.turma).subscribe(
       turma => this.turmas.push(turma),
       error => console.log(error)
@@ -64,7 +43,6 @@ export class TurmaComponent implements OnInit {
   }
 
   edit() {
-    this.updatedTurma.alunos = this.updatedAlunos;
     this.turmaService.edit(this.updatedTurma).subscribe(() => {
         this.reloadData();
         this.closeModal();
@@ -92,7 +70,6 @@ export class TurmaComponent implements OnInit {
 
   openModal(turma: Turma) {
     this.updatedTurma = Object.assign({}, turma);
-    this.updatedAlunos = this.updatedTurma.alunos;
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

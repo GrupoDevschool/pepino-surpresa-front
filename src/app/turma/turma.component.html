@@ -13,18 +13,6 @@
       />
     </div>
 
-    <label class="form-field__label" for="nome">Alunos</label>
-    <ng-multiselect-dropdown
-    [placeholder]="'Selecionar alunos'"
-    [settings]="dropdownSettings"
-    [data]="alunos"
-    [(ngModel)]="alunosSelecionados"
-    (onSelect)="onItemSelect($event)"
-    (onSelectAll)="onSelectAll($event)"
-    name="alunos"
-  >
-  </ng-multiselect-dropdown>
-
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
     </div>
@@ -39,15 +27,13 @@
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Alunos</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let turma of turmas">
-          <td class="col-md-2">{{ turma.nome }}</td>
-          <td class="col-md-8">{{ formatDisciplina(turma.alunos) }}</td>
-          <td class="col-md-2">
+          <td class="col-md-10">{{ turma.nome }}</td>
+          <td class="col-md-12">
             <button (click)="openModal(turma)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(turma.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
@@ -71,18 +57,6 @@
               name="nome"
             />
           </div>
-
-          <label class="form-field__label" for="nome">Alunos</label>
-          <ng-multiselect-dropdown
-          [placeholder]="'Selecionar disciplinas'"
-          [settings]="dropdownSettings"
-          [data]="alunos"
-          [(ngModel)]="updatedAlunos"
-          (onSelect)="onItemSelect($event)"
-          (onSelectAll)="onSelectAll($event)"
-          name="alunos"
-        >
-        </ng-multiselect-dropdown>
 
           <div class="btn-wrapper">
             <button class="btn btn-primary col-md-3" type="submit">Salvar</button>

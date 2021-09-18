@@ -26,6 +26,7 @@
   margin-right: 4px;
   background: #5E9A5F !important;
   padding: 0px 5px;
+  max-width: 10rem !important;
   color: #fff;
   border-radius: 2px;
   float: left;

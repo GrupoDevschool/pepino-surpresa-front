@@ -1,29 +1,58 @@
-<div class="form col-md-4">
+<div class="form col-md-12">
   <form (ngSubmit)="save()">
     <h2>Nova Pergunta</h2>
 
     <div class="form-group textarea">
-      <label class="form-field__label" for="descricao">Descrição</label>
+      <label class="form-field__label" for="enunciado">Enunciado</label>
         <textarea
           class="form-control"
-          id="descricao"
+          id="enunciado"
           type="text"
-          [(ngModel)]="pergunta.descricao"
+          [(ngModel)]="pergunta.enunciado"
           name="descricao"
         ></textarea>
     </div>
 
+    <div class="form-group double">
+      <div>
+        <label class="form-field__label" for="area">Area</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Area'"
+          [settings]="dropdownAreaSettings"
+          [data]="areas"
+          [(ngModel)]="area"
+          name="area"
+          (onSelect)="changeSelect('area')"
+          (onDeSelect)="changeSelect('area')"
+        >
+        </ng-multiselect-dropdown>
+      </div>
+      <div>
+        <label class="form-field__label" for="disciplina">Disciplina</label>
+        <ng-multiselect-dropdown
+            [placeholder]="'Selecionar Disciplina'"
+            [settings]="dropdownDisciplinaSettings"
+            [data]="disciplinas"
+            [(ngModel)]="disciplina"
+            name="disciplina"
+            (onSelect)="changeSelect('disciplina')"
+            (onDeSelect)="changeSelect('disciplina')"
+          >
+        </ng-multiselect-dropdown>
+      </div>
+    </div>
+
     <div class="form-group">
-      <label class="form-field__label" for="disciplina">Disciplina</label>
-        <select
-          class="form-control"
-          id="disciplina"
-          type="select"
-          [(ngModel)]="pergunta.disciplina"
-          name="disciplina"
-          (change)="changeSelect('disciplina')">
-          <option *ngFor="let disciplina of disciplinas" [ngValue]="disciplina">{{disciplina.nome}}</option>
-        </select>
+      <label class="form-field__label" for="respostas">Respostas</label>
+      <ng-multiselect-dropdown
+        [placeholder]="'Selecionar Respostas'"
+        [settings]="dropdownRespostaSettings"
+        [data]="respostas"
+        [(ngModel)]="possiveisRespostas"
+        [disabled]=" !disciplina || !disciplina.length && !area || !area.length"
+        name="respostas"
+      >
+      </ng-multiselect-dropdown>
     </div>
 
     <div class="btn-wrapper">
@@ -40,20 +69,126 @@
       <thead>
         <tr>
           <th>Disciplina</th>
-          <th>Descricao</th>
+          <th>Enunciado</th>
+          <th>Detalhes</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let pergunta of perguntas">
           <td class="col-md-2">{{ pergunta.disciplina.nome }}</td>
-          <td class="col-md-8"><a routerLink="{{pergunta.id}}">{{ pergunta.descricao }}</a></td>
+          <td class="col-md-7">{{ pergunta.enunciado }}</td>
+          <td class="col-md-1"><button (click)="openResponseModal(pergunta)" class="btn"><span class="material-icons-round">help</span></button></td>
           <td class="col-md-2">
+            <button (click)="openUpdateModal(pergunta)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(pergunta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="modal-update-overlay" *ngIf="updateModalIsVisible">
+    <div class="modal-update-container" >
+      <Strong>Editar Pergunta</Strong>
+      <button class="close-button" (click)="closeUpdateModal()"><span>X</span></button>
+      <form (ngSubmit)="edit()">
+
+        <div class="form-group textarea">
+          <label class="form-field__label" for="enunciado">Enunciado</label>
+            <textarea
+              class="form-control"
+              id="enunciado"
+              type="text"
+              [(ngModel)]="updatedPergunta.enunciado"
+              name="descricao"
+            ></textarea>
+        </div>
+
+        <div class="form-group double">
+          <div>
+            <label class="form-field__label" for="area">Area</label>
+            <ng-multiselect-dropdown
+              [placeholder]="'Selecionar Area'"
+              [settings]="dropdownAreaSettings"
+              [data]="areas"
+              [(ngModel)]="updatedArea"
+              name="area"
+              (onSelect)="changeSelect('updatedArea')"
+              (onDeSelect)="changeSelect('updatedArea')"
+            >
+            </ng-multiselect-dropdown>
+          </div>
+          <div>
+            <label class="form-field__label" for="disciplina">Disciplina</label>
+            <ng-multiselect-dropdown
+                [placeholder]="'Selecionar Disciplina'"
+                [settings]="dropdownDisciplinaSettings"
+                [data]="disciplinas"
+                [(ngModel)]="updatedDisciplina"
+                name="disciplina"
+                (onSelect)="changeSelect('updatedDisciplina')"
+                (onDeSelect)="changeSelect('updatedDisciplina')"
+              >
+            </ng-multiselect-dropdown>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-field__label" for="respostas">Respostas</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Selecionar Respostas'"
+            [settings]="dropdownRespostaSettings"
+            [data]="respostas"
+            [(ngModel)]="updatedRespostas"
+            [disabled]=" !updatedDisciplina || !updatedDisciplina.length && !updatedArea || !updatedArea.length"
+            name="respostas"
+          >
+          </ng-multiselect-dropdown>
+        </div>
+
+
+        <div class="btn-wrapper">
+          <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-response-overlay" *ngIf="responseModalIsVisible">
+    <div class="modal-response-container" >
+      <h1>Pergunta</h1>
+      <p class="title">{{updatedPergunta.enunciado}}</p>
+      <button class="close-button" (click)="closeResponseModal()"><span>X</span></button>
+      <div class="form-group double">
+        <div>
+          <h3>Area</h3>
+          <p>{{updatedDisciplina[0].areas[0].descricao}}</p>
+        </div>
+        <div>
+          <h3>Disciplina</h3>
+          <p>{{updatedDisciplina[0].nome}}</p>
+        </div>
+      </div>
+        <div class="panel-heading">
+          <h2>Respostas</h2>
+        </div>
+        <div class="list panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>Conteudo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let resposta of updatedRespostas">
+                <td class="col-md-2">{{ resposta.disciplina.nome }}</td>
+                <td class="col-md-10">{{ resposta.conteudo }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
   </div>
 </div>
 

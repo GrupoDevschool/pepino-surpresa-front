@@ -1,28 +1,27 @@
-<div class="form col-md-4">
+<div class="form col-md-8">
   <form (ngSubmit)="save()">
     <h2>Nova Resposta</h2>
 
     <div class="form-group">
       <label class="form-field__label" for="disciplina">Disciplina</label>
-        <select
-          class="form-control"
-          id="disciplina"
-          type="select"
-          [(ngModel)]="resposta.disciplina"
-          name="disciplina"
-        >
-          <option *ngFor="let disciplina of disciplinas" [ngValue]="disciplina">{{disciplina.nome}}</option>
-        </select>
+      <ng-multiselect-dropdown
+        [placeholder]="'Selecionar Disciplina'"
+        [settings]="dropdownSettings"
+        [data]="disciplinas"
+        [(ngModel)]="disciplina"
+        name="disciplina"
+      >
+      </ng-multiselect-dropdown>
     </div>
 
     <div class="form-group textarea">
-      <label class="form-field__label" for="descricao">Descrição</label>
+      <label class="form-field__label" for="conteudo">Conteudo</label>
         <textarea
           class="form-control"
-          id="descricao"
+          id="conteudo"
           type="text"
-          [(ngModel)]="resposta.descricao"
-          name="descricao"
+          [(ngModel)]="resposta.conteudo"
+          name="conteudo"
         ></textarea>
     </div>
 
@@ -40,14 +39,14 @@
       <thead>
         <tr>
           <th>Disciplina</th>
-          <th>Descrição</th>
+          <th>Conteudo</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let resposta of respostas">
           <td class="col-md-2">{{ resposta.disciplina.nome }}</td>
-          <td class="col-md-8">{{ resposta.descricao }}</td>
+          <td class="col-md-8">{{ resposta.conteudo }}</td>
           <td class="col-md-2">
             <button (click)="openModal(resposta)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(resposta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -62,26 +61,26 @@
       <button class="close-button" (click)="closeModal()"><span>X</span></button>
       <form (ngSubmit)="edit()">
         <div class="form-group">
-          <label class="form-field__label" for="areaId">Disciplina</label>
-            <select
-              class="form-control"
-              id="areaId"
-              type="select"
-              [(ngModel)]="updatedResposta.disciplina"
-              name="areaId"
-            >
-              <option *ngFor="let disciplina of disciplinas" [value]="disciplina">{{disciplina.nome}}</option>
-            </select>
+          <label class="form-field__label" for="disciplina">Disciplina</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Selecionar Disciplina'"
+            [settings]="dropdownSettings"
+            [data]="disciplinas"
+            [(ngModel)]="updatedDisciplina"
+            name="disciplina"
+          >
+          </ng-multiselect-dropdown>
         </div>
 
+
         <div class="form-group textarea">
-          <label class="form-field__label" for="descricao">Descrição</label>
+          <label class="form-field__label" for="conteudo">Conteúdo</label>
             <textarea
               class="form-control"
-              id="descricao"
+              id="conteudo"
               type="text"
-              [(ngModel)]="updatedResposta.descricao"
-              name="descricao"
+              [(ngModel)]="updatedResposta.conteudo"
+              name="conteudo"
             ></textarea>
         </div>
 

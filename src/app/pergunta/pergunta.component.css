@@ -11,12 +11,6 @@ h2 {
   font-weight: bold;
 }
 
-.form-group textarea {
-  height: 100%;
-
-  overflow: hidden;
-}
-
 .listing {
   margin-top: 15px;
 }
@@ -26,6 +20,50 @@ h2 {
   background-color: #F2F6F2;
   border-radius: 10px;
   box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+}
+
+/* Escondendo as setinhas do input de number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-wrapper>* {
+  flex-grow: 1;
+  max-width: 49%;
+}
+
+.form-group.textarea {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group textarea {
+  height: 6rem;
+  resize: none;
+  overflow: hidden;
+}
+
+.form-group.double {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.form-group.double div {
+  width: 40%;
 }
 
 .btn-wrapper {
@@ -60,7 +98,35 @@ table .btn-primary {
   border-color: #FF9DA7;
 }
 
-.modal-overlay {
+.title {
+  font-size: 2rem;
+}
+
+.modal-update-overlay {
+  background: rgba(25, 26, 32, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: initial;
+  backdrop-filter: blur(2px);
+}
+
+.modal-update-container {
+  background: #fff;
+  width: 100%;
+  max-width: 60rem;
+  padding: 2rem 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0 3.75rem rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+}
+
+.modal-response-overlay {
   background: rgba(25, 26, 32, 0.8);
   position: fixed;
   top: 0;
@@ -73,10 +139,10 @@ table .btn-primary {
   backdrop-filter: blur(2px);
 }
 
-.modal-container {
+.modal-response-container {
   background: #fff;
   width: 100%;
-  max-width: 25rem;
+  max-width: 60rem;
   padding: 2rem 3rem;
   border-radius: 5px;
   box-shadow: 0 0 3.75rem rgba(0, 0, 0, 0.05);

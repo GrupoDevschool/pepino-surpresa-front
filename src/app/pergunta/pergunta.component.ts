@@ -116,9 +116,9 @@ export class PerguntaComponent implements OnInit {
   }
 
   getDisciplinaByAreaId(id: number) {
-    // this.DisciplinaService.listByArea(id).subscribe((disciplinas) => {
-    //   this.disciplina = disciplinas;
-    // });
+    this.DisciplinaService.listByArea(id).subscribe((disciplinas) => {
+      this.disciplina = disciplinas;
+    });
   }
 
   changeSelect(type: string) {

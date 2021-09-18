@@ -55,7 +55,7 @@ export class PerguntaComponent implements OnInit {
       this.dropdownAreaSettings = {
         singleSelection: true,
         idField: 'id',
-        textField: 'descricao',
+        textField: 'nome',
         enableCheckAll: false,
         unSelectAllText: 'Limpar seleção',
         allowSearchFilter: true

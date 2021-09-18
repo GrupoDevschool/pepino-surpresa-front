@@ -1,0 +1,100 @@
+<div class="form col-md-12">
+  <form (ngSubmit)="save()">
+    <h2>Nova Presença</h2>
+
+    <div class="form-group double">
+      <div>
+        <label class="form-field__label" for="Aula">Aula</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Aula'"
+          [settings]="dropdownAulaSettings"
+          [data]="aulas"
+          [(ngModel)]="aulaSelecionada"
+          name="Aula"
+        >
+        </ng-multiselect-dropdown>
+      </div>
+      <div>
+        <label class="form-field__label" for="aluno">Aluno</label>
+        <ng-multiselect-dropdown
+            [placeholder]="'Selecionar Aluno'"
+            [settings]="dropdownAlunoSettings"
+            [data]="alunos"
+            [(ngModel)]="alunoSelecionado"
+            name="aluno"
+
+          >
+        </ng-multiselect-dropdown>
+      </div>
+    </div>
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Marcar Presenca</button>
+    </div>
+  </form>
+</div>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Presenças por aula</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Assunto</th>
+          <th>Presenca</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aula of aulas">
+          <td class="col-md-2">{{ aula.data | date: "dd/MM/yyyy"  }}</td>
+          <td class="col-md-8">{{ aula.assunto }}</td>
+          <td class="col-md-2"><button (click)="openPresencaModal(aula)" class="btn"><span class="material-icons-round">help</span></button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal-response-overlay" *ngIf="presencaModalIsVisible">
+    <div class="modal-response-container" >
+      <h1>Aula</h1>
+      <button class="close-button" (click)="closePresencaModal()"><span>X</span></button>
+      <div class="form-group double">
+        <div>
+          <h3>Assunto</h3>
+          <p>{{updatedAula[0].assunto}}</p>
+        </div>
+        <div>
+          <h3>Data</h3>
+          <p>{{updatedAula[0].data}}</p>
+        </div>
+      </div>
+        <div class="panel-heading">
+          <h2>Presenças</h2>
+        </div>
+        <div class="list panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Aluno</th>
+                <th>Data da Presença</th>
+                <th>Gerenciamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let presenca of updatedPresencas">
+                <td class="col-md-2">{{  getAlunoNameByMatricula(presenca.idAluno) }}</td>
+                <td class="col-md-10">{{ presenca.timestamp | date: "dd/MM/yyyy HH:MM:ss" }}</td>
+                <td class="col-md-2">
+                  <button (click)="delete(presenca.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+
+
+

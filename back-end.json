@@ -669,6 +669,38 @@
       ]
     }
   ],
+  "presencas": [
+    {
+      "id": 1,
+      "idAluno": 1,
+      "idAula": 1,
+      "timestamp": "2021-09-11 14:00:00"
+    },
+    {
+      "id": 4,
+      "idAluno": 4,
+      "idAula": 1,
+      "timestamp": "2021-09-11 10:00:00"
+    },
+    {
+      "id": 1,
+      "idAluno": 1,
+      "idAula": 3,
+      "timestamp": "2021-09-04 14:00:00"
+    },
+    {
+      "id": 1,
+      "idAluno": 2,
+      "idAula": 3,
+      "timestamp": "2021-09-04 14:00:00"
+    },
+    {
+      "id": 1,
+      "idAluno": 3,
+      "idAula": 3,
+      "timestamp": "2021-09-04 14:00:00"
+    }
+  ],
   "gestores": [
     {
       "id": "1",

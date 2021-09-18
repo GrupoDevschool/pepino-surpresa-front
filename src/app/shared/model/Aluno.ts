@@ -1,3 +1,5 @@
+import { Turma } from "./Turma";
+
 export interface Aluno {
 
     matricula?: number;
@@ -5,5 +7,6 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
+    turma: Turma[];
 
   }

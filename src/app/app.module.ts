@@ -17,6 +17,7 @@ import { RespostaComponent } from './resposta/resposta.component';
 import { TrilhaComponent } from './trilha/trilha.component';
 import { TurmaComponent } from './turma/turma.component';
 import { PerguntaComponent } from './pergunta/pergunta.component';
+import { PresencaComponent } from './presenca/presenca.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PerguntaComponent } from './pergunta/pergunta.component';
     RespostaComponent,
     TrilhaComponent,
     TurmaComponent,
+    PresencaComponent,
   ],
   imports: [
     BrowserModule,

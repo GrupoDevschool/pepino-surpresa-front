@@ -1,11 +1,10 @@
-import { Disciplina } from "./Disciplina";
-import { Turma } from "./Turma";
+import { Aula } from "./Aula";
+import { TipoGestor } from "./TipoGestor";
 
 export interface Gestor {
-  id: number
+  id?: number
   nome: string
-  disciplinas: Disciplina[]
-  turmas: Turma[]
-  tipo: string[]
+  aulas: Aula[]
+  tipo: TipoGestor[]
 
 }

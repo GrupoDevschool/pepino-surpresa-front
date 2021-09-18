@@ -7,3 +7,4 @@ export interface Disciplina {
   areas: Area[];
 
 }
+

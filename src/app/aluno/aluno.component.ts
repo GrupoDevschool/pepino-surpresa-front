@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { AlunoService } from '../core/aluno.service';
+import { TurmaService } from '../core/turma.service';
 import { Aluno } from '../shared/model/Aluno';
+import { Turma } from '../shared/model/Turma';
 
 @Component({
   selector: 'app-aluno',
@@ -12,23 +15,48 @@ export class AlunoComponent implements OnInit {
   alunos: Aluno[];
   aluno: Aluno = {} as Aluno;
   updatedAluno: Aluno = {} as Aluno;
+  updatedTurma: Turma[] = [];
 
   modalIsVisible: boolean = false;
 
-  constructor(private alunoService: AlunoService) {
+  turmas: Turma[];
+
+  turmaSelecionada  = [];
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private alunoService: AlunoService, private turmaservice: TurmaService) {
   }
 
   ngOnInit(): void {
     this.reloadData();
+    this.turmaSelecionada = [];
+    this.dropdownSettings = {
+      singleSelection: true,
+      idField: 'id',
+      textField: 'nome',
+      unSelectAllText: 'Limpar seleção',
+      itemsShowLimit: 1,
+      allowSearchFilter: true
+    };
   }
 
   reloadData() {
     this.alunoService.list().subscribe((aluno) => {
       this.alunos = aluno;
-    });
+    })
+
+  this.turmaservice.list().subscribe((turmas) =>{
+  this.turmas = turmas;
+    }); 
+
+  }
+
+  formatTurma(turmas: Turma[]): string {
+    return turmas.map((turma) => turma.nome).join(', ')
   }
 
   save() {
+    this.aluno.turma = this.turmaSelecionada;
     this.alunoService.save(this.aluno).subscribe(
       aluno => this.alunos.push(aluno),
       error => console.log(error)
@@ -36,6 +64,7 @@ export class AlunoComponent implements OnInit {
   }
 
   edit() {
+    this.updatedAluno.turma = this.updatedTurma;
     this.alunoService.edit(this.updatedAluno).subscribe(() => {
       this.reloadData();
       this.closeModal();
@@ -58,6 +87,7 @@ export class AlunoComponent implements OnInit {
 
   openModal(aluno: Aluno) {
     this.updatedAluno = Object.assign({}, aluno);
+    this.updatedTurma = this.updatedAluno.turma;
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

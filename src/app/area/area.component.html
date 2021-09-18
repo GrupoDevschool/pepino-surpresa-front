@@ -1,15 +1,15 @@
 <div class="form col-md-4">
   <form (ngSubmit)="save()">
-    <h2>Nova Area</h2>
+    <h2>Nova Área</h2>
 
     <div class="form-group">
-      <label class="form-field__label" for="descricao">Descricao</label>
+      <label class="form-field__label" for="nome">Nome</label>
         <input
           class="form-control"
-          id="descricao"
-          type="descricao"
-          [(ngModel)]="area.descricao"
-          name="descricao"
+          id="nome"
+          type="text"
+          [(ngModel)]="area.nome"
+          name="nome"
         />
     </div>
 
@@ -20,19 +20,19 @@
 </div>
 <div class="listing">
   <div class="panel-heading">
-    <h2>Areas Cadastradas</h2>
+    <h2>Áreas Cadastradas</h2>
   </div>
   <div class="list panel-body">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Descricao</th>
+          <th>Nome</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let area of areas">
-          <td class="col-md-8">{{ area.descricao }}</td>
+          <td class="col-md-8">{{ area.nome }}</td>
           <td class="col-md-2">
             <button (click)="openModal(area)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(area.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -47,14 +47,14 @@
       <button class="close-button" (click)="closeModal()"><span>X</span></button>
       <form (ngSubmit)="edit()">
         <div class="form-group">
-          <label for="descricao">Descricao</label>
+          <label for="nome">Nome</label>
           <input
             type="text"
             class="form-control"
-            id="descricao"
-            name="descricao"
-            placeholder="Descricao"
-            [(ngModel)]="updatedArea.descricao"/>
+            id="nome"
+            name="nome"
+            placeholder="Nome"
+            [(ngModel)]="updatedArea.nome"/>
         </div>
 
         <div class="btn-wrapper">

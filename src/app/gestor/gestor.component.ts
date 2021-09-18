@@ -1,13 +1,10 @@
-import { TurmaService } from './../core/turma.service';
+import { AulaService } from './../core/aula.service';
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { DisciplinaService } from '../core/disciplina.service';
 import { GestorService } from '../core/gestor.service';
 import { Gestor } from '../shared/model/Gestor';
-import { Turma } from '../shared/model/Turma';
-import { Disciplina } from './../shared/model/Disciplina';
-
-
+import { Aula } from '../shared/model/Aula';
+import { TipoGestor} from '../shared/model/TipoGestor';
 @Component({
   selector: 'app-gestor',
   templateUrl: './gestor.component.html',
@@ -18,34 +15,29 @@ export class GestorComponent implements OnInit {
   gestores: Gestor[];
   gestor: Gestor = {} as Gestor;
   updatedGestor: Gestor = {} as Gestor;
-  updatedDisciplinas: Disciplina[] = []
-  updatedTurmas: Turma[] = []
-
+  updatedAulas: Aula[] = []
 
   modalIsVisible: boolean = false;
 
-  disciplinas: Disciplina[];
-  turmas: Turma[];
-  tipos: string[] = ["professor", "orientador"]
+  aulas: Aula[];
 
-  disciplinasSelecionadas = [];
-  turmasSelecionadas = [];
-  tiposSelecionados = []
+  aulasSelecionadas = [];
 
   dropdownSettings: IDropdownSettings = {};
   dropdownSettings2: IDropdownSettings = {};
 
-  constructor(private gestorService: GestorService, private disciplinaService: DisciplinaService, private turmaService: TurmaService) { }
+  /*Enum TipoGestor*/
+  public tipoGestor = Object.values(TipoGestor);
+
+  constructor(private gestorService: GestorService, private aulaService: AulaService) { }
 
   ngOnInit(): void {
     this.reloadData();
-    this.disciplinasSelecionadas = [];
-    this.turmasSelecionadas = []
-    this.tiposSelecionados = []
+    this.aulasSelecionadas = []
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
-      textField: 'nome',
+      textField: 'assunto',
       selectAllText: 'Selecionar todas',
       unSelectAllText: 'Limpar seleção',
       itemsShowLimit: 3,
@@ -53,38 +45,27 @@ export class GestorComponent implements OnInit {
     },
     this.dropdownSettings2 = {
       singleSelection: true,
-      idField: 'id',
-      textField: 'nome',
       itemsShowLimit: 3,
-      allowSearchFilter: true
+      allowSearchFilter: false
     };
   }
 
   reloadData(){
-    this.disciplinaService.list().subscribe((disciplinas) => {
-      this.disciplinas = disciplinas;
-    })
-
-    this.turmaService.list().subscribe((turmas) => {
-      this.turmas = turmas;
-    })
+    this.aulaService.list().subscribe((aulas) => {
+      this.aulas = aulas;
+    });
 
     this.gestorService.list().subscribe((gestores) => {
       this.gestores = gestores;
     });
   }
 
-  formatDisciplina(disciplinas: Disciplina[]): string {
-    return disciplinas.map((disciplina) => disciplina.nome).join(', ')
-  }
-
-  formatTurma(turmas: Turma[]): string {
-    return turmas.map((turma) => turma.nome).join(', ')
+  formatAulas(aulas: Aula[]): string {
+    return aulas.map((aula) => aula.assunto).join(', ')
   }
 
   save() {
-    this.gestor.disciplinas = this.disciplinasSelecionadas;
-    this.gestor.turmas = this.turmasSelecionadas;
+    this.gestor.aulas = this.aulasSelecionadas;
     this.gestorService.save(this.gestor).subscribe(
       gestor => this.gestores.push(gestor),
       error => console.log(error)
@@ -92,8 +73,7 @@ export class GestorComponent implements OnInit {
   }
 
   edit() {
-    this.updatedGestor.disciplinas = this.updatedDisciplinas;
-    this.updatedGestor.turmas = this.updatedTurmas;
+    this.updatedGestor.aulas = this.updatedAulas;
     this.gestorService.edit(this.updatedGestor).subscribe(() => {
         this.reloadData();
         this.closeModal();
@@ -121,8 +101,7 @@ export class GestorComponent implements OnInit {
 
   openModal(gestor: Gestor) {
     this.updatedGestor = Object.assign({}, gestor);
-    this.updatedDisciplinas = this.updatedGestor.disciplinas;
-    this.updatedTurmas = this.updatedGestor.turmas;
+    this.updatedAulas = this.updatedGestor.aulas;
     this.modalIsVisible = true;
   }
 

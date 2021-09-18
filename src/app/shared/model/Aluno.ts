@@ -10,3 +10,14 @@ export interface Aluno {
     turma: Turma[];
 
   }
+
+  export interface AlunoDTO {
+
+    matricula?: number;
+    nome: string;
+    telefone: string;
+    email: string;
+    observacao: string;
+    turma: Turma[];
+
+  }

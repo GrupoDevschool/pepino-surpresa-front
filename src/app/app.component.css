@@ -5,33 +5,43 @@ html, body {
 body {
   background-color: #D7E8D2;
   display: flex;
-  align-items: center;
 }
 
 .container {
   margin: 15px 50px 15px 25px;
+  flex: 1;
 }
 
 .sidebar {
+  background-color: #F2F6F2;
   display: flex;
   flex-flow: column;
   align-items: center;
   text-align: center;
-  margin: 0 25px 0 50px;
-  flex-grow: 1;
+  margin: 0 25px 0 0px;
+}
+
+.sidebar nav {
+  width: 100%;
+  position: sticky;
+  top: 0;
 }
 
 .sidebar ul {
+  width: 100%;
   list-style-type: none;
   padding-left: 0;
 }
 
 .sidebar li {
   padding: 10px 40px;
-  margin: 15px 0;
   background-color: #38613A;
-  border-radius: 10px;
   transition: 0.3s;
+  border-bottom: 2px solid #49624B ;
+}
+
+.sidebar a:last-child li {
+  border-bottom: none;
 }
 
 .sidebar li.active {
@@ -51,6 +61,7 @@ body {
 }
 
 .sidebar img {
-  max-width: 200px;
+  max-width: 240px;
   margin-bottom: 0.7rem;
+  padding: 10px;
 }

@@ -5,13 +5,14 @@
       <div class="single-line-inputs">
         <div class="form-group">
           <label class="form-field__label" for="nome">Nome</label>
-          <input
-            class="form-control"
-            id="nome"
-            type="text"
-            [(ngModel)]="aluno.nome"
-            name="nome"
-          />
+          <ng-multiselect-dropdown
+        [placeholder]="'Selecionar Disciplina'"
+        [settings]="dropdownSettings"
+        [data]="turmas"
+        [(ngModel)]="turmas"
+        name="disciplina"
+      >
+      </ng-multiselect-dropdown>
         </div>
 
         <div class="form-group">

@@ -15,13 +15,13 @@ export class AlunoComponent implements OnInit {
   alunos: Aluno[];
   aluno: Aluno = {} as Aluno;
   updatedAluno: Aluno = {} as Aluno;
-  updatedTurma: Turma[] = [];
+  updatedTurma: Turma ;
 
   modalIsVisible: boolean = false;
 
   turmas: Turma[];
 
-  turmaSelecionada  = [];
+  turmaSelecionada;
   dropdownSettings: IDropdownSettings = {};
 
   constructor(private alunoService: AlunoService, private turmaservice: TurmaService) {
@@ -29,7 +29,7 @@ export class AlunoComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadData();
-    this.turmaSelecionada = [];
+    this.turmaSelecionada;
     this.dropdownSettings = {
       singleSelection: true,
       idField: 'id',
@@ -45,8 +45,8 @@ export class AlunoComponent implements OnInit {
       this.alunos = aluno;
     })
 
-  this.turmaservice.list().subscribe((turmas) =>{
-  this.turmas = turmas;
+  this.turmaservice.list().subscribe((Turma) =>{
+  this.turmas = Turma;
     }); 
 
   }

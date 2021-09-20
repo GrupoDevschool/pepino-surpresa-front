@@ -7,7 +7,7 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turma: Turma[];
+    turma: Turma;
 
   }
 
@@ -18,6 +18,6 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turma: Turma[];
+    turma: Turma;
 
   }

@@ -12,7 +12,7 @@ export class AlunoService {
 
   constructor(private http: HttpClient) { }
 
-  save(aluno: Aluno): Observable<Aluno> {
+  save(aluno: AlunoDTO): Observable<Aluno> {
     return this.http.post<Aluno>(url, aluno);
   }
 

@@ -24,6 +24,14 @@ export class AulaService {
     return this.http.get<Aula[]>(url);
   }
 
+  listByTurma(turmaId: number): Observable<Aula[]>{
+    return this.http.get<Aula[]>(url + `?turmaId=${turmaId}`)
+  }
+
+  listByDay(data: Date): Observable<Aula[]>{
+    return this.http.get<Aula[]>(url + `?data=${data}`)
+  }
+
   show(id: number): Observable<Aula> {
     return this.http.get<Aula>(url + id);
   }

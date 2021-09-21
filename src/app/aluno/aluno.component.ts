@@ -47,7 +47,7 @@ export class AlunoComponent implements OnInit {
 
   this.turmaservice.list().subscribe((turmas) =>{
   this.turmas = turmas;
-    }); 
+    });
 
   }
 

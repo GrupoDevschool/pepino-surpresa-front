@@ -42,25 +42,63 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label class="form-field__label" for="respostas">Respostas</label>
-      <ng-multiselect-dropdown
-        [placeholder]="'Selecionar Respostas'"
-        [settings]="dropdownRespostaSettings"
-        [data]="respostas"
-        [(ngModel)]="possiveisRespostas"
-        [disabled]=" !disciplina || !disciplina.length && !area || !area.length"
-        name="respostas"
-      >
-      </ng-multiselect-dropdown>
-
+    <div class="row">
+      <div class="form-group">
+        <label class="form-field__label" for="respostas">Respostas</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Respostas'"
+          [settings]="dropdownRespostaSettings"
+          [data]="respostas"
+          [(ngModel)]="possiveisRespostas"
+          [disabled]=" !disciplina || !disciplina.length && !area || !area.length"
+          name="respostas"
+        >
+        </ng-multiselect-dropdown>
+        <div class="btn-wrapper">
+          <button (click)="openCriarRespostaModal(resposta)" class="btn btn-primary col-md-3">Criar uma resposta</button>
+        </div>
+      </div>
     </div>
 
-    <div class="btn=wrapper">
-        <button (click)="openCriarRespostaModal(resposta)" class="btn btn-primary col-md-3">Criar uma resposta</button>
-    </div>
 
-    <div class="modal-criar-resposta" *ngIf="criarRespostasModalIsVisible">
+
+
+
+    <div class="btn-wrapper">
+      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
+    </div>
+  </form>
+</div>
+
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Perguntas Cadastradas</h2>
+  </div>
+  <div class="list panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Enunciado</th>
+          <th>Detalhes</th>
+          <th>Gerenciamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pergunta of perguntas">
+          <td class="col-md-2">{{ pergunta.disciplina.nome }}</td>
+          <td class="col-md-7">{{ pergunta.enunciado }}</td>
+          <td class="col-md-1"><button (click)="openResponseModal(pergunta)" class="btn"><span class="material-icons-round">help</span></button></td>
+          <td class="col-md-2">
+            <button (click)="openUpdateModal(pergunta)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
+            <button (click)="delete(pergunta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal-criar-resposta" *ngIf="criarRespostasModalIsVisible">
       <div class="modal-container" >
         <Strong>Criar Resposta</Strong>
         <button class="close-button" (click)="closeCriarRespostaModal()"><span>X</span></button>
@@ -95,39 +133,6 @@
         </form>
       </div>
     </div>
-
-    <div class="btn-wrapper">
-      <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
-    </div>
-  </form>
-</div>
-<div class="listing">
-  <div class="panel-heading">
-    <h2>Perguntas Cadastradas</h2>
-  </div>
-  <div class="list panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Disciplina</th>
-          <th>Enunciado</th>
-          <th>Detalhes</th>
-          <th>Gerenciamento</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let pergunta of perguntas">
-          <td class="col-md-2">{{ pergunta.disciplina.nome }}</td>
-          <td class="col-md-7">{{ pergunta.enunciado }}</td>
-          <td class="col-md-1"><button (click)="openResponseModal(pergunta)" class="btn"><span class="material-icons-round">help</span></button></td>
-          <td class="col-md-2">
-            <button (click)="openUpdateModal(pergunta)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
-            <button (click)="delete(pergunta.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 
   <div class="modal-update-overlay" *ngIf="updateModalIsVisible">
     <div class="modal-update-container" >

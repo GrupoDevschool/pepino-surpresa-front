@@ -5,12 +5,14 @@ export interface Pergunta {
   enunciado: string;
   disciplina: Disciplina;
   respostas: Resposta[];
+  respostaCorreta: Resposta;
 }
 
 export interface PerguntaDTO {
   id?: number;
   enunciado: string;
   disciplinaId: number;
+  respostaCorretaId: number;
   respostas: Resposta[];
 }
 

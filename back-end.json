@@ -493,6 +493,18 @@
           "nome": "Front-end"
         }]
       },
+      "respostaCorreta": {
+        "id": 1,
+        "conteudo": "A terra não é plana e isso tem a ver com front-end, pois é normal trabalhar com geolocalização",
+        "disciplina": {
+          "id": 2,
+          "nome": "Angular",
+          "areas": [{
+            "id": 1,
+            "nome": "Front-end"
+          }]
+        }
+      },
       "respostas": [
         {
           "id": 1,
@@ -567,6 +579,18 @@
           "nome": "Back-end"
         }]
       },
+      "respostaCorreta": {
+        "id": 7,
+        "conteudo": "Estudar servlets é importante, pois é a base da programação web em java",
+        "disciplina": {
+          "id": 1,
+          "nome": "Java",
+          "areas": [{
+            "id": 2,
+            "nome": "Back-end"
+          }]
+        }
+      },
       "respostas": [
         {
           "id": 6,
@@ -640,6 +664,18 @@
           "id": 2,
           "nome": "Back-end"
         }]
+      },
+      "respostaCorreta": {
+        "id": 13,
+        "conteudo": "Devemos usar banco SQL, quando precisamos de um modelo mais rigido e menos tolerante a falhas",
+        "disciplina": {
+          "id": 9,
+          "nome": "Mysql",
+          "areas": [{
+            "id": 2,
+            "nome": "Back-end"
+          }]
+        }
       },
       "respostas": [
         {

@@ -806,6 +806,26 @@
       ]
     }
   ],
+  "questoes": [
+    {
+      "id": 1,
+      "avaliacaoId": 1,
+      "numero": 1,
+      "perguntaResposta": [1,1,2,3,4,5]
+    },
+    {
+      "id": 2,
+      "avaliacaoId": 1,
+      "numero": 2,
+      "perguntaResposta": [2,6,7,8,9,10]
+    },
+    {
+      "id": 3,
+      "avaliacaoId": 1,
+      "numero": 3,
+      "perguntaResposta": [3,11,12,13,14,15]
+    }
+  ],
   "presencas": [
     {
       "id": 1,

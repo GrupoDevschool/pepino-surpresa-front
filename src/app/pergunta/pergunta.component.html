@@ -49,7 +49,6 @@
         [settings]="dropdownRespostaSettings"
         [data]="respostas"
         [(ngModel)]="possiveisRespostas"
-        [disabled]=" !disciplina || !disciplina.length && !area || !area.length"
         (onDeSelect)="changeSelect('resposta')"
         (onSelect)="changeSelect('resposta')"
         name="respostas"
@@ -112,22 +111,66 @@
     </table>
   </div>
 
-  <div class="modal-criar-resposta" *ngIf="criarRespostasModalIsVisible">
-      <div class="modal-container" >
-        <Strong>Criar Resposta</Strong>
-        <button class="close-button" (click)="closeCriarRespostaModal()"><span>X</span></button>
-        <form (ngSubmit)="saveCriarRespostaModal()">
-          <div class="form-group">
-            <label class="form-field__label" for="disciplina">Disciplina</label>
-            <ng-multiselect-dropdown
+
+<div class="modal-update-overlay" *ngIf="updateModalIsVisible">
+  <div class="modal-update-container" >
+    <Strong>Editar Pergunta</Strong>
+    <button class="close-button" (click)="closeUpdateModal()"><span>X</span></button>
+    <form (ngSubmit)="edit()">
+
+      <div class="form-group textarea">
+        <label class="form-field__label" for="enunciado">Enunciado</label>
+          <textarea
+            class="form-control"
+            id="enunciado"
+            type="text"
+            [(ngModel)]="updatedPergunta.enunciado"
+            name="descricao"
+          ></textarea>
+      </div>
+
+      <div class="form-group double">
+        <div>
+          <label class="form-field__label" for="updatedArea">Area</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Selecionar Area'"
+            [settings]="dropdownAreaSettings"
+            [data]="areas"
+            [(ngModel)]="updatedArea"
+            name="updatedArea"
+            (onSelect)="changeSelect('updatedArea')"
+            (onDeSelect)="changeSelect('updatedArea')"
+          >
+          </ng-multiselect-dropdown>
+        </div>
+        <div>
+          <label class="form-field__label" for="updatedDisciplina">Disciplina</label>
+          <ng-multiselect-dropdown
               [placeholder]="'Selecionar Disciplina'"
               [settings]="dropdownDisciplinaSettings"
               [data]="disciplinas"
-              [(ngModel)]="disciplina"
-              name="disciplina"
+              [(ngModel)]="updatedDisciplina"
+              name="updatedDisciplina"
+              (onSelect)="changeSelect('updatedDisciplina')"
+              (onDeSelect)="changeSelect('updatedDisciplina')"
             >
             </ng-multiselect-dropdown>
           </div>
+
+
+      <div class="form-group">
+        <label class="form-field__label" for="updatedRespostas">Respostas</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Respostas'"
+          [settings]="dropdownRespostaSettings"
+          [data]="respostas"
+          [(ngModel)]="updatedRespostas"
+          (onDeSelect)="changeSelect('updatedResposta')"
+          (onSelect)="changeSelect('updatedResposta')"
+          name="updatedRespostas"
+        >
+        </ng-multiselect-dropdown>
+      </div>
 
 
           <div class="form-group textarea">

@@ -230,6 +230,25 @@
           <p>{{updatedDisciplina[0].nome}}</p>
         </div>
       </div>
+      <div class="panel-heading">
+        <h2>Resposta Correta</h2>
+      </div>
+      <div class="list panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>Conteudo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-md-2">{{ updatedRespostaCorreta[0].disciplina.nome }}</td>
+              <td class="col-md-10">{{ updatedRespostaCorreta[0].conteudo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
         <div class="panel-heading">
           <h2>Respostas</h2>
         </div>

@@ -1,6 +1,12 @@
+import { AulaDTO } from './../shared/model/Aula';
+import { Gestor } from './../shared/model/Gestor';
 import { Component, OnInit } from '@angular/core';
 import { AulaService } from '../core/aula.service';
 import { Aula } from '../shared/model/Aula';
+import { GestorService } from '../core/gestor.service';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { Turma } from '../shared/model/Turma';
+import { TurmaService } from '../core/turma.service';
 
 @Component({
   selector: 'app-aula',
@@ -12,31 +18,81 @@ export class AulaComponent implements OnInit {
   aulas: Aula[];
   aula: Aula = {} as Aula;
   updatedAula: Aula = {} as Aula;
+  updatedGestores: Gestor[] = []
+  updatedTurma: Turma[];
 
   modalIsVisible: boolean = false;
 
-  constructor(private aulaService: AulaService) {
+  gestores: Gestor[];
+  turma: Turma[]
+
+  gestoresSelecionados = []
+  turmaSelecionada = []
+
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private aulaService: AulaService, private gestorService: GestorService, private turmaService: TurmaService) {
   }
 
   ngOnInit(): void {
     this.reloadData();
+    this.gestoresSelecionados = []
+    this.turmaSelecionada = []
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'nome',
+      selectAllText: 'Selecionar todos',
+      unSelectAllText: 'Limpar seleção',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    }
   }
 
   reloadData() {
     this.aulaService.list().subscribe((aulas) => {
       this.aulas = aulas;
     });
+
+    this.gestorService.list().subscribe((gestores) => {
+      this.gestores = gestores;
+    });
+
+    this.turmaService.list().subscribe((turma) => {
+      this.turma = turma;
+    });
+
+  }
+
+  formatGestores(gestores: Gestor[]): string {
+    return gestores.map((gestor) => gestor.nome).join(', ')
   }
 
   save() {
-    this.aulaService.save(this.aula).subscribe(
+    const newAula: AulaDTO = {
+      data: this.aula.data,
+      assunto: this.aula.assunto,
+      gestores: this.aula.gestores,
+      turmaId: this.turma[0].id
+
+    }
+    this.aula.gestores = this.gestoresSelecionados
+    this.aulaService.save(newAula).subscribe(
       avaliacao => this.aulas.push(avaliacao),
       error => console.log(error)
     )
   }
 
   edit() {
-    this.aulaService.edit(this.updatedAula).subscribe(() => {
+    const editedAula: AulaDTO = {
+      id: this.updatedAula.id,
+      data: this.updatedAula.data,
+      assunto: this.updatedAula.assunto,
+      gestores: this.updatedAula.gestores,
+      turmaId: this.updatedTurma[0].id
+    }
+    this.updatedAula.gestores = this.updatedGestores
+    this.aulaService.edit(editedAula).subscribe(() => {
       this.reloadData();
       this.closeModal();
       },
@@ -56,13 +112,22 @@ export class AulaComponent implements OnInit {
     )
   }
 
+  onItemSelect(item: any) {
+    console.log(item);
+  }
+  onSelectAll(items: any) {
+    console.log(items);
+  }
+
   openModal(aula: Aula) {
     this.updatedAula = Object.assign({}, aula);
+    this.updatedGestores = this.updatedAula.gestores;
+    this.updatedTurma = Array.of(aula.turma);
     this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 }

@@ -29,33 +29,64 @@
       "id": 6,
       "data": "2021-09-01 23:00:00",
       "descricao": "Ablabluble"
-    },
-    {
-      "id": 7,
-      "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
     }
   ],
   "aulas": [
     {
       "id": 1,
       "data": "2021-09-11",
-      "assunto": "Berinjela"
+      "assunto": "Berinjela",
+      "gestores": [
+        {
+          "id": 2,
+          "nome": "Josias"
+        },
+        {
+          "id": 3,
+          "nome": "Joana"
+        }
+      ],
+      "turma": "Devschool 2"
     },
     {
       "id": 2,
       "data": "2021-09-07",
-      "assunto": "Pepino 2"
+      "assunto": "Pepino 2",
+      "gestores": [
+        {
+          "id": 4,
+          "nome": "Ananias"
+        },
+        {
+          "id": 5,
+          "nome": "Lohana"
+        }
+      ],
+      "turma": "Devschool 2"
     },
     {
       "id": 3,
       "data": "2021-09-04",
-      "assunto": "Pepino"
+      "assunto": "Pepino",
+      "gestores": [
+        {
+          "id": 6,
+          "nome": "Joelinton"
+        }
+      ],
+      "turma": "Devschool 2"
     },
     {
       "id": 4,
       "data": "2021-09-14",
-      "assunto": "Berinjela 2"
+      "assunto": "Berinjela 2\n",
+      "gestores": [
+        {
+          "id": 7,
+          "nome": "Jonelilton"
+        }
+      ],
+      "turma": "Devschool 2"
     }
   ],
   "alunos": [
@@ -239,8 +270,8 @@
       ]
     },
     {
-      "nome": "CSS",
       "id": 7,
+      "nome": "CSS",
       "areas": [
         {
           "id": 1,
@@ -443,6 +474,11 @@
           "nome": "Back-end"
         }]
       }
+    },
+    {
+      "conteudo": "alalalaa",
+      "disciplinaId": 4,
+      "id": 16
     }
   ],
   "perguntas": [

@@ -72,11 +72,10 @@ export class AulaComponent implements OnInit {
     const newAula: AulaDTO = {
       data: this.aula.data,
       assunto: this.aula.assunto,
-      gestores: this.aula.gestores,
+      gestores: this.gestoresSelecionados,
       turmaId: this.turma[0].id
 
     }
-    this.aula.gestores = this.gestoresSelecionados
     this.aulaService.save(newAula).subscribe(
       avaliacao => this.aulas.push(avaliacao),
       error => console.log(error)

@@ -75,18 +75,6 @@
         }
       ],
       "turma": "Devschool 2"
-    },
-    {
-      "id": 4,
-      "data": "2021-09-14",
-      "assunto": "Berinjela 2\n",
-      "gestores": [
-        {
-          "id": 7,
-          "nome": "Jonelilton"
-        }
-      ],
-      "turma": "Devschool 2"
     }
   ],
   "alunos": [
@@ -301,10 +289,12 @@
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "areas": [{
-          "id": 1,
-          "nome": "Front-end"
-        }]
+        "areas": [
+          {
+            "id": 1,
+            "nome": "Front-end"
+          }
+        ]
       }
     },
     {
@@ -313,10 +303,12 @@
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "areas": [{
-          "id": 1,
-          "nome": "Front-end"
-        }]
+        "areas": [
+          {
+            "id": 1,
+            "nome": "Front-end"
+          }
+        ]
       }
     },
     {
@@ -325,10 +317,12 @@
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "areas": [{
-          "id": 1,
-          "nome": "Front-end"
-        }]
+        "areas": [
+          {
+            "id": 1,
+            "nome": "Front-end"
+          }
+        ]
       }
     },
     {
@@ -337,10 +331,12 @@
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "areas": [{
-          "id": 1,
-          "nome": "Front-end"
-        }]
+        "areas": [
+          {
+            "id": 1,
+            "nome": "Front-end"
+          }
+        ]
       }
     },
     {
@@ -349,10 +345,12 @@
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "areas": [{
-          "id": 1,
-          "nome": "Front-end"
-        }]
+        "areas": [
+          {
+            "id": 1,
+            "nome": "Front-end"
+          }
+        ]
       }
     },
     {
@@ -361,10 +359,12 @@
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -373,10 +373,12 @@
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -385,10 +387,12 @@
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -397,10 +401,12 @@
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -409,10 +415,12 @@
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -421,10 +429,12 @@
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -433,10 +443,12 @@
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -445,10 +457,12 @@
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -457,10 +471,12 @@
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
@@ -469,15 +485,17 @@
       "disciplina": {
         "id": 3,
         "nome": "Mysql",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       }
     },
     {
-      "conteudo": "alalalaa",
-      "disciplinaId": 4,
+      "conteudo": "asdasdasd",
+      "disciplinaId": 2,
       "id": 16
     }
   ],
@@ -488,10 +506,12 @@
       "disciplina": {
         "id": 2,
         "nome": "Angular",
-        "areas": [{
-          "id": 1,
-          "nome": "Front-end"
-        }]
+        "areas": [
+          {
+            "id": 1,
+            "nome": "Front-end"
+          }
+        ]
       },
       "respostas": [
         {
@@ -500,10 +520,12 @@
           "disciplina": {
             "id": 2,
             "nome": "Angular",
-            "areas": [{
-              "id": 1,
-              "nome": "Front-end"
-            }]
+            "areas": [
+              {
+                "id": 1,
+                "nome": "Front-end"
+              }
+            ]
           }
         },
         {
@@ -512,10 +534,12 @@
           "disciplina": {
             "id": 2,
             "nome": "Angular",
-            "areas": [{
-              "id": 1,
-              "nome": "Front-end"
-            }]
+            "areas": [
+              {
+                "id": 1,
+                "nome": "Front-end"
+              }
+            ]
           }
         },
         {
@@ -524,10 +548,12 @@
           "disciplina": {
             "id": 2,
             "nome": "Angular",
-            "areas": [{
-              "id": 1,
-              "nome": "Front-end"
-            }]
+            "areas": [
+              {
+                "id": 1,
+                "nome": "Front-end"
+              }
+            ]
           }
         },
         {
@@ -536,10 +562,12 @@
           "disciplina": {
             "id": 2,
             "nome": "Angular",
-            "areas": [{
-              "id": 1,
-              "nome": "Front-end"
-            }]
+            "areas": [
+              {
+                "id": 1,
+                "nome": "Front-end"
+              }
+            ]
           }
         },
         {
@@ -548,10 +576,12 @@
           "disciplina": {
             "id": 2,
             "nome": "Angular",
-            "areas": [{
-              "id": 1,
-              "nome": "Front-end"
-            }]
+            "areas": [
+              {
+                "id": 1,
+                "nome": "Front-end"
+              }
+            ]
           }
         }
       ]
@@ -562,10 +592,12 @@
       "disciplina": {
         "id": 1,
         "nome": "Java",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       },
       "respostas": [
         {
@@ -574,10 +606,12 @@
           "disciplina": {
             "id": 1,
             "nome": "Java",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -586,10 +620,12 @@
           "disciplina": {
             "id": 1,
             "nome": "Java",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -598,10 +634,12 @@
           "disciplina": {
             "id": 1,
             "nome": "Java",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -610,10 +648,12 @@
           "disciplina": {
             "id": 1,
             "nome": "Java",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -622,10 +662,12 @@
           "disciplina": {
             "id": 1,
             "nome": "Java",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         }
       ]
@@ -636,10 +678,12 @@
       "disciplina": {
         "id": 9,
         "nome": "Mysql",
-        "areas": [{
-          "id": 2,
-          "nome": "Back-end"
-        }]
+        "areas": [
+          {
+            "id": 2,
+            "nome": "Back-end"
+          }
+        ]
       },
       "respostas": [
         {
@@ -648,10 +692,12 @@
           "disciplina": {
             "id": 9,
             "nome": "Mysql",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -660,10 +706,12 @@
           "disciplina": {
             "id": 9,
             "nome": "Mysql",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -672,10 +720,12 @@
           "disciplina": {
             "id": 9,
             "nome": "Mysql",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -684,10 +734,12 @@
           "disciplina": {
             "id": 9,
             "nome": "Mysql",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         },
         {
@@ -696,10 +748,12 @@
           "disciplina": {
             "id": 3,
             "nome": "Mysql",
-            "areas": [{
-              "id": 2,
-              "nome": "Back-end"
-            }]
+            "areas": [
+              {
+                "id": 2,
+                "nome": "Back-end"
+              }
+            ]
           }
         }
       ]
@@ -739,7 +793,7 @@
   ],
   "gestores": [
     {
-      "id": "1",
+      "id": 1,
       "nome": "Carlos",
       "tipo": "Professor",
       "aulas": [
@@ -754,7 +808,7 @@
       ]
     },
     {
-      "id": "2",
+      "id": 2,
       "nome": "Marcão",
       "tipo": "Orientador",
       "aulas": [

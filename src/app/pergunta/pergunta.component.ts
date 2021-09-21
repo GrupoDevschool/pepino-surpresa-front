@@ -7,7 +7,7 @@ import { Pergunta, PerguntaDTO } from '../shared/model/Pergunta';
 import { AreaService } from './../core/area.service';
 import { DisciplinaService } from './../core/disciplina.service';
 import { PerguntaService } from './../core/pergunta.service';
-import { Resposta } from './../shared/model/Resposta';
+import { Resposta, RespostaDTO } from './../shared/model/Resposta';
 
 @Component({
   selector: 'app-pergunta',
@@ -25,12 +25,14 @@ export class PerguntaComponent implements OnInit {
   possiveisRespostas: Resposta[] = [];
   disciplina: Disciplina[] = [];
   area: Area[];
+  resposta: Resposta = {} as Resposta;
 
   updatedPergunta: Pergunta = {} as Pergunta;
   updatedDisciplina: Disciplina[];
   updatedArea: Area[];
   updatedRespostas: Resposta[];
 
+  criarRespostasModalIsVisible: boolean = false;
   updateModalIsVisible: boolean = false;
   responseModalIsVisible: boolean = false;
 
@@ -223,6 +225,29 @@ export class PerguntaComponent implements OnInit {
     this.PerguntaService.delete(id).subscribe(() => {
           this.perguntas = this.perguntas.filter((element) => element.id !== id)
       }
+    )
+  }
+
+  openCriarRespostaModal(resposta: Resposta) {
+    this.resposta = Object.assign({}, resposta);
+    this.disciplina = Array.of(resposta.disciplina);
+
+    this.criarRespostasModalIsVisible = true
+  }
+
+  closeCriarRespostaModal(){
+    this.criarRespostasModalIsVisible = false;
+  }
+
+  saveCriarRespostaModal(){
+    const newResposta: RespostaDTO = {
+      conteudo: this.resposta.conteudo,
+      disciplinaId: this.disciplina[0].id
+    }
+
+    this.RespostaService.save(newResposta).subscribe(
+      resposta => this.respostas.push(resposta),
+      error => console.log(error)
     )
   }
 

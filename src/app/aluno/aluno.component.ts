@@ -88,11 +88,11 @@ export class AlunoComponent implements OnInit {
   openModal(aluno: Aluno) {
     this.updatedAluno = Object.assign({}, aluno);
     this.updatedTurma = this.updatedAluno.turma;
-    this.modalIsVisible = this.modalIsVisible = true;
+    this.modalIsVisible = true;
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 }

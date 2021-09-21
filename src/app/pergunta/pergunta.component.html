@@ -49,7 +49,6 @@
         [settings]="dropdownRespostaSettings"
         [data]="respostas"
         [(ngModel)]="possiveisRespostas"
-        [disabled]=" !disciplina || !disciplina.length && !area || !area.length"
         (onDeSelect)="changeSelect('resposta')"
         (onSelect)="changeSelect('resposta')"
         name="respostas"
@@ -123,26 +122,26 @@
 
       <div class="form-group double">
         <div>
-          <label class="form-field__label" for="area">Area</label>
+          <label class="form-field__label" for="updatedArea">Area</label>
           <ng-multiselect-dropdown
             [placeholder]="'Selecionar Area'"
             [settings]="dropdownAreaSettings"
             [data]="areas"
             [(ngModel)]="updatedArea"
-            name="area"
+            name="updatedArea"
             (onSelect)="changeSelect('updatedArea')"
             (onDeSelect)="changeSelect('updatedArea')"
           >
           </ng-multiselect-dropdown>
         </div>
         <div>
-          <label class="form-field__label" for="disciplina">Disciplina</label>
+          <label class="form-field__label" for="updatedDisciplina">Disciplina</label>
           <ng-multiselect-dropdown
               [placeholder]="'Selecionar Disciplina'"
               [settings]="dropdownDisciplinaSettings"
               [data]="disciplinas"
               [(ngModel)]="updatedDisciplina"
-              name="disciplina"
+              name="updatedDisciplina"
               (onSelect)="changeSelect('updatedDisciplina')"
               (onDeSelect)="changeSelect('updatedDisciplina')"
             >
@@ -159,7 +158,6 @@
           [(ngModel)]="updatedRespostas"
           (onDeSelect)="changeSelect('updatedResposta')"
           (onSelect)="changeSelect('updatedResposta')"
-          [disabled]=" !updatedDisciplina || !updatedDisciplina.length && !updatedArea || !updatedArea.length"
           name="updatedRespostas"
         >
         </ng-multiselect-dropdown>

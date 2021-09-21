@@ -5,7 +5,7 @@
 * @field PerguntaResposta é um array que em sua primeira posição tem o id da pergutam e nas posições seguintes o id das respostas da questão
 */
 export interface Questao {
-  id: number;
+  id?: number;
   avaliacaoId: number;
   numero: number;
   perguntaResposta: number[]

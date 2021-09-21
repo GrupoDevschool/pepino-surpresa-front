@@ -18,6 +18,7 @@ import { TrilhaComponent } from './trilha/trilha.component';
 import { TurmaComponent } from './turma/turma.component';
 import { PerguntaComponent } from './pergunta/pergunta.component';
 import { PresencaComponent } from './presenca/presenca.component';
+import { QuestaoComponent } from './questao/questao.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PresencaComponent } from './presenca/presenca.component';
     TrilhaComponent,
     TurmaComponent,
     PresencaComponent,
+    QuestaoComponent,
   ],
   imports: [
     BrowserModule,

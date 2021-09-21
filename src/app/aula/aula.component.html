@@ -36,6 +36,17 @@
       >
       </ng-multiselect-dropdown>
 
+    <label class="form-field__label" for="turma">Turma</label>
+      <ng-multiselect-dropdown
+      [placeholder]="'Selecionar turma'"
+      [settings]="dropdownSettings"
+      [data]="turma"
+      [(ngModel)]="turmaSelecionada"
+      (onSelect)="onItemSelect($event)"
+      name="turma"
+    >
+    </ng-multiselect-dropdown>
+
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
     </div>
@@ -52,6 +63,7 @@
           <th>Data</th>
           <th>Assunto</th>
           <th>Gestores</th>
+          <th>Turma</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
@@ -60,6 +72,7 @@
           <td class="col-md-2">{{ au.data | date: "dd/MM/yyyy" }}</td>
           <td class="col-md-2">{{ au.assunto }}</td>
           <td class="col-md-2">{{ formatGestores(au.gestores) }}</td>
+          <td class="col-md-2">{{ au.turma }}</td>
           <td class="col-md-2">
             <button (click)="openModal(au)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(au.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -106,6 +119,17 @@
           (onSelect)="onItemSelect($event)"
           (onSelectAll)="onSelectAll($event)"
           name="gestores"
+        >
+          </ng-multiselect-dropdown>
+
+          <label class="form-field__label" for="turma">Turma</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar turma'"
+          [settings]="dropdownSettings"
+          [data]="turma"
+          [(ngModel)]="updatedTurma"
+          (onSelect)="onItemSelect($event)"
+          name="turma"
         >
           </ng-multiselect-dropdown>
 

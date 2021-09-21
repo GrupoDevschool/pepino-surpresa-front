@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { AvaliacaoService } from '../core/avaliacao.service';
-import { Avaliacao } from '../shared/model/Avaliacao';
+import { Avaliacao, AvaliacaoDTO } from '../shared/model/Avaliacao';
+import { GestorService } from './../core/gestor.service';
+import { Gestor } from './../shared/model/Gestor';
 
 @Component({
   selector: 'app-avaliacao',
@@ -10,12 +13,26 @@ import { Avaliacao } from '../shared/model/Avaliacao';
 export class AvaliacaoComponent implements OnInit {
 
   avaliacoes: Avaliacao[];
+  gestores: Gestor[];
+
   avaliacao: Avaliacao = {} as Avaliacao;
+  gestor: Gestor[];
   updatedAvaliacao: Avaliacao = {} as Avaliacao;
+  updatedGestor: Gestor[];
 
   modalIsVisible: boolean = false;
 
-  constructor(private avaliacaoService: AvaliacaoService) {
+  dropdownSettings: IDropdownSettings = {};
+
+  constructor(private avaliacaoService: AvaliacaoService, private gestorService: GestorService) {
+    this.dropdownSettings = {
+      singleSelection: true,
+      idField: 'id',
+      textField: 'nome',
+      unSelectAllText: 'Limpar seleção',
+      itemsShowLimit: 1,
+      allowSearchFilter: true
+    };
   }
 
   ngOnInit(): void {
@@ -26,17 +43,34 @@ export class AvaliacaoComponent implements OnInit {
     this.avaliacaoService.list().subscribe((avaliacoes) => {
       this.avaliacoes = avaliacoes;
     });
+
+    this.gestorService.list().subscribe((gestores) => {
+      this.gestores = gestores;
+    });
   }
 
   save() {
-    this.avaliacaoService.save(this.avaliacao).subscribe(
-      avaliacao => this.avaliacoes.push(avaliacao),
+    const newAvaliacao: AvaliacaoDTO = {
+      data: this.avaliacao.data,
+      descricao: this.avaliacao.descricao,
+      gestorId: this.gestor[0].id
+    };
+
+    this.avaliacaoService.save(newAvaliacao).subscribe(
+      () => this.reloadData(),
       error => console.log(error)
     )
   }
 
   edit() {
-    this.avaliacaoService.edit(this.updatedAvaliacao).subscribe(() => {
+    const newAvaliacao: AvaliacaoDTO = {
+      id: this.updatedAvaliacao.id,
+      data: this.updatedAvaliacao.data,
+      descricao: this.updatedAvaliacao.descricao,
+      gestorId: this.updatedGestor[0].id
+    };
+
+    this.avaliacaoService.edit(newAvaliacao).subscribe(() => {
       this.reloadData();
       this.closeModal();
       },
@@ -58,7 +92,8 @@ export class AvaliacaoComponent implements OnInit {
 
   openModal(avaliacao: Avaliacao) {
     this.updatedAvaliacao = Object.assign({}, avaliacao);
-    console.log(this.updatedAvaliacao);
+    this.updatedGestor = Array.of(avaliacao.gestor);
+
     this.modalIsVisible = true;
   }
 

@@ -24,6 +24,16 @@
       ></textarea>
     </div>
 
+    <label class="form-field__label" for="gestor">Gestor</label>
+    <ng-multiselect-dropdown
+    [placeholder]="'Selecionar Gestor'"
+    [settings]="dropdownSettings"
+    [data]="gestores"
+    [(ngModel)]="gestor"
+    name="gestor"
+  >
+    </ng-multiselect-dropdown>
+
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
     </div>
@@ -39,13 +49,15 @@
         <tr>
           <th>Data</th>
           <th>Descrição</th>
+          <th>Gestor</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let av of avaliacoes">
           <td class="col-md-2">{{ av.data | date: "dd/MM/yyyy" }}</td>
-          <td class="col-md-8">{{ av.descricao }}</td>
+          <td class="col-md-6">{{ av.descricao }}</td>
+          <td class="col-md-2">{{ av.gestor.nome }}</td>
           <td class="col-md-2">
             <button (click)="openModal(av)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(av.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -81,6 +93,16 @@
               name="descricao"
             ></textarea>
           </div>
+
+          <label class="form-field__label" for="updatedGestor">Gestor</label>
+          <ng-multiselect-dropdown
+          [placeholder]="'Selecionar Gestor'"
+          [settings]="dropdownSettings"
+          [data]="gestores"
+          [(ngModel)]="updatedGestor"
+          name="updatedGestor"
+        >
+          </ng-multiselect-dropdown>
 
           <div class="btn-wrapper">
             <button class="btn btn-primary col-md-3" type="submit">Salvar</button>

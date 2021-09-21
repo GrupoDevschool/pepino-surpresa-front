@@ -3,32 +3,122 @@
     {
       "id": 1,
       "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "descricao": "Ablabluble",
+      "gestor": {
+        "id": 1,
+        "nome": "Carlos",
+        "tipo": "Professor",
+        "aulas": [
+          {
+            "id": 1,
+            "assunto": "Pepino 2"
+          },
+          {
+            "id": 2,
+            "assunto": "Berinjela 2"
+          }
+        ]
+      }
     },
     {
       "id": 2,
       "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "descricao": "Ablabluble",
+      "gestor": {
+        "id": 1,
+        "nome": "Carlos",
+        "tipo": "Professor",
+        "aulas": [
+          {
+            "id": 1,
+            "assunto": "Pepino 2"
+          },
+          {
+            "id": 2,
+            "assunto": "Berinjela 2"
+          }
+        ]
+      }
     },
     {
       "id": 3,
       "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "descricao": "Ablabluble",
+      "gestor": {
+        "id": 1,
+        "nome": "Carlos",
+        "tipo": "Professor",
+        "aulas": [
+          {
+            "id": 1,
+            "assunto": "Pepino 2"
+          },
+          {
+            "id": 2,
+            "assunto": "Berinjela 2"
+          }
+        ]
+      }
     },
     {
       "id": 4,
       "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "descricao": "Ablabluble",
+      "gestor": {
+        "id": 1,
+        "nome": "Carlos",
+        "tipo": "Professor",
+        "aulas": [
+          {
+            "id": 1,
+            "assunto": "Pepino 2"
+          },
+          {
+            "id": 2,
+            "assunto": "Berinjela 2"
+          }
+        ]
+      }
     },
     {
       "id": 5,
       "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "descricao": "Ablabluble",
+      "gestor": {
+        "id": 1,
+        "nome": "Carlos",
+        "tipo": "Professor",
+        "aulas": [
+          {
+            "id": 1,
+            "assunto": "Pepino 2"
+          },
+          {
+            "id": 2,
+            "assunto": "Berinjela 2"
+          }
+        ]
+      }
     },
     {
       "id": 6,
       "data": "2021-09-01 23:00:00",
-      "descricao": "Ablabluble"
+      "descricao": "Ablabluble",
+      "gestor": {
+        "id": 1,
+        "nome": "Carlos",
+        "tipo": "Professor",
+        "aulas": [
+          {
+            "id": 1,
+            "assunto": "Pepino 2"
+          },
+          {
+            "id": 2,
+            "assunto": "Berinjela 2"
+          }
+        ]
+      }
     }
   ],
   "aulas": [

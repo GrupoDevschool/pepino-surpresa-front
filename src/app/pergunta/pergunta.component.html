@@ -201,10 +201,23 @@
             [settings]="dropdownRespostaSettings"
             [data]="respostas"
             [(ngModel)]="updatedRespostas"
-            [disabled]=" !updatedDisciplina || !updatedDisciplina.length && !updatedArea || !updatedArea.length"
+            [disabled]="!updatedDisciplina || !updatedDisciplina.length && !updatedArea || !updatedArea.length"
             name="respostas"
           >
           </ng-multiselect-dropdown>
+
+          <div class="form-group">
+            <label class="form-field__label" for="updatedRespostaCorreta">Resposta Correta</label>
+            <ng-multiselect-dropdown
+              [placeholder]="'Selecionar resposta correta'"
+              [settings]="dropdownrRespostaCorretaSettings"
+              [data]="updatedRespostas"
+              [(ngModel)]="updatedRespostaCorreta"
+              [disabled]=" !updatedRespostas.length"
+              name="updatedRespostaCorreta"
+            >
+            </ng-multiselect-dropdown>
+          </div>
         </div>
 
 

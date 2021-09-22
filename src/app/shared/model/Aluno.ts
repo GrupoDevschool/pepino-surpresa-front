@@ -7,9 +7,9 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turma: Turma;
+    turmaid: Turma["id"];
 
-  }
+}
 
   export interface AlunoDTO {
 
@@ -18,6 +18,6 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turma: Turma;
+    turmaid: Turma["id"];
 
-  }
+}

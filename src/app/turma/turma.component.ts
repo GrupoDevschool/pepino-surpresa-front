@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { AlunoService } from '../core/aluno.service';
+import { ToastrService } from 'ngx-toastr';
 import { TurmaService } from '../core/turma.service';
 import { Aluno } from './../shared/model/Aluno';
 import { Turma } from './../shared/model/Turma';
-
 
 @Component({
   selector: 'app-turma',
@@ -17,18 +15,42 @@ export class TurmaComponent implements OnInit {
   turma: Turma = {} as Turma;
   updatedTurma: Turma = {} as Turma;
 
+  loadingData: boolean = false;
+  failToLoadData: boolean = false;
+  requestLoading: boolean = false;
+
   modalIsVisible: boolean = false;
 
-  constructor(private turmaService: TurmaService) { }
+  constructor(private turmaService: TurmaService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+
     this.reloadData();
   }
 
   reloadData() {
-    this.turmaService.list().subscribe((turmas) => {
-      this.turmas = turmas;
-    });
+    this.loadingData = true;
+    this.turmaService.list().subscribe(
+      turmas => {
+        this.turmas = turmas;
+        this.loadingData = false;
+      },
+      error => {
+        this.showError(error.message)
+        this.loadingData = true;
+        this.failToLoadData = true;
+      }
+    );
+
+    console.log(this.loadingData);
+  }
+
+  showSuccess() {
+    this.toastr.success('Turma salva com sucesso!');
+  }
+
+  showError(message: string) {
+    this.toastr.error(message, 'Erro');
   }
 
   formatDisciplina(alunos: Aluno[]): string {
@@ -36,9 +58,17 @@ export class TurmaComponent implements OnInit {
   }
 
   save() {
+    this.requestLoading = true;
     this.turmaService.save(this.turma).subscribe(
-      turma => this.turmas.push(turma),
-      error => console.log(error)
+      () => {
+        this.showSuccess();
+        this.reloadData();
+        this.requestLoading = false;
+      },
+      error => {
+        this.showError(error.message)
+        this.requestLoading = false;
+      }
     )
   }
 
@@ -46,6 +76,7 @@ export class TurmaComponent implements OnInit {
     this.turmaService.edit(this.updatedTurma).subscribe(() => {
         this.reloadData();
         this.closeModal();
+        this.showSuccess();
       },
       error => {
         console.log(error);
@@ -59,13 +90,6 @@ export class TurmaComponent implements OnInit {
         this.turmas = this.turmas.filter((element) => element.id !== id)
       }
     )
-  }
-
-  onItemSelect(item: any) {
-    console.log(item);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
   }
 
   openModal(turma: Turma) {

@@ -266,7 +266,10 @@ export class PerguntaComponent implements OnInit {
     }
 
     this.RespostaService.save(newResposta).subscribe(
-      resposta => this.respostas.push(resposta),
+      resposta => {
+        this.reloadData()
+        this.closeCriarRespostaModal();
+      },
       error => console.log(error)
     )
   }

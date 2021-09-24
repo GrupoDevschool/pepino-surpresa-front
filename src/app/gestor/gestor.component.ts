@@ -60,12 +60,7 @@ export class GestorComponent implements OnInit {
     });
   }
 
-  formatAulas(aulas: Aula[]): string {
-    return aulas.map((aula) => aula.assunto).join(', ')
-  }
-
   save() {
-    this.gestor.aulas = this.aulasSelecionadas;
     this.gestorService.save(this.gestor).subscribe(
       gestor => this.gestores.push(gestor),
       error => console.log(error)
@@ -73,7 +68,6 @@ export class GestorComponent implements OnInit {
   }
 
   edit() {
-    this.updatedGestor.aulas = this.updatedAulas;
     this.gestorService.edit(this.updatedGestor).subscribe(() => {
         this.reloadData();
         this.closeModal();
@@ -101,7 +95,6 @@ export class GestorComponent implements OnInit {
 
   openModal(gestor: Gestor) {
     this.updatedGestor = Object.assign({}, gestor);
-    this.updatedAulas = this.updatedGestor.aulas;
     this.modalIsVisible = true;
   }
 

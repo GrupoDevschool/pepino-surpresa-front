@@ -157,7 +157,7 @@ export class PerguntaComponent implements OnInit {
         if (this.disciplina.length) {
           this.disciplina = Array.of(this.disciplinas.find((element) => element.id === this.disciplina[0].id));
 
-          this.area = Array.of(this.disciplina[0].areas[0]);
+          this.area = Array.of(this.disciplina[0].area);
 
           this.getRespostaByDisciplinaId(this.disciplina[0].id);
 
@@ -190,7 +190,7 @@ export class PerguntaComponent implements OnInit {
         if (this.updatedDisciplina.length) {
           this.updatedDisciplina = Array.of(this.disciplinas.find((element) => element.id === this.updatedDisciplina[0].id));
 
-          this.updatedArea = Array.of(this.updatedDisciplina[0].areas[0]);
+          this.updatedArea = Array.of(this.updatedDisciplina[0].area);
 
           this.getRespostaByDisciplinaId(this.updatedDisciplina[0].id);
 
@@ -209,9 +209,9 @@ export class PerguntaComponent implements OnInit {
   save() {
     const newPergunta: PerguntaDTO = {
       enunciado: this.pergunta.enunciado,
-      disciplinaId: this.disciplina[0].id,
-      respostas: this.possiveisRespostas,
-      respostaCorretaId: this.respostaCorreta[0].id
+      disciplina: this.disciplina[0].id,
+      respostas: this.possiveisRespostas.map(resposta => resposta.id),
+      respostaCorreta: this.respostaCorreta[0].id
     }
 
     this.PerguntaService.save(newPergunta).subscribe(
@@ -224,9 +224,9 @@ export class PerguntaComponent implements OnInit {
     const newPergunta: PerguntaDTO = {
       id: this.updatedPergunta.id,
       enunciado: this.updatedPergunta.enunciado,
-      disciplinaId: this.updatedDisciplina[0].id,
-      respostas: this.updatedRespostas,
-      respostaCorretaId: this.updatedRespostaCorreta[0].id
+      disciplina: this.updatedDisciplina[0].id,
+      respostas: this.updatedRespostas.map(resposta => resposta.id),
+      respostaCorreta: this.updatedRespostaCorreta[0].id
     }
 
     this.PerguntaService.edit(newPergunta).subscribe(
@@ -266,7 +266,10 @@ export class PerguntaComponent implements OnInit {
     }
 
     this.RespostaService.save(newResposta).subscribe(
-      resposta => this.respostas.push(resposta),
+      resposta => {
+        this.reloadData()
+        this.closeCriarRespostaModal();
+      },
       error => console.log(error)
     )
   }
@@ -276,7 +279,7 @@ export class PerguntaComponent implements OnInit {
     this.updatedDisciplina = Array.of(pergunta.disciplina);
     this.updatedRespostas = Object.assign([], pergunta.respostas);
     this.updatedRespostaCorreta = Array.of(pergunta.respostaCorreta);
-    this.updatedArea = Array.of(pergunta.disciplina.areas[0]);
+    this.updatedArea = Array.of(pergunta.disciplina.area);
 
     this.responseModalIsVisible = true;
   }
@@ -289,7 +292,7 @@ export class PerguntaComponent implements OnInit {
     this.updatedPergunta = Object.assign({}, pergunta);
     this.updatedDisciplina = Array.of(pergunta.disciplina);
     this.updatedRespostas = Object.assign([], pergunta.respostas);
-    this.updatedArea = Array.of(pergunta.disciplina.areas[0]);
+    this.updatedArea = Array.of(pergunta.disciplina.area);
     this.updatedRespostaCorreta = Array.of(pergunta.respostaCorreta);
 
     this.updateModalIsVisible = true;

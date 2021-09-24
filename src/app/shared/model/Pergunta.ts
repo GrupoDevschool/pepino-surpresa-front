@@ -11,8 +11,8 @@ export interface Pergunta {
 export interface PerguntaDTO {
   id?: number;
   enunciado: string;
-  disciplinaId: number;
-  respostaCorretaId: number;
-  respostas: Resposta[];
+  disciplina: number;
+  respostaCorreta: number;
+  respostas: number[];
 }
 

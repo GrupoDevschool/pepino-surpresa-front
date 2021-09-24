@@ -171,8 +171,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let questao of questoes">
-          <td class="col-md-4">{{ getAvaliacaoDescricaoById(questao.avaliacaoId) }}</td>
-          <td class="col-md-2">{{ getAvaliacaoDataById(questao.avaliacaoId) | date: "dd/MM/yyyy"}}</td>
+          <td class="col-md-4">{{ getAvaliacaoDescricaoById(questao.idAvaliacao) }}</td>
+          <td class="col-md-2">{{ getAvaliacaoDataById(questao.idAvaliacao) | date: "dd/MM/yyyy"}}</td>
           <td class="col-md-2">{{ questao.numero }}</td>
           <td class="col-md-2"><button (click)="openPerguntaModal(questao)" class="btn"><span class="material-icons-round">help</span></button></td>
           <td class="col-md-2">

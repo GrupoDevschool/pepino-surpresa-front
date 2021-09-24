@@ -1,12 +1,12 @@
+import { Component, OnInit } from '@angular/core';
+import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { AulaService } from '../core/aula.service';
+import { GestorService } from '../core/gestor.service';
+import { TurmaService } from '../core/turma.service';
+import { Aula } from '../shared/model/Aula';
+import { Turma } from '../shared/model/Turma';
 import { AulaDTO } from './../shared/model/Aula';
 import { Gestor } from './../shared/model/Gestor';
-import { Component, OnInit } from '@angular/core';
-import { AulaService } from '../core/aula.service';
-import { Aula } from '../shared/model/Aula';
-import { GestorService } from '../core/gestor.service';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { Turma } from '../shared/model/Turma';
-import { TurmaService } from '../core/turma.service';
 
 @Component({
   selector: 'app-aula',
@@ -70,12 +70,13 @@ export class AulaComponent implements OnInit {
 
   save() {
     const newAula: AulaDTO = {
-      data: this.aula.data,
+      dataHora: this.aula.dataHora,
       assunto: this.aula.assunto,
       gestores: this.gestoresSelecionados,
       turmaId: this.turma[0].id
 
     }
+
     this.aulaService.save(newAula).subscribe(
       avaliacao => this.aulas.push(avaliacao),
       error => console.log(error)
@@ -85,12 +86,12 @@ export class AulaComponent implements OnInit {
   edit() {
     const editedAula: AulaDTO = {
       id: this.updatedAula.id,
-      data: this.updatedAula.data,
+      dataHora: this.updatedAula.dataHora,
       assunto: this.updatedAula.assunto,
-      gestores: this.updatedAula.gestores,
+      gestores: this.updatedGestores,
       turmaId: this.updatedTurma[0].id
     }
-    this.updatedAula.gestores = this.updatedGestores
+
     this.aulaService.edit(editedAula).subscribe(() => {
       this.reloadData();
       this.closeModal();
@@ -120,7 +121,7 @@ export class AulaComponent implements OnInit {
 
   openModal(aula: Aula) {
     this.updatedAula = Object.assign({}, aula);
-    this.updatedGestores = this.updatedAula.gestores;
+    this.updatedGestores = this.updatedAula.gestoresPresentes;
     this.updatedTurma = Array.of(aula.turma);
     this.modalIsVisible = true;
   }

@@ -4,16 +4,16 @@ import { Turma } from './Turma';
 export interface Aula {
 
   id?: number;
-  data: string;
+  dataHora: string;
   assunto: string;
-  gestores: Gestor[];
+  gestoresPresentes: Gestor[];
   turma: Turma;
 
 }
 
 export interface AulaDTO {
   id?: number;
-  data: string;
+  dataHora: string;
   assunto: string;
   gestores: Gestor[]
   turmaId: number;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { Aluno } from '../shared/model/Aluno';
 import { Aula } from '../shared/model/Aula';
-import { Presenca } from '../shared/model/Presenca';
+import { Presenca, PresencaDTO } from '../shared/model/Presenca';
 import { AlunoService } from './../core/aluno.service';
 import { AulaService } from './../core/aula.service';
 import { PresencaService } from './../core/presenca.service';
@@ -33,6 +33,7 @@ export class PresencaComponent implements OnInit {
   constructor(private PresencaService: PresencaService,
     private AlunoService: AlunoService,
     private AulaService: AulaService) {
+
     this.dropdownAlunoSettings = {
       singleSelection: true,
       idField: 'matricula',
@@ -67,10 +68,10 @@ export class PresencaComponent implements OnInit {
   }
 
   save() {
-    const newPresenca: Presenca = {
-      idAula: this.aulaSelecionada[0].id,
-      idAluno: this.alunoSelecionado[0].matricula,
-      timestamp: new Date()
+    const newPresenca: PresencaDTO = {
+      aulaId: this.aulaSelecionada[0].id,
+      alunoId: this.alunoSelecionado[0].matricula,
+      horaEntrada: new Date()
     }
 
     this.PresencaService.save(newPresenca).subscribe(

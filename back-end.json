@@ -817,7 +817,7 @@
   "questoes": [
     {
       "id": 1,
-      "avaliacaoId": 1,
+      "idAvaliacao": 1,
       "numero": 1,
       "perguntaResposta": [
         1,
@@ -830,7 +830,7 @@
     },
     {
       "id": 2,
-      "avaliacaoId": 1,
+      "idAvaliacao": 1,
       "numero": 2,
       "perguntaResposta": [
         2,
@@ -843,7 +843,7 @@
     },
     {
       "id": 3,
-      "avaliacaoId": 1,
+      "idAvaliacao": 1,
       "numero": 3,
       "perguntaResposta": [
         3,
@@ -902,7 +902,62 @@
   "turmas": [
     {
       "nome": "Devschool 2",
-      "id": 1
+      "id": 1,
+      "aulas": [
+        {
+          "id": 1,
+          "dataHora": "2021-09-11T23:00:00",
+          "assunto": "Berinjela",
+          "gestoresPresentes": [
+            {
+              "id": 2,
+              "nome": "Josias"
+            },
+            {
+              "id": 3,
+              "nome": "Joana"
+            }
+          ],
+          "turma": {
+            "nome": "Devschool 2",
+            "id": 1
+          }
+        },
+        {
+          "id": 2,
+          "dataHora": "2021-09-07T23:00:00",
+          "assunto": "Pepino 2",
+          "gestoresPresentes": [
+            {
+              "id": 4,
+              "nome": "Ananias"
+            },
+            {
+              "id": 5,
+              "nome": "Lohana"
+            }
+          ],
+          "turma": {
+            "nome": "Devschool 2",
+            "id": 1
+          }
+        },
+        {
+          "id": 3,
+          "dataHora": "2021-09-04T23:00:00",
+          "assunto": "Pepino",
+          "gestoresPresentes": [
+            {
+              "id": 6,
+              "nome": "Joelinton"
+            }
+          ],
+          "turma": {
+            "nome": "Devschool 2",
+            "id": 1
+          }
+        }
+      ]
     }
   ]
 }

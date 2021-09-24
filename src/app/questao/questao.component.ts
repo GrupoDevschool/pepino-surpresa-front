@@ -411,7 +411,7 @@ export class QuestaoComponent implements OnInit {
     this.respostaE.length && perguntaResposta.push(this.respostaE[0].id);
 
     const newQuestao: Questao = {
-      avaliacaoId: this.avaliacao[0].id,
+      idAvaliacao: this.avaliacao[0].id,
       numero: this.questao.numero,
       perguntaResposta,
     }
@@ -435,7 +435,7 @@ export class QuestaoComponent implements OnInit {
 
     const newQuestao: Questao = {
       id: this.updatedQuestao.id,
-      avaliacaoId: this.updatedAvaliacao[0].id,
+      idAvaliacao: this.updatedAvaliacao[0].id,
       numero: this.updatedQuestao.numero,
       perguntaResposta,
     }
@@ -461,7 +461,7 @@ export class QuestaoComponent implements OnInit {
 
   openPerguntaModal(questao: Questao) {
     this.updatedQuestao = Object.assign({},questao);
-    this.updatedAvaliacao = Array.of(this.avaliacoes.find(element => element.id === questao.avaliacaoId));
+    this.updatedAvaliacao = Array.of(this.avaliacoes.find(element => element.id === questao.idAvaliacao));
     this.updatedPergunta = Array.of(this.perguntas.find(element => element.id === questao.perguntaResposta[0]));
     this.updatedDisciplina = Array.of(this.updatedPergunta[0].disciplina);
     this.updatedArea = Array.of(this.updatedDisciplina[0].area[0]);
@@ -493,7 +493,7 @@ export class QuestaoComponent implements OnInit {
 
   openUpdateModal(questao: Questao) {
     this.updatedQuestao = Object.assign({},questao);
-    this.updatedAvaliacao = Array.of(this.avaliacoes.find(element => element.id === questao.avaliacaoId));
+    this.updatedAvaliacao = Array.of(this.avaliacoes.find(element => element.id === questao.idAvaliacao));
     this.updatedPergunta = Array.of(this.perguntas.find(element => element.id === questao.perguntaResposta[0]));
     this.updatedDisciplina = Array.of(this.updatedPergunta[0].disciplina);
     this.updatedArea = Array.of(this.updatedDisciplina[0].area[0]);

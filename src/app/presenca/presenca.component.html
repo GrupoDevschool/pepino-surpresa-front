@@ -67,7 +67,7 @@
         </div>
         <div>
           <h3>Data</h3>
-          <p>{{updatedAula[0].dataHora}}</p>
+          <p>{{updatedAula[0].dataHora |  date: "dd/MM/yyyy HH:MM:ss"}}</p>
         </div>
       </div>
         <div class="panel-heading">
@@ -84,8 +84,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let presenca of updatedPresencas">
-                <td class="col-md-2">{{  getAlunoNameByMatricula(presenca.idAluno) }}</td>
-                <td class="col-md-10">{{ presenca.timestamp | date: "dd/MM/yyyy HH:MM:ss" }}</td>
+                <td class="col-md-2">{{  getAlunoNameByMatricula(presenca.aluno.matricula) }}</td>
+                <td class="col-md-10">{{ presenca.horaEntrada | date: "dd/MM/yyyy HH:MM:ss" }}</td>
                 <td class="col-md-2">
                   <button (click)="delete(presenca.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
                 </td>

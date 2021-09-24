@@ -209,9 +209,9 @@ export class PerguntaComponent implements OnInit {
   save() {
     const newPergunta: PerguntaDTO = {
       enunciado: this.pergunta.enunciado,
-      disciplinaId: this.disciplina[0].id,
-      respostas: this.possiveisRespostas,
-      respostaCorretaId: this.respostaCorreta[0].id
+      disciplina: this.disciplina[0].id,
+      respostas: this.possiveisRespostas.map(resposta => resposta.id),
+      respostaCorreta: this.respostaCorreta[0].id
     }
 
     this.PerguntaService.save(newPergunta).subscribe(
@@ -224,9 +224,9 @@ export class PerguntaComponent implements OnInit {
     const newPergunta: PerguntaDTO = {
       id: this.updatedPergunta.id,
       enunciado: this.updatedPergunta.enunciado,
-      disciplinaId: this.updatedDisciplina[0].id,
-      respostas: this.updatedRespostas,
-      respostaCorretaId: this.updatedRespostaCorreta[0].id
+      disciplina: this.updatedDisciplina[0].id,
+      respostas: this.updatedRespostas.map(resposta => resposta.id),
+      respostaCorreta: this.updatedRespostaCorreta[0].id
     }
 
     this.PerguntaService.edit(newPergunta).subscribe(

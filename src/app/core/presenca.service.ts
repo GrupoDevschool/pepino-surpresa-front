@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Presenca } from '../shared/model/Presenca';
+import { Presenca, PresencaDTO } from '../shared/model/Presenca';
 
 const url = 'http://localhost:8080/presenca/';
 @Injectable({
@@ -11,11 +11,11 @@ export class PresencaService {
 
   constructor(private http: HttpClient) { }
 
-  save(presenca: Presenca): Observable<Presenca> {
+  save(presenca: PresencaDTO): Observable<Presenca> {
     return this.http.post<Presenca>(url, presenca);
   }
 
-  edit(presenca: Presenca): Observable<Presenca> {
+  edit(presenca: PresencaDTO): Observable<Presenca> {
     return this.http.put<Presenca>(url + presenca.id, presenca);
   }
 

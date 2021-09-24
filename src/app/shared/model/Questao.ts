@@ -6,7 +6,7 @@
 */
 export interface Questao {
   id?: number;
-  avaliacaoId: number;
+  idAvaliacao: number;
   numero: number;
   perguntaResposta: number[]
 }

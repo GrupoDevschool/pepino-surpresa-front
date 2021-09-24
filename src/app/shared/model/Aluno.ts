@@ -7,6 +7,17 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turma: Turma[];
+    turma: Turma["nome"];
 
-  }
+}
+
+  export interface AlunoDTO {
+
+    matricula?: number;
+    nome: string;
+    telefone: string;
+    email: string;
+    observacao: string;
+    turmaId?: Turma["id"];
+
+}

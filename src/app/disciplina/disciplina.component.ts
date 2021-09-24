@@ -30,7 +30,7 @@ export class DisciplinaComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadData();
-    this.areasSelecionadas = []
+
     this.dropdownSettings = {
       singleSelection: true,
       idField: 'id',
@@ -57,7 +57,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   save() {
-    this.disciplina.areas = this.areasSelecionadas;
+    this.disciplina.area = this.areasSelecionadas[0];
     this.disciplinaService.save(this.disciplina).subscribe(
       disciplina => this.disciplinas.push(disciplina),
       error => console.log(error)
@@ -65,7 +65,8 @@ export class DisciplinaComponent implements OnInit {
   }
 
   edit() {
-    this.updatedDisciplina.areas = this.updatedArea;
+    this.updatedDisciplina.area = this.updatedArea[0];
+
     this.disciplinaService.edit(this.updatedDisciplina).subscribe(
       () => {
         this.reloadData();
@@ -94,7 +95,7 @@ export class DisciplinaComponent implements OnInit {
 
   openModal(disciplina: Disciplina) {
     this.updatedDisciplina = Object.assign({}, disciplina);
-    this.updatedArea = this.updatedDisciplina.areas;
+    this.updatedArea = Array.of(this.updatedDisciplina.area);
     this.modalIsVisible = true;
   }
 

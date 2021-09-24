@@ -243,7 +243,7 @@ export class QuestaoComponent implements OnInit {
         if (this.disciplina.length) {
           this.disciplina = Array.of(this.disciplinas.find((element) => element.id === this.disciplina[0].id));
 
-          this.area = Array.of(this.disciplina[0].areas[0]);
+          this.area = Array.of(this.disciplina[0].area[0]);
 
           this.getRespostaByDisciplinaId(this.disciplina[0].id);
           this.getPerguntaByDisciplinaId(this.disciplina[0].id);
@@ -296,7 +296,7 @@ export class QuestaoComponent implements OnInit {
         if (this.updatedDisciplina.length) {
           this.updatedDisciplina = Array.of(this.disciplinas.find((element) => element.id === this.updatedDisciplina[0].id));
 
-          this.updatedArea = Array.of(this.updatedDisciplina[0].areas[0]);
+          this.updatedArea = Array.of(this.updatedDisciplina[0].area[0]);
 
           this.getRespostaByDisciplinaId(this.updatedDisciplina[0].id);
           this.getPerguntaByDisciplinaId(this.updatedDisciplina[0].id);
@@ -464,7 +464,7 @@ export class QuestaoComponent implements OnInit {
     this.updatedAvaliacao = Array.of(this.avaliacoes.find(element => element.id === questao.avaliacaoId));
     this.updatedPergunta = Array.of(this.perguntas.find(element => element.id === questao.perguntaResposta[0]));
     this.updatedDisciplina = Array.of(this.updatedPergunta[0].disciplina);
-    this.updatedArea = Array.of(this.updatedDisciplina[0].areas[0]);
+    this.updatedArea = Array.of(this.updatedDisciplina[0].area[0]);
     this.updatedRespostaCorreta = Array.of(this.updatedPergunta[0].respostaCorreta);
 
     if (questao.perguntaResposta.length > 1)
@@ -496,7 +496,7 @@ export class QuestaoComponent implements OnInit {
     this.updatedAvaliacao = Array.of(this.avaliacoes.find(element => element.id === questao.avaliacaoId));
     this.updatedPergunta = Array.of(this.perguntas.find(element => element.id === questao.perguntaResposta[0]));
     this.updatedDisciplina = Array.of(this.updatedPergunta[0].disciplina);
-    this.updatedArea = Array.of(this.updatedDisciplina[0].areas[0]);
+    this.updatedArea = Array.of(this.updatedDisciplina[0].area[0]);
     this.updatedRespostaCorreta = Array.of(this.updatedPergunta[0].respostaCorreta);
 
     if (questao.perguntaResposta.length > 1)

@@ -157,7 +157,7 @@ export class PerguntaComponent implements OnInit {
         if (this.disciplina.length) {
           this.disciplina = Array.of(this.disciplinas.find((element) => element.id === this.disciplina[0].id));
 
-          this.area = Array.of(this.disciplina[0].areas[0]);
+          this.area = Array.of(this.disciplina[0].area);
 
           this.getRespostaByDisciplinaId(this.disciplina[0].id);
 
@@ -190,7 +190,7 @@ export class PerguntaComponent implements OnInit {
         if (this.updatedDisciplina.length) {
           this.updatedDisciplina = Array.of(this.disciplinas.find((element) => element.id === this.updatedDisciplina[0].id));
 
-          this.updatedArea = Array.of(this.updatedDisciplina[0].areas[0]);
+          this.updatedArea = Array.of(this.updatedDisciplina[0].area);
 
           this.getRespostaByDisciplinaId(this.updatedDisciplina[0].id);
 
@@ -279,7 +279,7 @@ export class PerguntaComponent implements OnInit {
     this.updatedDisciplina = Array.of(pergunta.disciplina);
     this.updatedRespostas = Object.assign([], pergunta.respostas);
     this.updatedRespostaCorreta = Array.of(pergunta.respostaCorreta);
-    this.updatedArea = Array.of(pergunta.disciplina.areas[0]);
+    this.updatedArea = Array.of(pergunta.disciplina.area);
 
     this.responseModalIsVisible = true;
   }
@@ -292,7 +292,7 @@ export class PerguntaComponent implements OnInit {
     this.updatedPergunta = Object.assign({}, pergunta);
     this.updatedDisciplina = Array.of(pergunta.disciplina);
     this.updatedRespostas = Object.assign([], pergunta.respostas);
-    this.updatedArea = Array.of(pergunta.disciplina.areas[0]);
+    this.updatedArea = Array.of(pergunta.disciplina.area);
     this.updatedRespostaCorreta = Array.of(pergunta.respostaCorreta);
 
     this.updateModalIsVisible = true;

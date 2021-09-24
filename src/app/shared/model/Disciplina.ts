@@ -4,7 +4,15 @@ export interface Disciplina {
 
   id?: number;
   nome: string;
-  areas: Area[];
+  area: Area;
+
+}
+
+export interface DisciplinaDTO {
+
+  id?: number;
+  nome: string;
+  area: number;
 
 }
 

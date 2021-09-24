@@ -24,18 +24,6 @@
   >
     </ng-multiselect-dropdown>
 
-    <label class="form-field__label" for="aula">Aulas</label>
-    <ng-multiselect-dropdown
-    [placeholder]="'Selecionar aulas'"
-    [settings]="dropdownSettings"
-    [data]="aulas"
-    [(ngModel)]="aulasSelecionadas"
-    (onSelect)="onItemSelect($event)"
-    (onSelectAll)="onSelectAll($event)"
-    name="aulas"
-  >
-    </ng-multiselect-dropdown>
-
     <div class="btn-wrapper">
       <button class="btn btn-primary col-md-3" type="submit">Salvar</button>
     </div>
@@ -51,15 +39,13 @@
         <tr>
           <th>Nome</th>
           <th>Tipo</th>
-          <th>Aulas</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let gestor of gestores">
-          <td class="col-md-2">{{ gestor.nome }}</td>
+          <td class="col-md-8">{{ gestor.nome }}</td>
           <td class="col-md-2">{{ gestor.tipo }}</td>
-          <td class="col-md-4">{{ formatAulas(gestor.aulas) }}</td>
           <td class="col-md-2">
             <button (click)="openModal(gestor)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(gestor.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -93,18 +79,6 @@
           [(ngModel)]="updatedGestor.tipo"
           (onSelect)="onItemSelect($event)"
           name="tipo"
-        >
-          </ng-multiselect-dropdown>
-
-          <label class="form-field__label" for="aulas">Aulas</label>
-          <ng-multiselect-dropdown
-          [placeholder]="'Selecionar aulas'"
-          [settings]="dropdownSettings"
-          [data]="aulas"
-          [(ngModel)]="updatedAulas"
-          (onSelect)="onItemSelect($event)"
-          (onSelectAll)="onSelectAll($event)"
-          name="aulas"
         >
           </ng-multiselect-dropdown>
 

@@ -45,7 +45,7 @@ export class AlunoComponent implements OnInit {
       this.alunos = aluno;
     })
 
-    this.turmaService.list().subscribe((turmas) =>{
+    this.turmaService.list().subscribe((turmas) => {
       this.turmas = turmas;
     });
   }
@@ -108,7 +108,7 @@ export class AlunoComponent implements OnInit {
   }
 
   closeModal() {
-    this.modalIsVisible = this.modalIsVisible = false;
+    this.modalIsVisible = false;
   }
 
 }

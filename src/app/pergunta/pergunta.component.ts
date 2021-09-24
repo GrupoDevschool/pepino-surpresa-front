@@ -7,7 +7,7 @@ import { Pergunta, PerguntaDTO } from '../shared/model/Pergunta';
 import { AreaService } from './../core/area.service';
 import { DisciplinaService } from './../core/disciplina.service';
 import { PerguntaService } from './../core/pergunta.service';
-import { Resposta } from './../shared/model/Resposta';
+import { Resposta, RespostaDTO } from './../shared/model/Resposta';
 
 @Component({
   selector: 'app-pergunta',
@@ -23,20 +23,25 @@ export class PerguntaComponent implements OnInit {
 
   pergunta: Pergunta = {} as Pergunta;
   possiveisRespostas: Resposta[] = [];
+  respostaCorreta: Resposta[] = [];
   disciplina: Disciplina[] = [];
   area: Area[];
+  resposta: Resposta = {} as Resposta;
 
   updatedPergunta: Pergunta = {} as Pergunta;
   updatedDisciplina: Disciplina[];
   updatedArea: Area[];
-  updatedRespostas: Resposta[];
+  updatedRespostas: Resposta[] = [];
+  updatedRespostaCorreta: Resposta[] = [];
 
+  criarRespostasModalIsVisible: boolean = false;
   updateModalIsVisible: boolean = false;
   responseModalIsVisible: boolean = false;
 
   dropdownDisciplinaSettings: IDropdownSettings = {};
   dropdownAreaSettings: IDropdownSettings = {};
   dropdownRespostaSettings: IDropdownSettings = {};
+  dropdownrRespostaCorretaSettings: IDropdownSettings = {};
 
   constructor(
     private PerguntaService: PerguntaService,
@@ -69,6 +74,15 @@ export class PerguntaComponent implements OnInit {
         unSelectAllText: 'Limpar seleção',
         itemsShowLimit: 5,
         limitSelection: 5,
+        allowSearchFilter: true
+      };
+
+      this.dropdownrRespostaCorretaSettings = {
+        singleSelection: true,
+        idField: 'id',
+        textField: 'conteudo',
+        enableCheckAll: false,
+        unSelectAllText: 'Limpar seleção',
         allowSearchFilter: true
       };
     }
@@ -117,7 +131,7 @@ export class PerguntaComponent implements OnInit {
 
   getDisciplinaByAreaId(id: number) {
     this.DisciplinaService.listByArea(id).subscribe((disciplinas) => {
-      this.disciplina = disciplinas;
+      this.disciplinas = disciplinas;
     });
   }
 
@@ -153,6 +167,9 @@ export class PerguntaComponent implements OnInit {
           this.getRespostas();
         }
         break;
+      case "resposta":
+        this.respostaCorreta = [];
+        break;
       case "updatedArea":
         this.updatedRespostas = [];
 
@@ -183,6 +200,9 @@ export class PerguntaComponent implements OnInit {
           this.getRespostas();
         }
         break;
+      case "updatedResposta":
+        this.updatedRespostaCorreta = [];
+        break;
     }
   }
 
@@ -190,13 +210,14 @@ export class PerguntaComponent implements OnInit {
     const newPergunta: PerguntaDTO = {
       enunciado: this.pergunta.enunciado,
       disciplinaId: this.disciplina[0].id,
-      respostas: this.possiveisRespostas
+      respostas: this.possiveisRespostas,
+      respostaCorretaId: this.respostaCorreta[0].id
     }
 
     this.PerguntaService.save(newPergunta).subscribe(
-      pergunta => this.perguntas.push(pergunta),
+      () => this.reloadData(),
       error => console.log(error)
-    )
+    );
   }
 
   edit() {
@@ -204,7 +225,8 @@ export class PerguntaComponent implements OnInit {
       id: this.updatedPergunta.id,
       enunciado: this.updatedPergunta.enunciado,
       disciplinaId: this.updatedDisciplina[0].id,
-      respostas: this.updatedRespostas
+      respostas: this.updatedRespostas,
+      respostaCorretaId: this.updatedRespostaCorreta[0].id
     }
 
     this.PerguntaService.edit(newPergunta).subscribe(
@@ -216,7 +238,7 @@ export class PerguntaComponent implements OnInit {
         console.log(error);
         this.closeUpdateModal();
       }
-    )
+    );
   }
 
   delete(id: number) {
@@ -226,10 +248,34 @@ export class PerguntaComponent implements OnInit {
     )
   }
 
+  openCriarRespostaModal(resposta: Resposta) {
+    this.resposta = Object.assign({}, resposta);
+    this.disciplina = Array.of(resposta.disciplina);
+
+    this.criarRespostasModalIsVisible = true
+  }
+
+  closeCriarRespostaModal(){
+    this.criarRespostasModalIsVisible = false;
+  }
+
+  saveCriarRespostaModal(){
+    const newResposta: RespostaDTO = {
+      conteudo: this.resposta.conteudo,
+      disciplinaId: this.disciplina[0].id
+    }
+
+    this.RespostaService.save(newResposta).subscribe(
+      resposta => this.respostas.push(resposta),
+      error => console.log(error)
+    )
+  }
+
   openResponseModal(pergunta: Pergunta) {
     this.updatedPergunta = Object.assign({}, pergunta);
     this.updatedDisciplina = Array.of(pergunta.disciplina);
     this.updatedRespostas = Object.assign([], pergunta.respostas);
+    this.updatedRespostaCorreta = Array.of(pergunta.respostaCorreta);
     this.updatedArea = Array.of(pergunta.disciplina.areas[0]);
 
     this.responseModalIsVisible = true;
@@ -244,6 +290,7 @@ export class PerguntaComponent implements OnInit {
     this.updatedDisciplina = Array.of(pergunta.disciplina);
     this.updatedRespostas = Object.assign([], pergunta.respostas);
     this.updatedArea = Array.of(pergunta.disciplina.areas[0]);
+    this.updatedRespostaCorreta = Array.of(pergunta.respostaCorreta);
 
     this.updateModalIsVisible = true;
   }

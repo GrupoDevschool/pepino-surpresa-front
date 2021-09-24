@@ -1,0 +1,4 @@
+<div *ngIf="loadingData" class="d-flex justify-content-center">
+  <span class="spinner-border text-secondary" role="status" *ngIf="loadingData && !failToLoadData"></span>
+  <strong *ngIf="loadingData && failToLoadData">Falha ao carregar {{entityName}}</strong>
+</div>

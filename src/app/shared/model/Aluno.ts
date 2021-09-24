@@ -7,7 +7,7 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turmaid: Turma["id"];
+    turma: Turma["nome"];
 
 }
 
@@ -18,6 +18,6 @@ export interface Aluno {
     telefone: string;
     email: string;
     observacao: string;
-    turmaid: Turma["id"];
+    turmaId?: Turma["id"];
 
 }

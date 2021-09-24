@@ -12,24 +12,24 @@ import { Turma } from '../shared/model/Turma';
 })
 export class AlunoComponent implements OnInit {
 
-  alunos: AlunoDTO[];
-  alunoDTO: AlunoDTO = {} as AlunoDTO;
-  updatedAlunoDTO: AlunoDTO = {} as AlunoDTO;
-  updatedTurma: Turma["id"] ;
+  alunos: Aluno[];
+  alunoDTO: Aluno = {} as Aluno;
+  turmaSelecionada: Turma[];
+  updatedAlunoDTO: Aluno = {} as Aluno;
+  updatedTurma: Turma[];
 
   modalIsVisible: boolean = false;
 
-  turmas: Turma["id"];
+  turmas: Turma[];
 
-  turmaSelecionada;
   dropdownSettings: IDropdownSettings = {};
 
-  constructor(private alunoService: AlunoService, private turmaservice: TurmaService) {
+  constructor(private alunoService: AlunoService, private turmaService: TurmaService) {
   }
 
   ngOnInit(): void {
     this.reloadData();
-    this.turmaSelecionada;
+
     this.dropdownSettings = {
       singleSelection: true,
       idField: 'id',
@@ -45,26 +45,26 @@ export class AlunoComponent implements OnInit {
       this.alunos = aluno;
     })
 
-  this.turmaservice.list().subscribe((Turma) =>{
-  this.turmas = Turma["id"];
-    }); 
-
-  }
-
-  formatTurma(turmas: Turma[]): string {
-    return turmas.map((turma) => turma.nome).join(', ')
+    this.turmaService.list().subscribe((turmas) =>{
+      this.turmas = turmas;
+    });
   }
 
   save(){
-     const newAluno: AlunoDTO = {
-       turmaid: this.turmas[0].id,
-       nome: this.alunoDTO.nome,
-       telefone: this.alunoDTO.telefone,
-       email: this.alunoDTO.email,
-       observacao: this.alunoDTO.observacao
-     }
+  const newAluno: AlunoDTO = {
+    turmaId: this.turmaSelecionada[0].id,
+    nome: this.alunoDTO.nome,
+    telefone: this.alunoDTO.telefone,
+    email: this.alunoDTO.email,
+    observacao: this.alunoDTO.observacao
+  }
+
+  console.log(newAluno);
+
   this.alunoService.save(newAluno).subscribe(
-    aluno => this.alunos.push(aluno),
+    aluno => {
+      this.reloadData();
+    },
     error => console.log(error)
   )
 }
@@ -72,13 +72,12 @@ export class AlunoComponent implements OnInit {
 
   edit() {
     const editedAluno: AlunoDTO = {
-      turmaid: this.updatedTurma[0].id,
-      matricula: this.updatedAlunoDTO.matricula,      
+      turmaId: this.updatedTurma[0].id,
+      matricula: this.updatedAlunoDTO.matricula,
       nome:this.updatedAlunoDTO.nome,
       telefone:this.updatedAlunoDTO.telefone,
       email:this.updatedAlunoDTO.email,
       observacao:this.updatedAlunoDTO.observacao
-
     }
 
     this.alunoService.edit(editedAluno).subscribe(
@@ -90,7 +89,7 @@ export class AlunoComponent implements OnInit {
         console.log(error);
         this.closeModal();
       }
-    )
+    );
   }
 
   delete(matricula: number) {
@@ -104,7 +103,7 @@ export class AlunoComponent implements OnInit {
 
   openModal(aluno: Aluno) {
     this.updatedAlunoDTO = Object.assign({}, aluno);
-    this.updatedTurma = this.updatedAlunoDTO.turmaid;
+    this.updatedTurma = Array.of(this.turmas.find(turma => turma.nome === aluno.turma));
     this.modalIsVisible = this.modalIsVisible = true;
   }
 

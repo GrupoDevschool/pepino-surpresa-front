@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AlunoComponent } from "./aluno/aluno.component";
 import { AreaComponent } from "./area/area.component";
 import { AulaComponent } from "./aula/aula.component";
+import { AvaliacaoDetalhesComponent } from "./avaliacao/avaliacao-detalhes/avaliacao-detalhes.component";
 import { AvaliacaoComponent } from "./avaliacao/avaliacao.component";
 import { DisciplinaComponent } from "./disciplina/disciplina.component";
 import { GestorComponent } from "./gestor/gestor.component";
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'areas', component: AreaComponent },
   { path: 'aulas', component: AulaComponent},
   { path: 'avaliacoes', component: AvaliacaoComponent },
+  { path: 'avaliacoes/:id', component: AvaliacaoDetalhesComponent },
   { path: 'disciplinas', component: DisciplinaComponent },
   { path: 'gestores', component: GestorComponent },
   { path: 'respostas', component: RespostaComponent },

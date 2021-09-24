@@ -1,4 +1,6 @@
 
+import { Pergunta } from './Pergunta';
+import { Resposta } from './Resposta';
 /**
 * Questao é o modelo que representa uma questão
 * @field numero é o numero da questão em uma avaliação
@@ -9,4 +11,11 @@ export interface Questao {
   idAvaliacao: number;
   numero: number;
   perguntaResposta: number[]
+}
+
+export interface FormattedQuestao {
+  id?: number;
+  numero: number;
+  pergunta: Pergunta;
+  respostas: Resposta[];
 }

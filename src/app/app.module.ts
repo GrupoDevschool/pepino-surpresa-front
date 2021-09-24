@@ -20,6 +20,7 @@ import { RespostaComponent } from './resposta/resposta.component';
 import { TableLoadingMessageComponent } from './shared/component/table-loading-message/table-loading-message.component';
 import { TrilhaComponent } from './trilha/trilha.component';
 import { TurmaComponent } from './turma/turma.component';
+import { AvaliacaoDetalhesComponent } from './avaliacao/avaliacao-detalhes/avaliacao-detalhes.component';
 
 
 
@@ -39,6 +40,7 @@ import { TurmaComponent } from './turma/turma.component';
     PresencaComponent,
     QuestaoComponent,
     TableLoadingMessageComponent,
+    AvaliacaoDetalhesComponent,
   ],
   imports: [
     BrowserModule,

@@ -173,6 +173,7 @@
       "nome": "Lucao",
       "telefone": "12345678911",
       "email": "lucao@gmail.com",
+      "turma": "Devschool 2",
       "observacao": "O aluno se comportou mal na aula."
     },
     {
@@ -180,6 +181,7 @@
       "nome": "Igor",
       "telefone": "12345678912",
       "email": "igor@gmail.com",
+      "turma": "Devschool 2",
       "observacao": "O aluno não foi a aula."
     },
     {
@@ -187,6 +189,7 @@
       "nome": "Victor Hugo",
       "telefone": "12345678913",
       "email": "vh@gmail.com",
+      "turma": "Devschool 2",
       "observacao": "O aluno atrapalha a aula."
     },
     {
@@ -194,6 +197,7 @@
       "nome": "Thales",
       "telefone": "12345678914",
       "email": "thales@gmail.com",
+      "turma": "Devschool 2",
       "observacao": "O aluno está dando aula."
     },
     {
@@ -201,6 +205,7 @@
       "nome": "Niasi",
       "telefone": "12345678915",
       "email": "niasi@gmail.com",
+      "turma": "Devschool 2",
       "observacao": "A aluna é um ser humano muito amigável."
     }
   ],

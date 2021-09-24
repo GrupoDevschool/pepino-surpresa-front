@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { AlunoService } from '../core/aluno.service';
 import { TurmaService } from '../core/turma.service';
-import { Aluno } from '../shared/model/Aluno';
+import { Aluno, AlunoDTO } from '../shared/model/Aluno';
 import { Turma } from '../shared/model/Turma';
 
 @Component({
@@ -13,23 +13,23 @@ import { Turma } from '../shared/model/Turma';
 export class AlunoComponent implements OnInit {
 
   alunos: Aluno[];
-  aluno: Aluno = {} as Aluno;
-  updatedAluno: Aluno = {} as Aluno;
-  updatedTurma: Turma[] = [];
+  alunoDTO: Aluno = {} as Aluno;
+  turmaSelecionada: Turma[];
+  updatedAlunoDTO: Aluno = {} as Aluno;
+  updatedTurma: Turma[];
 
   modalIsVisible: boolean = false;
 
   turmas: Turma[];
 
-  turmaSelecionada  = [];
   dropdownSettings: IDropdownSettings = {};
 
-  constructor(private alunoService: AlunoService, private turmaservice: TurmaService) {
+  constructor(private alunoService: AlunoService, private turmaService: TurmaService) {
   }
 
   ngOnInit(): void {
     this.reloadData();
-    this.turmaSelecionada = [];
+
     this.dropdownSettings = {
       singleSelection: true,
       idField: 'id',
@@ -45,35 +45,51 @@ export class AlunoComponent implements OnInit {
       this.alunos = aluno;
     })
 
-  this.turmaservice.list().subscribe((turmas) =>{
-  this.turmas = turmas;
+    this.turmaService.list().subscribe((turmas) => {
+      this.turmas = turmas;
     });
-
   }
 
-  formatTurma(turmas: Turma[]): string {
-    return turmas.map((turma) => turma.nome).join(', ')
+  save(){
+  const newAluno: AlunoDTO = {
+    turmaId: this.turmaSelecionada[0].id,
+    nome: this.alunoDTO.nome,
+    telefone: this.alunoDTO.telefone,
+    email: this.alunoDTO.email,
+    observacao: this.alunoDTO.observacao
   }
 
-  save() {
-    this.aluno.turma = this.turmaSelecionada;
-    this.alunoService.save(this.aluno).subscribe(
-      aluno => this.alunos.push(aluno),
-      error => console.log(error)
-    )
-  }
+  console.log(newAluno);
+
+  this.alunoService.save(newAluno).subscribe(
+    aluno => {
+      this.reloadData();
+    },
+    error => console.log(error)
+  )
+}
+
 
   edit() {
-    this.updatedAluno.turma = this.updatedTurma;
-    this.alunoService.edit(this.updatedAluno).subscribe(() => {
-      this.reloadData();
-      this.closeModal();
+    const editedAluno: AlunoDTO = {
+      turmaId: this.updatedTurma[0].id,
+      matricula: this.updatedAlunoDTO.matricula,
+      nome:this.updatedAlunoDTO.nome,
+      telefone:this.updatedAlunoDTO.telefone,
+      email:this.updatedAlunoDTO.email,
+      observacao:this.updatedAlunoDTO.observacao
+    }
+
+    this.alunoService.edit(editedAluno).subscribe(
+      () => {
+        this.reloadData();
+        this.closeModal();
       },
       error => {
         console.log(error);
         this.closeModal();
       }
-    )
+    );
   }
 
   delete(matricula: number) {
@@ -86,9 +102,9 @@ export class AlunoComponent implements OnInit {
   }
 
   openModal(aluno: Aluno) {
-    this.updatedAluno = Object.assign({}, aluno);
-    this.updatedTurma = this.updatedAluno.turma;
-    this.modalIsVisible = true;
+    this.updatedAlunoDTO = Object.assign({}, aluno);
+    this.updatedTurma = Array.of(this.turmas.find(turma => turma.nome === aluno.turma));
+    this.modalIsVisible = this.modalIsVisible = true;
   }
 
   closeModal() {

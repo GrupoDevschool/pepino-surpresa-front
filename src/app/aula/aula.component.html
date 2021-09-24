@@ -7,8 +7,8 @@
       <input
         class="form-control"
         id="data"
-        type="date"
-        [(ngModel)]="aula.data"
+        type="datetime-local"
+        [(ngModel)]="aula.dataHora"
         name="data"
       />
     </div>
@@ -69,10 +69,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let au of aulas">
-          <td class="col-md-2">{{ au.data | date: "dd/MM/yyyy" }}</td>
+          <td class="col-md-2">{{ au.dataHora | date: "dd/MM/yyyy HH:mm:SS" }}</td>
           <td class="col-md-2">{{ au.assunto }}</td>
-          <td class="col-md-2">{{ formatGestores(au.gestores) }}</td>
-          <td class="col-md-2">{{ au.turma }}</td>
+          <td class="col-md-2">{{ formatGestores(au.gestoresPresentes) }}</td>
+          <td class="col-md-2">{{ au.turma.nome }}</td>
           <td class="col-md-2">
             <button (click)="openModal(au)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(au.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
@@ -92,10 +92,10 @@
             <input
               class="form-control"
               id="data"
-              type="date"
-              [(ngModel)]="updatedAula.data"
+              type="datetime-local"
+              [(ngModel)]="updatedAula.dataHora"
               name="data"
-              placeholder="{{ aula.data }}"
+              placeholder="{{ aula.dataHora }}"
             />
           </div>
 

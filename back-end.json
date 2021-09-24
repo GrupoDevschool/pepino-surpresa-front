@@ -124,9 +124,9 @@
   "aulas": [
     {
       "id": 1,
-      "data": "2021-09-11",
+      "dataHora": "2021-09-11T23:00:00",
       "assunto": "Berinjela",
-      "gestores": [
+      "gestoresPresentes": [
         {
           "id": 2,
           "nome": "Josias"
@@ -136,13 +136,16 @@
           "nome": "Joana"
         }
       ],
-      "turma": "Devschool 2"
+      "turma": {
+        "nome": "Devschool 2",
+        "id": 1
+      }
     },
     {
       "id": 2,
-      "data": "2021-09-07",
+      "dataHora": "2021-09-07T23:00:00",
       "assunto": "Pepino 2",
-      "gestores": [
+      "gestoresPresentes": [
         {
           "id": 4,
           "nome": "Ananias"
@@ -152,19 +155,25 @@
           "nome": "Lohana"
         }
       ],
-      "turma": "Devschool 2"
+      "turma": {
+        "nome": "Devschool 2",
+        "id": 1
+      }
     },
     {
       "id": 3,
-      "data": "2021-09-04",
+      "dataHora": "2021-09-04T23:00:00",
       "assunto": "Pepino",
-      "gestores": [
+      "gestoresPresentes": [
         {
           "id": 6,
           "nome": "Joelinton"
         }
       ],
-      "turma": "Devschool 2"
+      "turma": {
+        "nome": "Devschool 2",
+        "id": 1
+      }
     }
   ],
   "alunos": [

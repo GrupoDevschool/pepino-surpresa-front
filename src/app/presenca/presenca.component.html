@@ -48,7 +48,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let aula of aulas">
-          <td class="col-md-2">{{ aula.data | date: "dd/MM/yyyy"  }}</td>
+          <td class="col-md-2">{{ aula.dataHora | date: "dd/MM/yyyy"  }}</td>
           <td class="col-md-8">{{ aula.assunto }}</td>
           <td class="col-md-2"><button (click)="openPresencaModal(aula)" class="btn"><span class="material-icons-round">help</span></button></td>
         </tr>
@@ -67,7 +67,7 @@
         </div>
         <div>
           <h3>Data</h3>
-          <p>{{updatedAula[0].data}}</p>
+          <p>{{updatedAula[0].dataHora}}</p>
         </div>
       </div>
         <div class="panel-heading">

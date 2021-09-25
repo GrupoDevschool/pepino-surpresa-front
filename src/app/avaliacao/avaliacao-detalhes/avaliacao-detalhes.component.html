@@ -1,1 +1,34 @@
-<p>avaliacao-detalhes works!</p>
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Avaliação: {{avaliacao.descricao}}</h2>
+  </div>
+  <div class="panel-heading double">
+    <div>
+      <h3>Data</h3>
+      <p>{{avaliacao.data}}</p>
+    </div>
+    <div>
+      <h3>Gestor</h3>
+      <p>{{avaliacao.descricao}}</p>
+    </div>
+  </div>
+  <div *ngFor="let questao of questoesFormatadas">
+    <div class="panel-heading">
+      <h2>Questão: Nº{{questao.numero}}</h2>
+    </div>
+    <div class="list panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-md-2">teste</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

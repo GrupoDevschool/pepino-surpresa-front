@@ -1,0 +1,55 @@
+<div class="listing">
+  <div class="panel-heading">
+    <h2>Avaliação: {{avaliacao.descricao}}</h2>
+  </div>
+  <div class="panel-heading double">
+    <div>
+      <h3>Data</h3>
+      <p>{{avaliacao.data}}</p>
+    </div>
+    <div>
+      <h3>Gestor</h3>
+      <p>{{avaliacao.descricao}}</p>
+    </div>
+  </div>
+  <div class="divider card" *ngFor="let questao of questoesFormatadas">
+    <div class="panel-heading card-body">
+      <h2>Questão: Nº{{questao.numero}}</h2>
+    </div>
+    <div class="panel-heading double">
+      <div>
+        <h4>Disciplina</h4>
+        <p>{{questao.pergunta.disciplina.nome}}</p>
+      </div>
+    </div>
+    <div class="panel-heading double">
+      <div>
+        <h4>Enunciado</h4>
+        <p>{{questao.pergunta.enunciado}}</p>
+      </div>
+      <div>
+        <h4>Resposta Correta</h4>
+        <p>{{questao.pergunta.respostaCorreta.conteudo}}</p>
+      </div>
+    </div>
+    <div class="panel-heading">
+      <h4>Alternativas</h4>
+    </div>
+    <div class="list panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Alternativa</th>
+            <th>Resposta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let resposta of questao.respostas; let indexOfelement=index;">
+            <td class="col-md-2">{{convertIndexAlternativa(indexOfelement)}}</td>
+            <td class="col-md-10">{{resposta.conteudo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -50,14 +50,16 @@
           <th>Data</th>
           <th>Descrição</th>
           <th>Gestor</th>
+          <th>Detalhes</th>
           <th>Gerenciamento</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let av of avaliacoes">
           <td class="col-md-2">{{ av.data | date: "dd/MM/yyyy" }}</td>
-          <td class="col-md-6">{{ av.descricao }}</td>
+          <td class="col-md-5">{{ av.descricao }}</td>
           <td class="col-md-2">{{ av.gestor.nome }}</td>
+          <td class="col-md-1"><a routerLink="/avaliacoes/{{av.id}}" ><span class="material-icons-round">help</span></a></td>
           <td class="col-md-2">
             <button (click)="openModal(av)" class="btn btn-sm btn-primary col-sm-5">Editar</button>
             <button (click)="delete(av.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>

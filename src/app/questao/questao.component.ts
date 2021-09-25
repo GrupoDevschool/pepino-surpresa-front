@@ -165,6 +165,7 @@ export class QuestaoComponent implements OnInit {
   getQuestoes() {
     this.QuestaoService.list().subscribe((questoes) => {
       this.questoes = questoes;
+      console.log(this.questoes);
     });
   }
 
@@ -239,6 +240,12 @@ export class QuestaoComponent implements OnInit {
         break;
       case "disciplina":
         this.pergunta = [];
+        this.respostaCorreta = [];
+        this.respostaA = [];
+        this.respostaB = [];
+        this.respostaC = [];
+        this.respostaD = [];
+        this.respostaE = [];
 
         if (this.disciplina.length) {
           this.disciplina = Array.of(this.disciplinas.find((element) => element.id === this.disciplina[0].id));
@@ -415,6 +422,8 @@ export class QuestaoComponent implements OnInit {
       numero: this.questao.numero,
       perguntaResposta,
     }
+
+    console.log(newQuestao);
 
     this.QuestaoService.save(newQuestao).subscribe(
       () => this.reloadData(),

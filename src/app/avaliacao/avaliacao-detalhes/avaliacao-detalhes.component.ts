@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AvaliacaoService } from './../../core/avaliacao.service';
-import { QuestaoService } from './../../core/questao.service';
-import { PerguntaService } from './../../core/pergunta.service';
-import { RespostaService } from './../../core/resposta.service';
 import { Avaliacao } from 'src/app/shared/model/Avaliacao';
-import { FormattedQuestao, Questao } from './../../shared/model/Questao';
 import { Pergunta } from 'src/app/shared/model/Pergunta';
 import { Resposta } from 'src/app/shared/model/Resposta';
+import { AvaliacaoService } from './../../core/avaliacao.service';
+import { PerguntaService } from './../../core/pergunta.service';
+import { QuestaoService } from './../../core/questao.service';
+import { RespostaService } from './../../core/resposta.service';
+import { FormattedQuestao, Questao } from './../../shared/model/Questao';
 
 @Component({
   selector: 'app-avaliacao-detalhes',
@@ -34,19 +34,20 @@ export class AvaliacaoDetalhesComponent implements OnInit {
 
     this.avaliacaoService.show(avaliacaoId).subscribe(avaliacao => {
       this.avaliacao = avaliacao;
-    });
 
-    this.perguntaService.list().subscribe(perguntas => {
-      this.perguntas = perguntas;
-    });
+      this.perguntaService.list().subscribe(perguntas => {
+        this.perguntas = perguntas;
 
-    this.respostaService.list().subscribe(respostas => {
-      this.respostas = respostas;
-    });
+        this.respostaService.list().subscribe(respostas => {
+          this.respostas = respostas;
 
-    this.questaoService.listByAvaliacao(avaliacaoId).subscribe(questoes => {
-      this.questoes = questoes;
-      this.questoesFormatadas = this.questoes.map(questao => this.formatQuestao(questao));
+          this.questaoService.listByAvaliacao(avaliacaoId).subscribe(questoes => {
+            this.questoes = questoes;
+            this.questoesFormatadas = this.questoes.map(questao => this.formatQuestao(questao));
+          });
+        });
+      });
+
     });
   }
 
@@ -61,6 +62,10 @@ export class AvaliacaoDetalhesComponent implements OnInit {
     };
 
     return formattedQuestao;
+  }
+
+  convertIndexAlternativa(indexOfelement: number): string {
+    return String.fromCharCode(65 + indexOfelement);
   }
 
 }

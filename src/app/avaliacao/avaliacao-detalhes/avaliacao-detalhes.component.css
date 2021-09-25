@@ -1,4 +1,4 @@
-h2 {
+h2, h4 {
   text-align: center;
   margin-bottom: 0.7rem;
 }
@@ -214,4 +214,17 @@ table .btn-primary {
 
 .close-button span {
   font-weight: bold;
+}
+
+hr.rounded {
+  border-top: 3px solid #bbb;
+  border-radius: 5px;
+}
+
+div.divider {
+  margin-bottom: 2rem;
+}
+
+div.divider:last-child {
+  margin-bottom: 0;
 }

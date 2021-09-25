@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { DisciplinaService } from '../core/disciplina.service';
 import { Area } from '../shared/model/Area';
-import { Disciplina } from '../shared/model/Disciplina';
+import { Disciplina, DisciplinaDTO } from '../shared/model/Disciplina';
 import { AreaService } from './../core/area.service';
 
 @Component({
@@ -57,17 +57,25 @@ export class DisciplinaComponent implements OnInit {
   }
 
   save() {
-    this.disciplina.area = this.areasSelecionadas[0];
-    this.disciplinaService.save(this.disciplina).subscribe(
+    const newDisciplina: DisciplinaDTO = {
+      nome: this.disciplina.nome,
+      area: this.disciplina.area = this.areasSelecionadas[0].id
+    }
+
+    this.disciplinaService.save(newDisciplina).subscribe(
       disciplina => this.disciplinas.push(disciplina),
       error => console.log(error)
     )
   }
 
   edit() {
-    this.updatedDisciplina.area = this.updatedArea[0];
+    const newDisciplina: DisciplinaDTO = {
+      id: this.updatedDisciplina.id,
+      nome: this.disciplina.nome,
+      area: this.disciplina.area = this.areasSelecionadas[0].id
+    }
 
-    this.disciplinaService.edit(this.updatedDisciplina).subscribe(
+    this.disciplinaService.edit(newDisciplina).subscribe(
       () => {
         this.reloadData();
         this.closeModal();

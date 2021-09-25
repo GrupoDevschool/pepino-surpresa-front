@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Trilha } from '../shared/model/Trilha';
+
 
 const url = 'http://localhost:8080/trilhas/';
 @Injectable({

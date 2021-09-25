@@ -69,13 +69,26 @@ export class AulaComponent implements OnInit {
   }
 
   save() {
+    const gestores = this.gestores.filter(gestor => {
+      let check = false;
+
+      this.gestoresSelecionados.forEach(gestorSelecionado => {
+        if (gestorSelecionado.id === gestor.id) {
+          check = true;
+        }
+      });
+
+      return check;
+    });
+
     const newAula: AulaDTO = {
       dataHora: this.aula.dataHora,
       assunto: this.aula.assunto,
-      gestores: this.gestoresSelecionados,
+      gestores,
       turmaId: this.turma[0].id
-
     }
+
+    console.log(newAula);
 
     this.aulaService.save(newAula).subscribe(
       avaliacao => this.aulas.push(avaliacao),
@@ -84,11 +97,23 @@ export class AulaComponent implements OnInit {
   }
 
   edit() {
+    const gestores = this.gestores.filter(gestor => {
+      let check = false;
+
+      this.updatedGestores.forEach(gestorSelecionado => {
+        if (gestorSelecionado.id === gestor.id) {
+          check = true;
+        }
+      });
+
+      return check;
+    });
+
     const editedAula: AulaDTO = {
       id: this.updatedAula.id,
       dataHora: this.updatedAula.dataHora,
       assunto: this.updatedAula.assunto,
-      gestores: this.updatedGestores,
+      gestores,
       turmaId: this.updatedTurma[0].id
     }
 

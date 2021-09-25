@@ -8,7 +8,7 @@ import { Resposta } from './Resposta';
 */
 export interface Questao {
   id?: number;
-  idAvaliacao: number;
+  idavaliacao: number;
   numero: number;
   perguntaResposta: number[]
 }

@@ -17,7 +17,7 @@ export class AlunoService {
   }
 
   edit(aluno: AlunoDTO): Observable<Aluno> {
-    return this.http.put<Aluno>(url + aluno.matricula, aluno);
+    return this.http.put<Aluno>(url + '/' + aluno.matricula, aluno);
   }
 
   list(): Observable<Aluno[]> {
@@ -29,12 +29,12 @@ export class AlunoService {
   }
 
   show(id: number): Observable<Aluno> {
-    return this.http.get<Aluno>(url + id);
+    return this.http.get<Aluno>(url + '/' + id);
   }
 
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(url + id);
+    return this.http.delete<void>(url + '/' + id);
   }
 
 }

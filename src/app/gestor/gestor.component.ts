@@ -1,10 +1,10 @@
-import { AulaService } from './../core/aula.service';
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { GestorService } from '../core/gestor.service';
-import { Gestor } from '../shared/model/Gestor';
 import { Aula } from '../shared/model/Aula';
-import { TipoGestor} from '../shared/model/TipoGestor';
+import { Gestor } from '../shared/model/Gestor';
+import { TipoGestor } from '../shared/model/TipoGestor';
+import { AulaService } from './../core/aula.service';
 @Component({
   selector: 'app-gestor',
   templateUrl: './gestor.component.html',
@@ -28,6 +28,8 @@ export class GestorComponent implements OnInit {
 
   /*Enum TipoGestor*/
   public tipoGestor = Object.values(TipoGestor);
+  gestorSelecionado: string[];
+  updatedGestorSelecionado: string[]
 
   constructor(private gestorService: GestorService, private aulaService: AulaService) { }
 
@@ -61,6 +63,8 @@ export class GestorComponent implements OnInit {
   }
 
   save() {
+    this.gestor.tipo = this.gestorSelecionado[0];
+
     this.gestorService.save(this.gestor).subscribe(
       gestor => this.gestores.push(gestor),
       error => console.log(error)
@@ -68,6 +72,8 @@ export class GestorComponent implements OnInit {
   }
 
   edit() {
+    this.gestor.tipo = this.updatedGestorSelecionado[0];
+
     this.gestorService.edit(this.updatedGestor).subscribe(() => {
         this.reloadData();
         this.closeModal();
@@ -95,6 +101,7 @@ export class GestorComponent implements OnInit {
 
   openModal(gestor: Gestor) {
     this.updatedGestor = Object.assign({}, gestor);
+    this.updatedGestorSelecionado = [this.updatedGestor.tipo];
     this.modalIsVisible = true;
   }
 

@@ -817,7 +817,7 @@
   "questoes": [
     {
       "id": 1,
-      "idAvaliacao": 1,
+      "idavaliacao": 1,
       "numero": 1,
       "perguntaResposta": [
         1,
@@ -830,7 +830,7 @@
     },
     {
       "id": 2,
-      "idAvaliacao": 1,
+      "idavaliacao": 1,
       "numero": 2,
       "perguntaResposta": [
         2,
@@ -843,7 +843,7 @@
     },
     {
       "id": 3,
-      "idAvaliacao": 1,
+      "idavaliacao": 1,
       "numero": 3,
       "perguntaResposta": [
         3,

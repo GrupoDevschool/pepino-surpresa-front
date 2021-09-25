@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Disciplina } from '../shared/model/Disciplina';
+import { Disciplina, DisciplinaDTO } from '../shared/model/Disciplina';
 
-const url = 'http://localhost:8080/disciplinas/';
+const url = 'http://localhost:8080/disciplinas';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,11 +11,11 @@ export class DisciplinaService {
 
   constructor(private http: HttpClient) { }
 
-  save(disciplina: Disciplina): Observable<Disciplina> {
+  save(disciplina: DisciplinaDTO): Observable<Disciplina> {
     return this.http.post<Disciplina>(url, disciplina);
   }
 
-  edit(disciplina: Disciplina): Observable<Disciplina> {
+  edit(disciplina: DisciplinaDTO): Observable<Disciplina> {
     return this.http.put<Disciplina>(url + disciplina.id, disciplina);
   }
 
@@ -28,12 +28,12 @@ export class DisciplinaService {
   }
 
   show(id: number): Observable<Disciplina> {
-    return this.http.get<Disciplina>(url + id);
+    return this.http.get<Disciplina>(url + '/' + id);
   }
 
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(url + id);
+    return this.http.delete<void>(url + '/' + id);
   }
 
 }

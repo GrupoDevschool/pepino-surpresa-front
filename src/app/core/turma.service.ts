@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Turma } from '../shared/model/Turma';
+
 
 const url = 'http://localhost:8080/turmas/';
 @Injectable({

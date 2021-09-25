@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Questao } from '../shared/model/Questao';
 
-const url = 'http://localhost:8080/questoes/';
+const url = 'http://localhost:8080/questoes';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +16,7 @@ export class QuestaoService {
   }
 
   edit(questao: Questao): Observable<Questao> {
-    return this.http.put<Questao>(url + questao.id, questao);
+    return this.http.put<Questao>(url + '/' + questao.id, questao);
   }
 
   list(): Observable<Questao[]> {
@@ -28,11 +28,11 @@ export class QuestaoService {
   }
 
   show(id: number): Observable<Questao> {
-    return this.http.get<Questao>(url + id);
+    return this.http.get<Questao>(url + '/' + id);
   }
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(url + id);
+    return this.http.delete<void>(url + '/' + id);
   }
 
 }

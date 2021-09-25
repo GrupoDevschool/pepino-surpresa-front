@@ -18,7 +18,7 @@
     [placeholder]="'Selecionar tipo'"
     [settings]="dropdownSettings2"
     [data]="tipoGestor"
-    [(ngModel)]="gestor.tipo"
+    [(ngModel)]="gestorSelecionado"
     (onSelect)="onItemSelect($event)"
     name="tipo"
   >
@@ -76,7 +76,7 @@
           [placeholder]="'Selecionar tipo'"
           [settings]="dropdownSettings2"
           [data]="tipoGestor"
-          [(ngModel)]="updatedGestor.tipo"
+          [(ngModel)]="updatedGestorSelecionado"
           (onSelect)="onItemSelect($event)"
           name="tipo"
         >

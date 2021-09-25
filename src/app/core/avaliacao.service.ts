@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Avaliacao, AvaliacaoDTO } from '../shared/model/Avaliacao';
 
 
-const url = 'http://localhost:8080/avaliacoes/';
+const url = 'http://localhost:8080/avaliacoes';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class AvaliacaoService {
   }
 
   edit(avaliacao: AvaliacaoDTO): Observable<Avaliacao> {
-    return this.http.put<Avaliacao>(url + avaliacao.id, avaliacao);
+    return this.http.put<Avaliacao>(url + '/' + avaliacao.id, avaliacao);
   }
 
   list(): Observable<Avaliacao[]> {
@@ -29,12 +29,12 @@ export class AvaliacaoService {
   }
 
   show(id: number): Observable<Avaliacao> {
-    return this.http.get<Avaliacao>(url + id);
+    return this.http.get<Avaliacao>(url + '/' + id);
   }
 
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(url + id);
+    return this.http.delete<void>(url + '/' + id);
   }
 
 }

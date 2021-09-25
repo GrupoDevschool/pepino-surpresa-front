@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { Aula, AulaDTO } from '../shared/model/Aula';
 
-const url = 'http://localhost:8080/aulas/';
+
+const url = 'http://localhost:8080/aulas';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +17,7 @@ export class AulaService {
   }
 
   edit(aula: AulaDTO): Observable<Aula> {
-    return this.http.put<Aula>(url + aula.id, aula);
+    return this.http.put<Aula>(url + '/' + aula.id, aula);
   }
 
   list(): Observable<Aula[]> {
@@ -33,12 +33,12 @@ export class AulaService {
   }
 
   show(id: number): Observable<Aula> {
-    return this.http.get<Aula>(url + id);
+    return this.http.get<Aula>(url + '/' + id);
   }
 
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(url + id);
+    return this.http.delete<void>(url + '/' + id);
   }
 
 }

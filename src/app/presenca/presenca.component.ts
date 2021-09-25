@@ -71,7 +71,7 @@ export class PresencaComponent implements OnInit {
     const newPresenca: PresencaDTO = {
       aulaId: this.aulaSelecionada[0].id,
       alunoId: this.alunoSelecionado[0].matricula,
-      horaEntrada: new Date()
+      horaEntrada: new Date().toISOString()
     }
 
     this.PresencaService.save(newPresenca).subscribe(
@@ -80,21 +80,18 @@ export class PresencaComponent implements OnInit {
     )
   }
 
-  delete(id: number) {
+  delete(id: number, aulaId) {
     this.PresencaService.delete(id).subscribe(
-          () => this.reloadData(),
+          () => {
+            this.reloadData();
+
+            this.PresencaService.listByAula(aulaId).subscribe((presencas) => {
+              this.updatedPresencas = Object.assign([], presencas);
+            })
+
+          },
           error => console.log(error)
     )
-  }
-
-  getPresencaByAula = (aulaId: number):Presenca[] => {
-    let presencasDaAula: Presenca[];
-
-    this.PresencaService.listByAula(aulaId).subscribe((presencas) => {
-      presencasDaAula = presencas;
-    })
-
-    return presencasDaAula;
   }
 
   getAlunoNameByMatricula = (matricula: number): string => {
@@ -103,12 +100,11 @@ export class PresencaComponent implements OnInit {
 
 
   openPresencaModal(aula: Aula) {
-
     this.updatedAula = Array.of(aula);
 
-    const presencas = this.getPresencaByAula(aula.id);
-
-    this.updatedPresencas = Object.assign([], presencas);
+    this.PresencaService.listByAula(aula.id).subscribe((presencas) => {
+      this.updatedPresencas = Object.assign([], presencas);
+    })
 
     this.presencaModalIsVisible = true;
   }

@@ -12,5 +12,5 @@ export interface PresencaDTO {
   id?: number;
   aulaId: number;
   alunoId: number;
-  horaEntrada: Date;
+  horaEntrada: String;
 }

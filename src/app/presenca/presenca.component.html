@@ -84,10 +84,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let presenca of updatedPresencas">
-                <td class="col-md-2">{{  getAlunoNameByMatricula(presenca.aluno.matricula) }}</td>
-                <td class="col-md-10">{{ presenca.horaEntrada | date: "dd/MM/yyyy HH:MM:ss" }}</td>
+                <td class="col-md-6">{{  getAlunoNameByMatricula(presenca.aluno.matricula) }}</td>
+                <td class="col-md-4">{{ presenca.horaEntrada | date: "dd/MM/yyyy HH:MM:ss" }}</td>
                 <td class="col-md-2">
-                  <button (click)="delete(presenca.id)" class="btn btn-sm btn-del col-sm-5">Excluir</button>
+                  <button (click)="delete(presenca.id, updatedAula[0].id)" class="btn btn-sm btn-del col-sm">Excluir</button>
                 </td>
               </tr>
             </tbody>

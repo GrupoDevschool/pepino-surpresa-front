@@ -16,7 +16,7 @@ export class DisciplinaService {
   }
 
   edit(disciplina: DisciplinaDTO): Observable<Disciplina> {
-    return this.http.put<Disciplina>(url + disciplina.id, disciplina);
+    return this.http.put<Disciplina>(url + '/' + disciplina.id, disciplina);
   }
 
   list(): Observable<Disciplina[]> {

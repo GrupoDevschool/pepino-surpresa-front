@@ -44,6 +44,7 @@ export class DisciplinaComponent implements OnInit {
   reloadData() {
     this.disciplinaService.list().subscribe((disciplinas) => {
       this.disciplinas = disciplinas;
+      console.log(this.disciplinas);
     });
 
     this.areaService.list().subscribe((areas) => {
@@ -103,6 +104,7 @@ export class DisciplinaComponent implements OnInit {
 
   openModal(disciplina: Disciplina) {
     this.updatedDisciplina = Object.assign({}, disciplina);
+    console.log(this.updatedDisciplina);
     this.updatedArea = Array.of(this.updatedDisciplina.area);
     this.modalIsVisible = true;
   }

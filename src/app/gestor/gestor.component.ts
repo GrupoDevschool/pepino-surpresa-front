@@ -72,7 +72,7 @@ export class GestorComponent implements OnInit {
   }
 
   edit() {
-    this.gestor.tipo = this.updatedGestorSelecionado[0];
+    this.updatedGestor.tipo = this.updatedGestorSelecionado[0];
 
     this.gestorService.edit(this.updatedGestor).subscribe(() => {
         this.reloadData();

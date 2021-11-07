@@ -286,7 +286,7 @@
       "id": 3
     },
     {
-      "nome": "CSS",
+      "nome": "CSs",
       "disciplinas": [
         {
           "id": 5,
@@ -295,9 +295,27 @@
         {
           "id": 7,
           "nome": "CSS"
+        },
+        {
+          "id": 2,
+          "nome": "Angular"
         }
       ],
       "id": 4
+    },
+    {
+      "nome": "csm",
+      "disciplinas": [
+        {
+          "id": 2,
+          "nome": "Angular"
+        },
+        {
+          "id": 3,
+          "nome": "Typescript"
+        }
+      ],
+      "id": 5
     }
   ],
   "disciplinas": [
@@ -305,57 +323,57 @@
       "id": 1,
       "nome": "Java",
       "area": {
-          "id": 2,
-          "nome": "Back-end"
-        }
+        "id": 2,
+        "nome": "Back-end"
+      }
     },
     {
       "id": 2,
       "nome": "Angular",
       "area": {
-          "id": 1,
-          "nome": "Front-End"
-        }
+        "id": 1,
+        "nome": "Front-End"
+      }
     },
     {
       "id": 3,
       "nome": "Typescript",
       "area": {
-          "id": 1,
-          "nome": "Front-End"
-        }
+        "id": 1,
+        "nome": "Front-End"
+      }
     },
     {
       "id": 4,
       "nome": "HTML",
       "area": {
-          "id": 1,
-          "nome": "Front-end"
-        }
+        "id": 1,
+        "nome": "Front-end"
+      }
     },
     {
       "id": 5,
       "nome": "Sass",
       "area": {
-          "id": 1,
-          "nome": "Front-end"
-        }
+        "id": 1,
+        "nome": "Front-end"
+      }
     },
     {
       "id": 6,
       "nome": "Spring Framework",
       "area": {
-          "id": 2,
-          "nome": "Back-end"
-        }
+        "id": 2,
+        "nome": "Back-end"
+      }
     },
     {
       "id": 7,
       "nome": "CSS",
       "area": {
-          "id": 1,
-          "nome": "Front-end"
-        }
+        "id": 1,
+        "nome": "Front-end"
+      }
     }
   ],
   "areas": [
@@ -562,9 +580,9 @@
         "id": 2,
         "nome": "Angular",
         "area": {
-            "id": 1,
-            "nome": "Front-end"
-          }
+          "id": 1,
+          "nome": "Front-end"
+        }
       },
       "respostaCorreta": {
         "id": 1,
@@ -572,10 +590,10 @@
         "disciplina": {
           "id": 2,
           "nome": "Angular",
-          "area":{
-              "id": 1,
-              "nome": "Front-end"
-            }
+          "area": {
+            "id": 1,
+            "nome": "Front-end"
+          }
         }
       },
       "respostas": [
@@ -895,7 +913,7 @@
     },
     {
       "id": 2,
-      "nome": "Marcão",
+      "nome": "Marcãooo",
       "tipo": "Orientador"
     }
   ],

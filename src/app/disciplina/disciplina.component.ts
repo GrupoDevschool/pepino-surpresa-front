@@ -110,7 +110,7 @@ export class DisciplinaComponent implements OnInit {
   }
 
   closeModal() {
-    this.modalIsVisible =  false;
+    this.modalIsVisible = false;
   }
 
 }

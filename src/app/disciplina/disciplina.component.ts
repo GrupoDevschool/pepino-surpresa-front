@@ -72,8 +72,8 @@ export class DisciplinaComponent implements OnInit {
   edit() {
     const newDisciplina: DisciplinaDTO = {
       id: this.updatedDisciplina.id,
-      nome: this.disciplina.nome,
-      area: this.disciplina.area = this.areasSelecionadas[0].id
+      nome: this.updatedDisciplina.nome,
+      area: this.updatedArea[0].id
     }
 
     this.disciplinaService.edit(newDisciplina).subscribe(
